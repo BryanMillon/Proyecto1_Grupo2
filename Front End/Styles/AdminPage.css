@@ -1,0 +1,131 @@
+header{
+    width: 100%;
+    height: 60px;
+    background-color: #1D3892;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#blueBackground{
+    background-color: #1768AC;
+}
+
+
+#sctPendingEvents{
+    height: 300px;
+    background-color: #1768AC;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-top: 10px;/*este despues lo tengo que quitar*/
+
+}
+
+#tablePendingEvent{
+    background-color: aliceblue;
+    width: 100%;
+    height: 100%px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+
+#titlePendingEvent{
+    background-color: #1D3892;
+    margin: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+
+#titlePendingEventh1{
+    font-family: 'Asap', sans-serif;
+    font-size: 35px;
+    color: aliceblue;
+    text-align: center;
+    padding-top: 5px;
+    font-weight: bold
+   
+}
+
+
+
+#tableEventPending {
+    width: 100%;
+    margin-top: 20px;
+    background-color: white ; 
+    color: black; 
+    font-family: 'Asap', sans-serif;
+    font-size: 15px;
+    align-items: center;
+
+}
+
+#tdCustom{
+    border: 2px solid gray; /* Bordes internos */
+    padding: 5px;
+    text-align: center; /* Centrar el texto */
+    vertical-align: middle; /* Centrar verticalmente */
+    word-wrap: break-word; /* Permitir salto de línea */
+    white-space: normal; /* Permitir múltiples líneas */
+    max-width: 200px; /* Limitar el ancho de las celdas */
+}
+
+#theadcustom {
+    border: 2px solid gray; /* Bordes internos */
+    background-color: #EAC102;
+    height: 30px;
+    font-family: 'Asap', sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+
+#btnPublish {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Asap', sans-serif;
+    background-color: #EAC102;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Change the color when passs the mouse */
+#btnPublish:hover {
+    background-color: #1D3892;
+    cursor: pointer;
+    color: white;
+}
+
+
+#btnCancel {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Asap', sans-serif;
+    background-color: #1768AC;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Change the color when passs the mouse */
+#btnCancel:hover {
+    cursor: pointer;
+    background-color: #1D3892;
+}
+
+
+
+
+
+
