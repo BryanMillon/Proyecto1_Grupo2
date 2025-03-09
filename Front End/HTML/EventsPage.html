@@ -67,7 +67,7 @@
     <!--New Event Form-->
 
     <section id="sctFormNewEvent">
-        <div id="conteinerForm">
+        <form id="conteinerForm">
 
              <!--Title-->
             <div id="titleNewEvent">
@@ -93,11 +93,11 @@
                 <!--Date and Hour-->
                 
                 <label class="labelFormulario" for="dateTimePicker">Fecha y hora del evento:</label>
-                <input type="datetime-local" id="dateTimePicker" class="dateTimePicker">
+                <input type="datetime-local" id="dateTimePicker" class="dateTimePicker" required>
 
                 <!--Categoria del evento-->
                 <label class="labelFormulario" for="eventCategory">Categoria</label>
-                <select id="eventCategory" class="categorySelect">
+                <select id="eventCategory" class="categorySelect" required>
                     <option value="" disabled selected>Selecciona una categoría</option>
                     <option value="cultura">Cultura</option>
                     <option value="deportes">Deportes</option>
@@ -110,7 +110,7 @@
                 </select>
 
 
-                <!--Place-->
+                <!--Place Event-->
                 <label class="labelFormulario" for="textPlace">Lugar del evento:</label>
                 <form for="textPlace" action="#"></form>
                 <input 
@@ -120,7 +120,7 @@
                     required
                 >
 
-                <!--Descripción del evento-->
+                <!--Description Event-->
 
                 <label class="labelFormulario" for="textDescription">Descripción del evento:</label>
                 <form for="textDescription" action="#"></form>
@@ -137,16 +137,18 @@
                 </div>
 
 
-            <!--Termina Formulario-->
+            <!--End Form-->
             </div>
-        <!--Terminar contenedor formulario imagen-->
-        </div>
-        
+        <!--End Container Form -->
+        </form>
     </section>
-   
-
    <!--End Event Form-->
 
+
+    <!--Vincular el js-->
+    <script src="../Javascript/ControlatorEventPage.js"></script>
+    <!--Sweet Alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
 </body>
 </html>
