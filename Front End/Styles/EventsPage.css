@@ -229,3 +229,13 @@ header{
 #textDescription{
     height: 100px;
 }
+
+
+
+/*Validaciones*/
+
+.error{
+    border: 2px solid red;
+}
+
+
