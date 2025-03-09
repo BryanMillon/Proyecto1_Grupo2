@@ -1,0 +1,231 @@
+header{
+    width: 100%;
+    height: 60px;
+    background-color: #1D3892;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+#mainEventPage{
+    width: 100%;
+    height: 60px;
+    background-color: #EAC102;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#Events{
+    font-family: 'Asap', sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    color: aliceblue;
+    }
+
+
+/*Search*/
+
+.searchContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style search box*/
+.searchBox {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Asap', sans-serif;
+    border: 2px solid #1768AC;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Style seach butoon*/
+.Button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Asap', sans-serif;
+    background-color: #1768AC;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Change the color when passs the mouse */
+.searchButton:hover {
+    cursor: pointer;
+    background-color: #1D3892;
+}
+
+/*Date Conteiner*/
+
+/* Style Date Conteiner*/
+.dateContainer{
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 60px;
+}
+
+/* Estilo para el input de fecha */
+.datePicker {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Asap', sans-serif;
+    border: 2px solid #1768AC;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#rangeDate{
+    color:aliceblue;
+    white-space: nowrap; /* Evita el salto de línea en la etiqueta */
+    font-size: 25px;
+    font-family: 'Asap', sans-serif;
+    text-align: left;
+    margin-right: 10px;
+}
+
+
+
+/*NEW EVENT FORM*/
+
+#sctFormNewEvent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    weight: 100vh; /* Tomar toda la altura de la pantalla */
+    margin: 0;
+    background-color: #1768AC;
+
+}
+#conteinerForm {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    margin: 10px;
+    text-align: left;
+    background-color: #f9f9f9; /* Color de fondo del contenedor */
+    border-radius: 8px;
+}
+
+#titleNewEvent{
+    height: 40px;
+    background-color: #1D3892;
+    display: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+#titleNewEventH1{
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Asap', sans-serif;
+    color: aliceblue;
+    padding: 5px 5px 5px 5px ;
+}
+
+
+#formNewEvent{
+    width: 100%;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    font-size: 40x;
+    font-family: 'Asap', sans-serif;
+    align-items: center;
+}
+
+.inputForm {
+    width: 70%;
+    padding: 3px;
+    margin: 9px;
+    border: 2px solid #1768AC;
+    border-radius: 5px;
+    color: #1768AC;
+    font-size: 18px;
+
+}
+
+.dateTimePicker {
+    width: 68%;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Asap', sans-serif;
+    border: 2px solid #1768AC;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.categorySelect {
+    width: 71%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #1768AC;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+
+/* Style btnBotonCrear*/
+#btnBotonCrear {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Asap', sans-serif;
+    background-color: #1768AC;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Change the color when passs the mouse */
+#btnBotonCrear:hover {
+    cursor: pointer;
+    background-color: #1D3892;
+}
+
+/* Style btnBotonPublicar*/
+
+
+#btnBotonPublicar {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Asap', sans-serif;
+    background-color: #EAC102;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Change the color when passs the mouse */
+#btnBotonPublicar:hover {
+    background-color: #1D3892;
+    cursor: pointer;
+}
+
+
+.labelFormulario{
+    font-size: 20px;
+    font-family: 'Asap', sans-serif;
+    margin: 10px;
+}
+
+
+#textDescription{
+    height: 100px;
+}
