@@ -3,14 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <!--Link a navegacion.css-->
     <link rel="stylesheet" href="../Styles/AdminPage.css">
 
     <!--Link a reset.css-->
     <link rel="stylesheet" href="../Styles/reset.css">
 
-    <title>Document</title>
+    <!--Link a la fuente-->
+    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Admin</title>
 </head>
 <body>
-    
+    <!--Header-->
+    <header>
+        <h1 id="logo">Wait Header</h1>
+        <nav>
+            <ul>
+                <li><a href="#">XXX</a></li>
+                <li><a href="#">XXXX</a></li>
+                <li><a href="#">XXX</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Tabla-->
+
+    <section id="blueBackground">
+
+        <section  id="sctPendingEvents">
+
+            <div id="tablePendingEvent">
+                <!--Table Title-->
+                <div id="titlePendingEvent">
+                    <h1 id="titlePendingEventh1">
+                        Avisos pendientes de publicar
+                    </h1>
+                <!--End Title--> 
+              
+                <!--Table Display-->
+
+                <table id="tableEventPending">
+                    <thead id="theadcustom">
+                        <tr>
+                            <th>Nombre del aviso</th>
+                            <th>Fecha y hora</th>
+                            <th>Categoría</th>
+                            <th>Lugar</th>
+                            <th>Descripción</th>
+                            <th>Acciones</th>
+
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                
+            </div>
+
+        </section>
+
+    <!--End Section blueBackground-->
+    </section>
+
+    <!--Vincular el js-->
+    <script src="../Javascript/ControladorAdminPage.js"></script>
+    <!--Sweet Alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 </body>
 </html>
+
