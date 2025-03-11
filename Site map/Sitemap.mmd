@@ -1,14 +1,31 @@
 graph TD;
 
-A[Pagina de Inicio] --> B[Pagina de Registro]
-B --> C[Pagina de verificación de cuenta]
-G --> I[Pagina de creación de noticias Consejal]
-A --> D[Pagina de Inicio de Sesion]
-D --> E[Pagina de Recuperación de Contraseña]
-A --> G[Pagina de Noticias]
-G --> F[Pagina de creacion de noticias Administrador]
-F --> I
-A --> J[Pagina de avisos]
-J --> K[Pagina de creacion de avisos Consejal]
-K --> L[Pagina de creacion de avisos Administrador]
-A --> L
+  A[Pagina de Inicio] --> B[Pagina de Registro]
+    B --> C[Pagina de verificación de cuenta]
+
+    A --> D[Pagina de Inicio de Sesion]
+    D --> E[Pagina de Recuperación de Contraseña]
+
+    A --> F[Pagina de perfil Usuario]
+
+    A --> G[Pagina de Noticias]
+    G --> I[Pagina de creación de noticias <br> Consejal]
+    I --> J[Pagina de creación de noticias <br> Administrador]
+
+    A --> K[Pagina de Avisos]
+    K --> L[Pagina de creación de avisos <br> Consejal]
+    L --> M[Pagina de creación de avisos <br> Administrador]
+
+    A --> N[Pagina de Servicios Municipales]
+
+    A --> O[Pagina para crear denuncias]
+
+    A --> P[Pagina de iniciativas]
+    P --> Q[Pagina para crear iniciativas <br> Consejal]
+    Q --> R[Pagina de creación de iniciativas <br> Administrador]
+
+    A --> S[Pagina de Administrador]
+    S --> T[Pagina de aprobación de denuncias <br> Administrador]
+    S --> U[Pagina de aprobación de noticias <br> Administrador]
+    S --> V[Pagina de aprobación de avisos <br> Administrador]
+    S --> W[Pagina de aprobación de iniciativas <br> Administrador]
