@@ -3,15 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Styles/HomePage.css">
-
-    <!--Link a reset.css-->
     <link rel="stylesheet" href="../Styles/reset.css">
-
-    
-    <title>Document</title>
+    <link rel="stylesheet" href="../Styles/HomePage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap" rel="stylesheet">
+    <title>Municipalidad Montes de Oca</title>
 </head>
+
 <body>
+    <header>
+        <div id="LogoHeader">
+            <a href="../HTML/HomePage.html">
+                <img src="../IMG/logoheader.png" alt="logoheader">
+            </a>
+        </div>
+        
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#">PERFIL</a>
+                    <ul class="submenu">
+                        <li><a href="../HTML/UserprofilePage.html">MI PERFIL</a></li>
+                        <li><a href="../HTML/OtheruserprofilePage.html">PERFIL DE OTROS USUARIOS</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+ 
+    <div id="NavBar">
+        <ul>
+            <li><a href="../HTML/NewsPage.html">NOTICIAS</a></li>
+            <li><a href="../HTML/NoticesPage.html">AVISOS</a></li>
+            <li><a href="../HTML/ServicesPage.html">SERVICIOS</a></li>
+            <li><a href="../HTML/ReportsPage.html">DENUNCIAS</a></li>
+            <li><a href="../HTML/InitiativesPage.html">INICIATIVAS</a></li>
+        </ul>
+    </div>
     
+    <div id="ContenedorHome">
+        <div id="ImgHome"></div>
+    </div>
+
+    <div id="ContenedorPrincipal">
+        <div class="FilaBloques">
+            <div class="Bloque">
+                <div class="EncabezadoBloque">NOTICIAS</div>
+                <div class="ContenidoBloque">
+                    <img src="../IMG/bloquenoticias.png" alt="">
+                    <p>Aquí podrás encontrar las últimas noticias del cantón</p>
+                    <button class="BtnBloque"><a href="../HTML/NewsPage.html">IR A NOTICIAS</a></button>
+                </div>
+            </div>
+            <div class="Bloque">
+                <div class="EncabezadoBloque">AVISOS</div>
+                <div class="ContenidoBloque">
+                    <img src="../IMG/bloqueavisos.png" alt="">
+                    <p>Aquí podrás encontrar los avisos más relevantes</p>
+                    <button class="BtnBloque"><a href="../HTML/NoticesPage.html">IR A AVISOS</a></button>
+                </div>
+            </div>
+            <div class="Bloque">
+                <div class="EncabezadoBloque">SERVICIOS</div>
+                <div class="ContenidoBloque">
+                    <img src="../IMG/bloqueservicios.png" alt="">
+                    <p>Aquí podrás encontrar los servicios que brinda la Municipalidad</p>
+                    <button class="BtnBloque"><a href="../HTML/ServicesPage.html">IR A SERVICIOS</a></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="FilaBloques">
+            <div class="Bloque">
+                <div class="EncabezadoBloque">DENUNCIAS</div>
+                <div class="ContenidoBloque">
+                    <img src="../IMG/bloquedenuncias.png" alt="">
+                    <p>Aquí podrás realizar e información importante acerca de Denuncias</p>
+                    <button class="BtnBloque"><a href="../HTML/ReportsPage.html">IR A DENUNCIAS</a></button>
+                </div>
+            </div>
+            <div class="Bloque">
+                <div class="EncabezadoBloque">INICIATIVAS</div>
+                <div class="ContenidoBloque">
+                    <img src="../IMG/bloqueiniciativas.png" alt="">
+                    <p>Descubre iniciativas dentro de la municipalidad</p>
+                    <button class="BtnBloque"><a href="../HTML/InitiativesPage.html">IR A INICIATIVAS</a></button>
+                </div>
+            </div>
+            <div class="Bloque">
+                <div class="EncabezadoBloque">PERFIL</div>
+                <div class="ContenidoBloque">
+                    <img src="../IMG/bloqueperfil.png" alt="">
+                    <p>Accede a tu perfil</p>
+                    <button class="BtnBloque"><a href="../HTML/UserprofilePage.html">IR A PERFIL</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div id="copyright">
+           <p>&copy; 2025 Municipalidad de Montes de Oca</p>
+        </div>
+
+        <div id="LogoFooter">
+            <a href="../HTML/HomePage.html">
+                <img src="../IMG/logofooter.png" alt="logofooter">
+            </a>
+        </div>
+    
+        <div id="NavFooter">
+            <a href="../HTML/NewsPage.html">NOTICIAS</a>
+            <a href="../HTML/NoticesPage.html">AVISOS</a>
+            <a href="../HTML/ServicesPage.html">SERVICIOS</a>
+            <a href="../HTML/ReportsPage.html">DENUNCIAS</a>
+            <a href="../HTML/InitiativesPage.html">INICIATIVAS</a>
+        </div>
+    </footer>
+
 </body>
+
 </html>
