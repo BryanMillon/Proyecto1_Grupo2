@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Link a reset.css-->
+    <link rel="stylesheet" href="../Styles/reset.css">
+    <!--Link a navegacion.css-->
+    <link rel="stylesheet" href="../Styles/NoticesPage.css">
+
+
+
+    <!--Link a la fuente-->
+    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <title>Events</title>
+
+</head>
+
+<body>
+
+    <header>
+        <h1 id="logo">Wait Header</h1>
+        <nav>
+            <ul>
+                <li><a href="#">XXX</a></li>
+                <li><a href="#">XXXX</a></li>
+                <li><a href="#">XXX</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Section Event-->
+
+    <section id="mainEventPage">
+        <!--Events Title-->
+        <h1>
+            <h1 id="Events">Avisos Municipales</h1>
+        </h1>
+
+        <!--Search-->
+        <div class="searchContainer">
+            <input id="searchBox" type="text" class="searchBox" placeholder="Buscar...">
+
+            <button class="searchButton">
+                Buscar
+            </button>
+
+        </div>
+        <!--Date Search-->
+
+        <div class="dateContainer">
+            <label id="rangeDate">Rango Fechas:</label>
+            <input type="date" id="dateStart" class="datePicker" placeholder="Fecha inicio">
+            <input type="date" id="dateEnd" class="datePicker" placeholder="Fecha Final">
+
+        </div>
+
+    </section>
+
+    <!--End Section Event-->
+
+    <!--New Event Form-->
+
+    <section id="sctFormNewEvent">
+        <form id="conteinerForm">
+
+            <!--Title-->
+            <div id="titleNewEvent">
+                <h1 id="titleNewEventH1">
+                    Nuevo Aviso
+                </h1>
+                <!--End Title-->
+            </div>
+
+
+            <!--Start Form-->
+            <div id="formNewEvent">
+
+                <!--Name-->
+                <label class="labelFormulario" for="textNombreAviso">Nombre del Aviso:</label>
+                <input class="inputForm" id="textNombreAviso" type="text" ; required>
+
+                <!--Date and Hour-->
+
+                <label class="labelFormulario" for="dateTimePicker">Fecha y hora del evento:</label>
+                <input type="datetime-local" id="dateTimePicker" class="dateTimePicker" required>
+
+                <!--Categoria del evento-->
+                <label class="labelFormulario" for="eventCategory">Categoria</label>
+                <select id="eventCategory" class="categorySelect" required>
+                    <option value="" disabled selected>Selecciona una categoría</option>
+                    <option value="cultura">Cultura</option>
+                    <option value="deportes">Deportes</option>
+                    <option value="educacion">Educación</option>
+                    <option value="reuniones">Reuniones</option>
+                    <option value="salud">Salud</option>
+                    <option value="medio-ambiente">Medio Ambiente</option>
+                    <option value="jovenes">Jóvenes</option>
+                    <option value="adultos-mayores">Adultos Mayores</option>
+                    <option value="aviso-importante">Aviso Importante</option>
+                    <option value="mantenimiento">Mantenimiento</option>
+                    <option value="reunion">Reunión</option>
+                </select>
+
+
+                <!--Place Event-->
+                <label class="labelFormulario" for="textPlace">Lugar del evento:</label>
+                <form for="textPlace" action="#"></form>
+                <input class="inputForm" id="textPlace" type="text" ; required>
+
+                <!--Description Event-->
+
+                <label class="labelFormulario" for="textDescription">Descripción del evento:</label>
+                <form for="textDescription" action="#"></form>
+                <input class="inputForm" id="textDescription" type="text" ; required>
+
+                <div>
+                    <button id="btnBotonCrear" type="button"> Crear</button>
+                    <button id="btnBotonPublicar" type="button"> Publicar</button>
+                </div>
+
+
+                <!--End Form-->
+            </div>
+            <!--End Container Form -->
+        </form>
+    </section>
+    <!--End Event Form-->
+
+    <section id="sctUpcomingEvents">
+        <!--Title-->
+
+        <h1 id="titleUpcomingEvents">
+            Próximos Avisos
+        </h1>
+        <!--Start Image-->
+        <div id="imageUpcomingEvents">
+            <!--Images-->
+            <div id="imageNextEvents" class="styleImagen">
+            </div>
+            <!--End Imagen-->
+
+            <div class="containerEvents">
+                <div id="eventContainer">
+                    <!-- Events will be added here dynamically  -->
+                </div>
+            </div>
+    </section>
+
+    <!--Vincular el js-->
+    <script src="../Javascript/ControlatorEventPage.js"></script>
+    <!--Sweet Alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>
