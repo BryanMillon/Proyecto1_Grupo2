@@ -1,0 +1,284 @@
+header{
+    width: 100%;
+    height: 180px;
+    background-color: #1D3892;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#LogoHeader img{
+    width: 450px;
+    margin-left: 50px;
+}
+
+nav{
+    margin-right: 80px;
+}
+
+nav li{
+    display: inline;
+    padding: 44px 25px;
+}
+
+nav li a{
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+nav li a:hover{
+    color: #50B2F1;
+    cursor: pointer;
+}
+
+nav ul {
+    display: flex;  
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 40px;
+}
+
+nav li {
+    position: relative;
+    padding: 20px 25px;
+    display: flex; 
+    align-items: center;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%; 
+    right: 0px;
+    background-color: #1768AC;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+    border-radius: 5px;
+    -webkit-box-shadow: 6px 0px 18px 0px rgba(0,0,0,0.6);
+    -moz-box-shadow: 6px 0px 18px 0px rgba(0,0,0,0.6);
+    box-shadow: 6px 0px 18px 0px rgba(0,0,0,0.6);
+    z-index: 1000;
+}
+
+.submenu li {
+    width: 100%;
+    text-align: left;
+}
+
+.submenu li a {
+    display: block;
+    padding: 10px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.submenu li a:hover {
+    color: #50B2F1;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+/*Estilos Generales*/
+body{
+    /*font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;*/
+
+    body {
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: 'Asap', sans-serif;
+    }
+}
+
+h1, h2, h3, p, input, button, a {
+    font-family: 'Asap', sans-serif;
+}
+
+#registro-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Caja de registro */
+ #container {
+    background-color: #1D3892;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    filter: drop-shadow(15px 5px 4px rgba(0, 0, 0, 0.25));
+    margin:auto; 
+    margin-top: 30px;
+}
+
+#ApellidosInput {
+    display: flex;
+    gap: 9px;
+}
+
+
+
+h2{
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 45px;
+    font-family: Asap;
+    color: #f4f4f4;
+
+}
+h3{
+    text-align: center;
+    color: #f4f4f4;
+    font-size: 25px;
+}
+
+#fotoInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.foto-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    justify-content: center;
+    text-align: center;
+}
+
+.foto-label span {
+    font-size: 14px;
+    color: #f4f4f4;
+    margin-top: 8px;
+}
+
+#fotoPerfil {
+    display: none;
+}
+
+
+input, select {
+    width: 50%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Para los campos dobles */
+.campo-doble {
+    display: flex;
+    gap: 10px;
+}
+
+.campo-doble input {
+    width: 50%;
+}
+
+/* Enlace de iniciar sesión */
+.login-link {
+    display: block;
+    margin: 10px 0;
+    color: white;
+    font-size: 14px;
+}
+
+/*Estilos del Boton*/
+/*#btnRegistro{
+    width: 50%;
+    padding: 15px;
+    background-color: #EAC102;
+    color: white;
+    font-size: 20px;
+    font-weight: 550px;
+    border-radius: 10px;
+    margin: 10px 150px 20px;
+}*/
+
+/* Botón de Registro */
+#btnRegistro {
+    width: 30%;
+    background-color: #EAC102;
+    color: white;
+    font-size: 18px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#btnRegistro:hover {
+    background-color: #d4a302;
+}
+
+footer{
+    width: 100%;
+    height: 200px;
+    background-color: #1D3892;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1%;
+}
+
+#copyright {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+#LogoFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 200px;
+}
+
+#LogoFooter img {
+    width: 200px;
+    height: auto;
+}
+
+#NavFooter {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin-right: 50px;
+    gap: 20px;
+}
+
+#NavFooter a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#NavFooter a:hover {
+    color: #50B2F1;
+}
+
