@@ -1,47 +1,3 @@
-//Get all references to the DOM to the Form
-const inputNameEvent = document.getElementById("textNombreAviso");
-const inputDateEvent = document.getElementById("dateTimePicker");
-const inputCategoryEvent= document.getElementById("eventCategory");
-const inputPlaceEvent = document.getElementById("textPlace");
-const inputDescriptionEvent = document.getElementById("textDescription");
-
-//Validate that there are no empty fields
-function validateEmphyFields() {
-    let error = false;
-    let ListInputsRequired = document.querySelectorAll("#formNewEvent [required]");
-    for(let i=0; i<ListInputsRequired.length;i++){
-        if(ListInputsRequired[i].value == ""){
-            ListInputsRequired[i].classList.add('error');
-            error=true;
-        }else{
-            ListInputsRequired[i].classList.remove('error');
-        }
-    }
-    return error;
-}
-
-function sendData(){
-    let errorCamposVacios = validateEmphyFields();
-
-    if(errorCamposVacios){
-        Swal.fire({
-            title: "Campos vacios",
-            text: "Revisa los campos marcados en rojo",
-            icon: "warning"
-          });
-    }else{
-        Swal.fire({
-            title: "Exito",
-            text: "Su evento se ha enviado exitosamente",
-            icon: "success"
-          });
-    }
-}
-
-btnBotonPublicar.addEventListener("click",sendData);
-btnBotonCrear.addEventListener("click",sendData);
-
-
 /*CONTROL THE EVENTS */
 
 /*AFTER THEY COMES FROM THE DATABASE */
@@ -53,13 +9,6 @@ const events = [
         lugar: "Edificio A",
         fechaHora: "2025-03-10 10:00 AM",
         descripcion: "Se realizará un mantenimiento eléctrico en el Edificio A. Se recomienda tomar precauciones."
-    },
-    { 
-        nombre: "Reunión de seguridad",
-        categoria: "Reunión",
-        lugar: "Sala de conferencias",
-        fechaHora: "2025-03-12 3:00 PM",
-        descripcion: "Reunión para discutir temas de seguridad en la empresa."
     },
     { 
         nombre: "Suspensión de agua",
@@ -109,7 +58,49 @@ const events = [
         lugar: "Toda la instalación",
         fechaHora: "2025-03-15 8:00 AM",
         descripcion: "El servicio de agua potable será suspendido temporalmente por mantenimiento."
-    }
+    },
+    { 
+        nombre: "Suspensión de agua",
+        categoria: "Aviso importante",
+        lugar: "Toda la instalación",
+        fechaHora: "2025-03-15 8:00 AM",
+        descripcion: "El servicio de agua potable será suspendido temporalmente por mantenimiento."
+    },
+    { 
+        nombre: "Suspensión de agua",
+        categoria: "Aviso importante",
+        lugar: "Toda la instalación",
+        fechaHora: "2025-03-15 8:00 AM",
+        descripcion: "El servicio de agua potable será suspendido temporalmente por mantenimiento."
+    },
+    { 
+        nombre: "Suspensión de agua",
+        categoria: "Aviso importante",
+        lugar: "Toda la instalación",
+        fechaHora: "2025-03-15 8:00 AM",
+        descripcion: "El servicio de agua potable será suspendido temporalmente por mantenimiento."
+    },
+    { 
+        nombre: "Suspensión de agua",
+        categoria: "Aviso importante",
+        lugar: "Toda la instalación",
+        fechaHora: "2025-03-15 8:00 AM",
+        descripcion: "El servicio de agua potable será suspendido temporalmente por mantenimiento."
+    },
+    { 
+        nombre: "Suspensión de agua",
+        categoria: "Aviso importante",
+        lugar: "Toda la instalación",
+        fechaHora: "2025-03-15 8:00 AM",
+        descripcion: "El servicio de agua potable será suspendido temporalmente por mantenimiento."
+    },
+    { 
+        nombre: "Suspensión de agua",
+        categoria: "Aviso importante",
+        lugar: "Toda la instalación",
+        fechaHora: "2025-03-15 8:00 AM",
+        descripcion: "El servicio de agua potable será suspendido temporalmente por mantenimiento."
+    },  
 ];
 
 // Function to sort events by date
@@ -136,7 +127,40 @@ function showEvents() {
 
         eventsContainer.appendChild(eventCard);
     });
+
+
+
+    
 }
 
+
+
 // Execute the function to display events when the page loads
-window.onload = showEvents;
+function addFooter(){
+        let footer = document.createElement("footer");
+        footer.innerHTML = `
+             <div id="copyright">
+            <p>&copy; 2025 Municipalidad de Montes de Oca</p>
+            </div>
+
+            <div id="logoFooter">
+                <a href="../HTML/HomePage.html">
+                    <img src="../IMG/logofooter.png" alt="logofooter">
+                </a>
+            </div>
+        
+            <div id="navFooter">
+                <a href="../HTML/AdminPage.html">ADMINISTRADOR</a>
+                <a href="../HTML/NewsPage.html">NOTICIAS</a>
+                <a href="../HTML/NoticesPage.html">AVISOS</a>
+                <a href="../HTML/ServicesPage.html">SERVICIOS</a>
+                <a href="../HTML/ReportsPage.html">DENUNCIAS</a>
+                <a href="../HTML/InitiativesPage.html">INICIATIVAS</a>
+            </div>`;
+        document.body.appendChild(footer);
+}
+
+window.onload = function() {
+    showEvents();
+    addFooter()
+};
