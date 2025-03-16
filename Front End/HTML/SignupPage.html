@@ -52,14 +52,24 @@
 
         
                 <input type="text" name="cedula" id="cedula" placeholder="Cedula" required>
-                <input list="districts" id="options" name="options" placeholder="Distrito" required>
+                
+                <select id="user" class="userSelect" required>
+                    <option value="" disabled selected>Selecciona el tipo de usuario</option>
+                    <option value="vecino">Vecino de Montes de Oca</option>
+                    <option value="concejal">Concejal de distrito</option>
+                   
+                </select>
 
-                <datalist id="districts">
-                    <option value="San Pedro">
-                    <option value="Sabanilla">
-                    <option value="Mercedes">
-                    <option value="San Rafael">
-                </datalist>
+                <select id="districts" class="districtSelect" required>
+                    <option value="" disabled selected>Selecciona un distrito</option>
+                    <option value="sanPedro">San Pedro</option>
+                    <option value="sabanilla">Sabanilla</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="sanRafael">San Rafael</option>
+                   
+                </select>
+
+               
 
                 <input type="text" name="direccion" id="direccion" placeholder="Direccion" required>
 
@@ -73,7 +83,7 @@
                     placeholder="Confirmar contraseña" required>
                 </div>
                 <div id="loginContainer">
-                    <h4>Ya tienes cuenta? <span>Inicia sesion</span></h4>
+                    <a href="../HTML/LoginPage.html">Ya tienes cuenta? <span>Inicia sesion</span></a>
                 </div>
 
                 <button href="../HTML/AccountVerificationPage.html" type="button" id="btnSignup">Registrar</button>
@@ -83,7 +93,7 @@
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../Javascript/SignupPage.js"></script>
+    <script src="../Javascript/ControladorSignupPage.js"></script>
 </body>
 
 </html>
