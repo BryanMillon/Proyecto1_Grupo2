@@ -143,7 +143,7 @@ html, body {
     margin-bottom: 30px;
   }
   
-  #pwdAndSigupContainer h4 {
+  #pwdAndSigupContainer a {
     color: #FFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size: 15px;
@@ -155,13 +155,13 @@ html, body {
     cursor: pointer;
   }
 
-  #pwdAndSigupContainer h4:hover{
+  #pwdAndSigupContainer a:hover{
     color: #EAC102;
   }
    
   
   
-  #pwdAndSigupContainer h4 span {
+  #pwdAndSigupContainer a span {
     color: #EAC102;
   }
   
