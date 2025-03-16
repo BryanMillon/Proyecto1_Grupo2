@@ -6,6 +6,8 @@ body {
   }
   
   main {
+    background: rgb(16,73,121);
+    background: linear-gradient(180deg, rgba(16,73,121,1) 49%, rgba(9,42,70,1) 99%);
     flex: 1; /* Ocupa el espacio disponible */
   }
   
@@ -113,7 +115,7 @@ nav li {
     color: #FFFFFF;
     font-size: 50px;
     font-weight: 600;
-    padding-left: 50px;
+    margin-left: 50px;
 }
 
 
@@ -291,14 +293,6 @@ nav li {
 
 /*Proximos Eventos*/
 
-
-#titleUpcomingEvents{
-    width: 100%;
-    font-size: 50px;
-    color: #1D3892;
-    background-color: white;
-    text-align: center;
-}
 
 /*Imagen*/
 
