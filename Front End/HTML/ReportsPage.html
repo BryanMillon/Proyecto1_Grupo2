@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="../Styles/NoticesPage.css">
 
     <!--Link a reset.css-->
  <link rel="stylesheet" href="../Styles/reset.css">
@@ -47,19 +47,6 @@
     </header>
 
 
-
-<!--Section Denuncias-->
-
-<section id="Denuncias">
-    <!--Denuncias Title-->
-   
-
-<!--Search-->
-
-</section>
-
-<!--End Section Denuncias-->
-
 <!--Formulario Nueva Denuncia-->
 
 <section id="mainEventPage">
@@ -67,10 +54,42 @@
     <h1>
         <h1 id="Events">Denuncias Ciudadanas</h1>
     </h1>    
-
 </section>
 
-<!--End Section Event-->
+
+
+<!--Section Guia Denuncias-->
+
+<section id="guiaDenuncias">
+
+    <H2>
+    <h2 id="guiaDenuncias">Guía Denuncias</h2>
+    </H2>
+    
+    <div class="bloque">
+        <div class="contenidoBloque">
+            <p>Ingrese denuncias y otras gestiones ciudadanas <br>
+                Tipos de gestiones: <br>
+                1. Solicitud pública<br>
+                2. Queja<br>
+                3. Denuncia<br>
+                4. Sugerencia<br>
+                5. Felicitación<br>
+            </p>
+            
+
+
+
+
+
+        </div>
+    </div>
+    
+    </section>
+
+
+
+
 
 <!--New Event Form-->
 
@@ -107,6 +126,7 @@
             <label class="labelFormulario" for="eventCategory">Categoria</label>
             <select id="eventCategory" class="categorySelect" required>
                 <option value="" disabled selected>Selecciona una categoría</option>
+                <option value="cultura">Solicitud pública</option>
                 <option value="cultura">Queja</option>
                 <option value="deportes">Denuncia</option>
                 <option value="educacion">Sugerencia</option>
