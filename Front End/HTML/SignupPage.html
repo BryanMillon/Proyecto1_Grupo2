@@ -1,16 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../Styles/reset.css">
     <link rel="stylesheet" href="../Styles/SignupPage.css">
-
-   <!--Link a reset.css-->
-   <link rel="stylesheet" href="../Styles/reset.css">
-
-    <title>Document</title>
+    <title>Registrar</title>
 </head>
+
 <body>
-    
+    <main>
+        <section id="registerSection">
+            <header id="logoSection">
+                <img src="../IMG/Logo.svg" alt="Logo Municipalidad">
+                <div>
+                    <h2>MUNICIPALIDAD</h2>
+                    <h3>MONTES DE OCA</h3>
+                </div>
+            </header>
+
+            <div id="titlesSection">
+                <h2>Registrate</h2>
+                <h3>Ingresa los siguientes datos</h3>
+            </div>
+
+            <form id="form">
+
+                <div class="profile-container">
+                    <label for="file-input">
+                        <img id="preview" src="../IMG/Perfil-logo.svg"
+                            alt="Foto de perfil">
+                           
+                    </label>
+                    <input type="file" id="file-input" accept="image/*">
+                </div>
+
+                <div class="inputContainer">
+                    
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+               
+
+                <div class="inputApellidos">
+                    <input type="text" name="apellido1" id="apellido1" placeholder="Primer apellido" required>
+                    <input type="text" name="apellido2" id="apellido2" placeholder="Segundo apellido" required>
+                </div>
+
+        
+                <input type="text" name="cedula" id="cedula" placeholder="Cedula" required>
+                <input list="districts" id="options" name="options" placeholder="Distrito" required>
+
+                <datalist id="districts">
+                    <option value="San Pedro">
+                    <option value="Sabanilla">
+                    <option value="Mercedes">
+                    <option value="San Rafael">
+                </datalist>
+
+                <input type="text" name="direccion" id="direccion" placeholder="Direccion" required>
+
+                <input type="text" name="telefono" id="telefono" placeholder="Telefono" required>
+
+                <input type="email" name="email" id="email" placeholder="Correo electronico" required>
+
+                <input type="text" name="password" id="password" placeholder="Contraseña" required>
+
+                <input type="text" name="passwordVerification" id="passwordVerification"
+                    placeholder="Confirmar contraseña" required>
+                </div>
+                <div id="loginContainer">
+                    <h4>Ya tienes cuenta? <span>Inicia sesion</span></h4>
+                </div>
+
+                <button type="submit" id="btnLogIn">Registrar</button>
+
+
+            </form>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../Javascript/SignupPage.js"></script>
 </body>
+
 </html>
