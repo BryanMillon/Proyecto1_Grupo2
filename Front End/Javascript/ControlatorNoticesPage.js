@@ -134,32 +134,6 @@ function showEvents() {
 }
 
 
-
-// Execute the function to display events when the page loads
-function addFooter(){
-        let footer = document.createElement("footer");
-        footer.innerHTML = `
-             <div id="copyright">
-            <p>&copy; 2025 Municipalidad de Montes de Oca</p>
-            </div>
-
-            <div id="logoFooter">
-                <a href="../HTML/HomePage.html">
-                    <img src="../IMG/logofooter.png" alt="logofooter">
-                </a>
-            </div>
-        
-            <div id="navFooter">
-                <a href="../HTML/AdminPage.html">ADMINISTRADOR</a>
-                <a href="../HTML/NewsPage.html">NOTICIAS</a>
-                <a href="../HTML/NoticesPage.html">AVISOS</a>
-                <a href="../HTML/ServicesPage.html">SERVICIOS</a>
-                <a href="../HTML/ReportsPage.html">DENUNCIAS</a>
-                <a href="../HTML/InitiativesPage.html">INICIATIVAS</a>
-            </div>`;
-        document.body.appendChild(footer);
-}
-
 window.onload = function() {
     showEvents();
     addFooter()
