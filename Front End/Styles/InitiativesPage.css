@@ -1,5 +1,8 @@
-/* Encabezado */
+body{
+    font-family: 'Asap',sans-serif;
+}
 
+/* Encabezado */
 header{
     width: 100%;
     height: 180px;
