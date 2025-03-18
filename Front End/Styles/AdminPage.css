@@ -255,4 +255,62 @@ footer{
     color: #50B2F1;
 }
 
+/*estilos de tabla Usuarios*/
+
+#sctPendingUsers{
+    height: 300px;
+    background-color: #1768AC;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-top: 10px;/*este despues lo tengo que quitar*/
+
+}
+
+#tablePendingUsers{
+    background-color: aliceblue;
+    width: 100%;
+    height: 100%px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+
+#titlePendingUsers{
+    background-color: #1D3892;
+    margin: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+
+#titlePendingUserh1{
+    font-family: 'Asap', sans-serif;
+    font-size: 35px;
+    color: aliceblue;
+    text-align: center;
+    padding-top: 5px;
+    font-weight: bold
+   
+}
+
+
+
+#tableUserPending {
+    width: 100%;
+    margin-top: 20px;
+    background-color: white ; 
+    color: black; 
+    font-family: 'Asap', sans-serif;
+    font-size: 15px;
+    align-items: center;
+
+}
+
 
