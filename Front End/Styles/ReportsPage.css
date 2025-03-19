@@ -1,24 +1,39 @@
-
-body{
-    font-family: 'Asap',sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    height: 125vh; /* Altura mínima igual a la ventana */
+    font-family: 'Asap',sans-serif;
+  }
+  
+  main {
+    background: rgb(16,73,121);
+    background: linear-gradient(180deg, rgba(16,73,121,1) 49%, rgba(9,42,70,1) 99%);
+    width: 100%;
+  }
+  
 header{
     width: 100%;
-    height: 200;
+    height: 180px;
     background-color: #1D3892;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-#LogoHeader img{
+#logoHeader img{
     width: 450px;
     margin-left: 50px;
 }
 
 nav{
     margin-right: 80px;
+    padding: 35px 0;
 }
 
 nav li{
@@ -91,15 +106,16 @@ nav li {
     display: block;
 }
 
-#TituloPagina {
+#mainEventPage {
     width: 100%;
     height: 100px;
     background-color: #1768AC;
     display: flex;
     align-items: center;
+
 }
 
-#TituloPagina h1{
+#mainEventPage h1{
     color: #FFFFFF;
     font-size: 50px;
     font-weight: 600;
@@ -107,83 +123,6 @@ nav li {
 }
 
 
-#ContenedorPrincipal {
-    width: 100%;
-    height: auto;
-    background-color: #D9D9D9;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px 0px 20px 0px;
-}
-
-.servicio {
-    display: flex;
-    background: #FFFFFF;
-    padding: 15px;
-    border-radius: 8px;
-    width: 60%;
-    height: 250px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    justify-content: center;
-}
-
-.servicio img {
-    width: auto;
-    height: auto;
-    border-radius: 8px;
-    margin-right: 15px;
-}
-
-.InfoServicios {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#ContenedorPrincipal h2 {
-    color: #1768AC;
-    margin-bottom: 10px;
-    font-size: 30px;
-}
-
-#ContenedorPrincipal p{
-    font-size: 20px;
-}
-
-#Contacto {
-    background-color: #1D3892;
-    color: #FFFFFF;
-    text-align: center;
-    padding: 50px;
-    font-size: 18px;
-    margin: 20px;
-    border-radius: 10px;
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#Contacto h2{
-    color: #EAC102;
-    font-weight: bold;
-    font-size: 40px;
-    text-align: left;
-}
-
-#Contacto img{
-    width: 30px;
-    height: auto;
-    margin-right: 10px;
-}
-
-#Contacto p{
-    font-size: 28px;
-    font-weight: 500;
-    color: #FFFFFF;
-    text-align: right;
-}
 
 footer{
     width: 100%;
@@ -283,79 +222,6 @@ footer{
     }
 
 
-/*Search*/
-
-.searchContainer {
-    display: flex;
-    justify-content: center;
-    align-items: left;
-}
-
-/* Style search box*/
-.searchBox {
-    width: 200px;
-    padding: 10px;
-    font-size: 16px;
-    font-family: 'Asap', sans-serif;
-    border: 2px solid #1768AC;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-/* Style seach butoon*/
-.searchButton {
-    padding: 10px 20px;
-    font-size: 16px;
-    font-family: 'Asap', sans-serif;
-    background-color: #1768AC;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-/* Change the color when passs the mouse */
-.searchButton:hover {
-    cursor: pointer;
-    background-color: #1D3892;
-}
-
-/*Date Container*/
-
-/* Style Date Conteiner*/
-.dateContainer{
-    width: 100%;
-    max-width: 400px;
-    padding: 10px 20px;
-    box-sizing: border-box;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 60px;
-}
-
-/* Estilo para el input de fecha */
-.datePicker {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    font-family: 'Asap', sans-serif;
-    border: 2px solid #1768AC;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-#rangeDate{
-    color:black;
-    white-space: nowrap; /* Evita el salto de línea en la etiqueta */
-    font-size: 25px;
-    font-family: 'Asap', sans-serif;
-    text-align: left;
-    margin-right: 10px;
-}
-
-
 
 /*NEW EVENT FORM*/
 
@@ -373,7 +239,7 @@ footer{
     margin-left: 50px;
 }
 
-#conteinerForm {
+#containerForm {
     width: 100%;
     max-width: 1500px;
     padding: 20px;
@@ -440,6 +306,24 @@ footer{
     margin-top: 10px;
 }
 
+/* Style btnBotonLimpiar*/
+#btnBotonLimpiar {
+    padding: 10px 20px;
+    font-size: 25px;
+    font-family: 'Asap', sans-serif;
+    background-color: #1768AC;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Change the color when passs the mouse */
+#btnBotonLimpiar:hover {
+    cursor: pointer;
+    background-color: #1D3892;
+    color: white;
+}
 
 /* Style btnBotonCrear*/
 #btnBotonCrear {
@@ -460,26 +344,6 @@ footer{
     color: white;
 }
 
-/* Style btnBotonPublicar*/
-
-
-#btnBotonPublicar {
-    padding: 10px 20px;
-    font-size: 25px;
-    font-family: 'Asap', sans-serif;
-    background-color: #EAC102;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-/* Change the color when passs the mouse */
-#btnBotonPublicar:hover {
-    background-color: #1D3892;
-    cursor: pointer;
-    color: white;
-}
 
 
 .labelFormulario{
@@ -500,100 +364,5 @@ footer{
 .error{
     border: 2px solid red;
 }
-
-
-
-/*Proximos Eventos*/
-
-#sctUpcomingEvents{
-    display: flex;
-    display: inline;
-    weight: 100vh;
-}
-
-#titleUpcomingEvents{
-    width: 100%;
-    font-size: 50px;
-    font-family: 'Asap', sans-serif;
-    color: #1D3892;
-    background-color: white;
-    text-align: center;
-}
-
-/*Imagen*/
-
-#imageUpcomingEvents{
-    width: 100%;
-    height: 350px;
-}
-
-
-#imageNextEvents{
-    background-image: url("../IMG/imageEvent.jpg");
-}
-
-.styleImagen{
-    background-position: center;
-    width: 100%;
-    height: 350px; /* O ajusta según necesidad */
-    background-repeat: no-repeat;
-    object-fit: contain;
-}
-
-
-/*Se listen los eventos en contenedores*/
-
-
-.containerEvents {
-    width: 95%;
-    padding: 20px;
-    background-color: #1768AC;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-    margin-left: 50px;
-    
-}
-
-#eventContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.eventCard {
-    width: 100%;
-    max-width: 300px;
-    background-color:aliceblue ;
-    border: 5px solid #EAC102;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.eventCard:hover {
-    transform: scale(1.05);
-    border: 3px solid #EAC102;;
-}
-
-.eventHeader {
-    font-family: 'Asap', sans-serif;
-    font-size: 25px;
-    font-weight: bold;
-    color: #1D3892;
-}
-
-.eventDetail {
-    font-family: 'Asap', sans-serif;
-    margin-top: 10px;
-    color: gray;
-
-}
-
-
-
 
 
