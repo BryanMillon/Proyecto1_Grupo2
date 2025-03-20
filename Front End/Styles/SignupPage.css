@@ -1,0 +1,261 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Asap;
+ 
+}
+
+
+
+main {
+  width: 100%;
+  min-height: 100vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+  padding: 20px 0;
+  box-sizing: border-box; 
+}
+
+section {
+  height: auto;
+  max-height: 100%;
+  overflow-y: auto; 
+}
+
+/* Para pantallas más pequeñas */
+@media (max-height: 700px) {
+  main {
+    align-items: flex-start;
+    padding-top: 30px;
+  }
+  
+  section {
+    max-height: none;
+  }
+}
+#registerSection {
+  background-color: #1d3892;
+  width: 830px;
+  height: auto;
+  border-radius: 40px;
+  filter: drop-shadow(15px 5px 4px rgba(0, 0, 0, 0.25));
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#logoSection {
+  display: flex;
+  color: white;
+  flex-shrink: 0;
+  display: flex;
+  margin-top: 85px;
+  gap: 20px;
+}
+
+#logoSection img {
+  width: 80px;
+  flex-shrink: 0;
+  aspect-ratio: 98.77/90.73;
+}
+
+#logoSection div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#logoSection div h2 {
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 93.021%;
+}
+
+#logoSection div h3 {
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 93.021%;
+}
+
+#titlesSection {
+  margin-top: 30px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#titlesSection h2 {
+  text-align: center;
+  font-family: Asap;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 93.021%;
+}
+
+#titlesSection h3 {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 93.021%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.profile-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 25px auto ;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.profile-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#preview{
+  cursor: pointer;
+}
+
+/* Ocultar input file */
+#file-input {
+  display: none;
+}
+
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+}
+
+.inputContainer input{
+  width: 636px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: var(--ffffff, #fff);
+  padding-left: 30px;
+  color: #848484;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 93.021%;
+  border: none;
+
+}
+
+.inputContainer select {
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: var(--ffffff, #fff);
+  padding-left: 30px;
+  color: #848484;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 93.021%;
+  border: none;
+  width: 665px; /* Ligeramente más ancho que los inputs para compensar */
+}
+
+.inputApellidos{
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.inputApellidos input{
+  display: flex;
+  width:297px; ;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: var(--ffffff, #fff);
+  padding-left: 30px;
+  color: #848484;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 93.021%;
+  border: none;
+}
+
+
+
+#loginContainer {
+  display: flex;
+  justify-content: start;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+#loginContainer a {
+  color: #FFF;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 93.021%;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  cursor: pointer;
+}
+
+#loginContainer a:hover{
+  color: #EAC102;
+}
+ 
+
+
+#loginContainer a span {
+  color: #EAC102;
+}
+
+#registerSection button {
+  border-radius: 15px;
+  background: var(--eac-102, #EAC102);
+  width: 273px;
+  height: 55px;
+  flex-shrink: 0;
+  color: #FFF;
+  text-align: center;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 93.021%;
+  border: none;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+#registerSection button:hover{
+  background-color: #1768AC;
+}
+
+
+input.error {
+  border: 2px solid red;
+  background-color: #f8d7da;
+}
+select.error{
+  border: 2px solid red;
+  background-color: #f8d7da;
+}

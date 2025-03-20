@@ -3,14 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <!--Link a reset.css-->
+   <link rel="stylesheet" href="../Styles/reset.css">
     <link rel="stylesheet" href="../Styles/OtheruserprofilePage.css">
 
-   <!--Link a reset.css-->
-   <link rel="stylesheet" href="../Styles/reset.css">
+        <!--Link a la fuente-->
+        <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap" rel="stylesheet">
+
 
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <div id="logoHeader">
+            <a href="../HTML/HomePage.html">
+                <img src="../IMG/logoheader.png" alt="logoheader">
+            </a>
+        </div>
     
+    <nav>
+        <ul>
+            <li><a href="../HTML/NewsPage.html">NOTICIAS</a></li>
+            <li><a href="../HTML/NoticesPage.html">AVISOS</a></li>
+            <li><a href="../HTML/ServicesPage.html">SERVICIOS</a></li>
+            <li><a href="../HTML/ReportsPage.html">DENUNCIAS</a></li>
+            <li><a href="../HTML/InitiativesPage.html">INICIATIVAS</a></li>
+            <li class="dropdown">
+                <a href="#">PERFIL</a>
+                <ul class="submenu">
+                    <li><a href="../HTML/UserprofilePage.html">MI PERFIL</a></li>
+                    <li><a href="../HTML/OtheruserprofilePage.html">PERFIL DE OTROS USUARIOS</a></li>
+                    <li><a href="#">CREAR AVISOS</a></li>
+                    <li><a href="#">CREAR NOTICIAS</a></li>
+                </ul>
+            </li>
+    </ul>
+    </nav>
+    </header>
+    
+    <div class="container">
+        <!-- Encabezado -->
+        <div class="header">
+            <h1 id="user-name">CARLOS SOTO</h1>
+        </div>
+
+        <!-- Sección de Información -->
+        <div class="info-section">
+            <p><strong>Información:</strong></p>
+        </div>
+
+        <!-- Imagen de Perfil -->
+        <div class="profile-img">
+            <img id="profile-pic" src="../IMG/fotoCarlos.jpg" alt="Foto de perfil">
+        </div>
+
+        <!-- Tarjeta de Información -->
+        <div class="info-card">
+            <p><strong>Nombre:</strong> <span id="first-name">Carlos Alberto</span></p>
+            <p><strong>Apellidos:</strong> <span id="last-name">Soto Mora</span></p>
+            <p><strong>Información de contacto:</strong></p>
+            <p><strong>Teléfono:</strong> <span id="phone">8888-8888</span></p>
+            <p><strong>Correo:</strong> <span id="email">carlossoto@correo.com</span></p>
+            <p><strong>Dirección:</strong> <span id="location">San Pedro</span></p>
+        </div>
+        
+    </div>
+    <footer>
+        <div id="copyright">
+        <p>&copy; 2025 Municipalidad de Montes de Oca</p>
+        </div>
+
+        <div id="logoFooter">
+            <a href="../HTML/HomePage.html">
+                <img src="../IMG/logofooter.png" alt="logofooter">
+            </a>
+        </div>
+    
+        <div id="navFooter">
+            <a href="../HTML/NewsPage.html">NOTICIAS</a>
+            <a href="../HTML/NoticesPage.html">AVISOS</a>
+            <a href="../HTML/ServicesPage.html">SERVICIOS</a>
+            <a href="../HTML/ReportsPage.html">DENUNCIAS</a>
+            <a href="../HTML/InitiativesPage.html">INICIATIVAS</a>
+        </div>
+    </footer>
+
+
 </body>
 </html>
