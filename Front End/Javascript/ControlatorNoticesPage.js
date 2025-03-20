@@ -136,5 +136,4 @@ function showEvents() {
 
 window.onload = function() {
     showEvents();
-    addFooter()
 };
