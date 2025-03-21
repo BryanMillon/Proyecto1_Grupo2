@@ -97,6 +97,7 @@ nav li {
 /* Estilos generales */
 body {
     font-family: 'Asap', sans-serif;
+    color: #A69B9B  ;
     margin: 0;
     padding: 0;
     background-color: #e0e0e0;
@@ -107,71 +108,78 @@ body {
 
 /*Formulario*/
 
-/* Contenedor del formulario */
 .form-container {
-    background-color: white;
-    max-width: 700px;
-    margin: 40px auto;
-    padding: 30px;
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9;
 }
 
-/* Encabezado del formulario */
 .form-header {
-    background-color: #173F99;
+    background-color: #00378a;
     color: white;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
-    font-size: 22px;
-    font-weight: bold;
-    border-radius: 5px 5px 0 0;
+    font-size: 20px;
+    border-radius: 5px;
 }
 
-
-/* Campos del formulario */
-form {
-    padding: 20px;
+.form-group {
+    margin: 15px 0;
 }
 
 label {
-    display: block;
-    margin-top: 10px;
     font-weight: bold;
-    color: gray;
+    display: block;
+    margin-bottom: 5px;
 }
 
-select, textarea {
+input, select, textarea {
     width: 100%;
     padding: 10px;
-    margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
 }
 
 textarea {
     height: 100px;
+    resize: none;
 }
 
-/* Botón de envío */
-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #FFC107;
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 15px;
     border: none;
-    color: black;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 15px;
     border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-button:hover {
-    background-color: #d4ac0d;
+.btn-cancel {
+    background-color: red;
+    color: white;
 }
 
+.btn-submit {
+    background-color: gold;
+    color: #FFFFFF;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.error {
+    border: 2px solid red;
+    background-color: #ffe5e5;
+}
 
 /*footer*/
 
