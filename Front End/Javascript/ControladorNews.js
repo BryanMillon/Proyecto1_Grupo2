@@ -1,110 +1,75 @@
-/*CONTROL THE EVENTS */
+/*Control de Noticias*/
 
-/*AFTER THEY COMES FROM THE DATABASE */
+/*Simulacion de Base de Datos*/
+const news = [
+    { 
+        titulo: "Accidente de gran escala en el sur",
+        subtitulo: "Accidente nuclear deja a 3 heridos y 2 muertos",
+        categoria: "Nacional" ,
+        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del pais",
+        fechaPublicacion: "202X-XX-XX XX:XX PM"
+    },
+    { 
+        titulo: "Accidente de gran escala en el sur",
+        subtitulo: "Accidente nuclear deja a 3 heridos y 2 muertos",
+        categoria: "Nacional" ,
+        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del pais",
+        fechaPublicacion: "202X-XX-XX XX:XX PM"
+    },
+    { 
+        titulo: "Accidente de gran escala en el sur",
+        subtitulo: "Accidente nuclear deja a 3 heridos y 2 muertos",
+        categoria: "Nacional" ,
+        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del pais",
+        fechaPublicacion: "202X-XX-XX XX:XX PM"
+    },
+    { 
+        titulo: "Accidente de gran escala en el sur",
+        subtitulo: "Accidente nuclear deja a 3 heridos y 2 muertos",
+        categoria: "Nacional" ,
+        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del pais",
+        fechaPublicacion: "202X-XX-XX XX:XX PM"
+    },
+    { 
+        titulo: "Accidente de gran escala en el sur",
+        subtitulo: "Accidente nuclear deja a 3 heridos y 2 muertos",
+        categoria: "Nacional" ,
+        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del pais",
+        fechaPublicacion: "202X-XX-XX XX:XX PM"
+    },
+    { 
+        titulo: "Accidente de gran escala en el sur",
+        subtitulo: "Accidente nuclear deja a 3 heridos y 2 muertos",
+        categoria: "Nacional" ,
+        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del pais",
+        fechaPublicacion: "202X-XX-XX XX:XX PM"
+    },
+]
 
-const events = [
-    { 
-        titulo: "Accidente de gran escala en el sur",
-        categoria: "Nacional",
-        subtitulo: "Accidente nuclear deja a 3 heridos y 2 muertos" ,
-        fechaPubliacion: "202X-XX-XX XX:XX PM",
-        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del pais."
-    }, 
-    { 
-        titulo: "Accidente de gran escala en el sur",
-        categoria: "Nacional",
-        subtitulo: "Accidente nuclear deja a 3 heridos y 2 muertos" ,
-        fechaPubliacion: "202X-XX-XX XX:XX PM",
-        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del pais."
-    },
-    { 
-        titulo: "Accidente de gran escala en el sur",
-        categoria: "Nacional",
-        subtitulo: "Accidente nuclear deja a 3 heridos y 2 muertos" ,
-        fechaPubliacion: "202X-XX-XX XX:XX PM",
-        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del pais."
-    },
-    { 
-        titulo: "Accidente de gran escala en el sur",
-        categoria: "Nacional",
-        subtitulo: "Accidente nuclear deja a 3 heridos y 2 muertos" ,
-        fechaPubliacion: "202X-XX-XX XX:XX PM",
-        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del pais."
-    },
-    { 
-        titulo: "Accidente de gran escala en el sur",
-        categoria: "Nacional",
-        subtitulo: "Accidente nuclear deja a 3 heridos y 2 muertos" ,
-        fechaPubliacion: "202X-XX-XX XX:XX PM",
-        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del pais."
-    },
-    { 
-        titulo: "Accidente de gran escala en el sur",
-        categoria: "Nacional",
-        subtitulo: "Accidente nuclear deja a 3 heridos y 2 muertos" ,
-        fechaPubliacion: "202X-XX-XX XX:XX PM",
-        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del pais."
-    },
-];
-
-// Function to sort events by date
+/*Funcion Ordenar Noticias por fecha de publicacion*/
 function sortEvents() {
-    /*events.sort: is a JavaScript method used to sort the elements of an array. This method modifies the original array and returns the sorted array.*/
-    /*comparate by fechaHora to order*/
-    return events.sort((a, b) => new Date(a.fechaHora) - new Date(b.fechaHora));
+    /*events.sort: es un método utilizado para ordenar los elementos de un "Array". Este método modifica la matriz original y devuelve el "Array" ordenado.*/
+    /*comparar "fechaPublicacion" para ordenarlo*/
+    return news.sort((a, b) => new Date(a.fechaPublicacion) - new Date(b.fechaPublicacion));
 }
 
-// Show events 
-function showEvents() {
-    const eventsContainer = document.getElementById('eventContainer');
-    sortEvents().forEach(event => {
-        const eventCard = document.createElement('div');
-        eventCard.classList.add('eventCard');
-        
-        eventCard.innerHTML = `
-            <div class="eventHeader">${event.titulo}</div>
-            <div class="eventDetail"><strong>Fecha y Hora:</strong> ${event.categoria}</div>
-            <div class="eventDetail"><strong>Categoría:</strong> ${event.subtitulo}</div>
-            <div class="eventDetail"><strong>Lugar:</strong> ${event.fechaPubliacion}</div>
-            <div class="eventDetail"><strong>Descripción:</strong> ${event.contenido}</div>
+// Mostrar Noticias 
+function showNews() {
+    const articlesCountainer = document.getElementById('articleCountainer');
+    sortEvents().forEach(news => {
+        const newCard = document.createElement('div');
+        newCard.classList.add('newCard');
+        newCard.innerHTML = `
+            <div class="newsHeader">${news.titulo}</div>
+            <div class="newsDetail"><strong>Subtitulo:</strong> ${news.subtitulo}</div>
+            <div class="newsDetail"><strong>Categoría:</strong> ${news.categoria}</div>
+            <div class="newsDetail"><strong>Articulo:</strong> ${news.contenido}</div>
+            <div class="newsDetail"><strong>Fecha de Publicacion:</strong> ${news.fechaPublicacion}</div>
         `;
-
-        eventsContainer.appendChild(eventCard);
+        articlesCountainer.appendChild(newCard);
     });
-
-
-
-    
-}
-
-
-
-// Execute the function to display events when the page loads
-function addFooter(){
-        let footer = document.createElement("footer");
-        footer.innerHTML = `
-             <div id="copyright">
-            <p>&copy; 2025 Municipalidad de Montes de Oca</p>
-            </div>
-
-            <div id="logoFooter">
-                <a href="../HTML/HomePage.html">
-                    <img src="../IMG/logofooter.png" alt="logofooter">
-                </a>
-            </div>
-        
-            <div id="navFooter">
-                <a href="../HTML/AdminPage.html">ADMINISTRADOR</a>
-                <a href="../HTML/NewsPage.html">NOTICIAS</a>
-                <a href="../HTML/NoticesPage.html">AVISOS</a>
-                <a href="../HTML/ServicesPage.html">SERVICIOS</a>
-                <a href="../HTML/ReportsPage.html">DENUNCIAS</a>
-                <a href="../HTML/InitiativesPage.html">INICIATIVAS</a>
-            </div>`;
-        document.body.appendChild(footer);
 }
 
 window.onload = function() {
-    showEvents();
-    addFooter()
+    showNews();
 };
