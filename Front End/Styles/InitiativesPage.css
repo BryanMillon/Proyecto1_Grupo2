@@ -91,64 +91,69 @@ nav li {
 }
 
 /* Encabezado */
-/* Banner */
+<style>
+body {
+    font-family: 'Asap', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
 .banner {
-    background-color: #173F99;
+    background-color: #00378a;
     color: white;
+    text-align: center;
+    padding: 15px;
     font-size: 24px;
     font-weight: bold;
-    padding: 15px;
-    text-align: center;
-    text-transform: uppercase;
 }
 
-/* Contenedor principal */
 .container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
-}
-
-/* Tarjetas de iniciativa */
-.initiative-card {
+    width: 80%;
+    margin: auto;
     display: flex;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-    overflow: hidden;
-    align-items: center;
-    padding: 15px;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
 }
 
-.initiative-card img {
-    width: 250px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.initiative-info {
+.initiative-card {
+    background-color: #00378a;
+    color: white;
     padding: 20px;
-    text-align: left;
+    border-radius: 15px;
+    position: relative;
 }
 
-.initiative-info h2 {
-    font-size: 20px;
-    color: #173F99;
-    margin: 0 0 10px;
+.initiative-card h2 {
+    text-align: center;
+    font-size: 22px;
 }
 
-.subtitle {
-    font-size: 16px;
+.info-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.info-box {
+    background-color: #ddd;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
     font-weight: bold;
-    color: #0073e6;
+    text-align: center;
 }
 
-.initiative-info p {
-    font-size: 14px;
-    color: #444;
-    margin: 5px 0;
+.description-box {
+    background-color: #e0e0e0;
+    color: black;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: justify;
+    width: 80%;
+    margin: auto;
 }
 /*footer*/
 
