@@ -255,57 +255,57 @@ footer{
     color: #50B2F1;
 }
 
-/*estilos de tabla Usuarios*/
+/*Estilos de tabla Usuarios*/
 
 #sctPendingUsers{
-    height: 300px;
-    background-color: #1768AC;
     display: flex;
+    display: column;
     align-items: center;
     justify-content: space-between;
-    margin-right: 30px;
-    margin-left: 30px;
-    margin-top: 10px;/*este despues lo tengo que quitar*/
-
+    padding: 0.5px;
+    margin-left: 200px;
+    margin-right: 200px;
 }
 
 #tablePendingUsers{
-    background-color: aliceblue;
     width: 100%;
-    height: 100%px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
+    margin-top: 20px;
+    background-color: #FFFFFF;
+    color: black;
+    font-family: 'Asap', sans-serif;
+    font-size: 15px;
+    text-align: center;
+    border-collapse: collapse;
+    
 }
 
-
 #titlePendingUsers{
+    border: 5px solid #D9D9D9; /* Bordes internos */
     background-color: #1D3892;
     margin: 30px;
     width: 100%;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
+    align-items: center;
+    
 }
-
 
 #titlePendingUserh1{
     font-family: 'Asap', sans-serif;
     font-size: 35px;
-    color: aliceblue;
+    color: #D9D9D9;
     text-align: center;
-    padding-top: 5px;
-    font-weight: bold
-   
+    font-weight: bold;
+    width: 100%; 
+    
+    
 }
-
-
 
 #tableUserPending {
     width: 100%;
     margin-top: 20px;
-    background-color: white ; 
+    background-color: #FFFFFF ; 
     color: black; 
     font-family: 'Asap', sans-serif;
     font-size: 15px;
@@ -313,4 +313,51 @@ footer{
 
 }
 
+#tableUserPending th, #tableUserPending td {
+    
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    border: 5px solid #D9D9D9; /* Bordes internos */
+}
 
+
+
+#theadcustom {
+    background-color: #EAC102;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.btnAccept {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Asap', sans-serif;
+    background-color: #EAC102;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.btnAccept:hover {
+    background-color: #1D3892;
+    cursor: pointer;
+    color: white;
+}
+
+.btnDeny {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Asap', sans-serif;
+    background-color: #1768AC;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Change the color when passs the mouse */
+.btnAccept:hover {
+    cursor: pointer;
+    background-color: #1D3892;
+}
