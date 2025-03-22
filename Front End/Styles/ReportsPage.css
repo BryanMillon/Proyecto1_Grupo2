@@ -321,7 +321,7 @@ footer {
     padding: 10px 20px;
     font-size: 25px;
     font-family: 'Asap', sans-serif;
-    background-color: #1768AC;
+    background-color: #EA0202;
     color: white;
     border: none;
     border-radius: 5px;
@@ -330,7 +330,7 @@ footer {
 
 #btnBotonLimpiar:hover {
     cursor: pointer;
-    background-color: #1D3892;
+    background-color: #c00b0b;
     color: white;
 }
 
