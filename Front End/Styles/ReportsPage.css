@@ -9,15 +9,15 @@ body {
     flex-direction: column;
     height: 125vh; /* Altura mínima igual a la ventana */
     font-family: 'Asap',sans-serif;
-  }
-  
-  main {
+}
+
+main {
     background: rgb(16,73,121);
     background: linear-gradient(180deg, rgba(16,73,121,1) 49%, rgba(9,42,70,1) 99%);
     width: 100%;
-  }
-  
-header{
+}
+
+header {
     width: 100%;
     height: 180px;
     background-color: #1D3892;
@@ -26,29 +26,29 @@ header{
     justify-content: space-between;
 }
 
-#logoHeader img{
+#logoHeader img {
     width: 450px;
     margin-left: 50px;
 }
 
-nav{
+nav {
     margin-right: 80px;
     padding: 35px 0;
 }
 
-nav li{
+nav li {
     display: inline;
     padding: 44px 25px;
 }
 
-nav li a{
+nav li a {
     text-decoration: none;
     color: #FFFFFF;
     font-weight: 600;
     font-size: 20px;
 }
 
-nav li a:hover{
+nav li a:hover {
     color: #50B2F1;
     cursor: pointer;
 }
@@ -112,25 +112,25 @@ nav li {
     background-color: #1768AC;
     display: flex;
     align-items: center;
-
 }
 
-#mainEventPage h1{
+#mainEventPage h1 {
     color: #FFFFFF;
     font-size: 50px;
     font-weight: 600;
     margin-left: 50px;
 }
 
-
-
-footer{
+footer {
     width: 100%;
     height: 200px;
     background-color: #1D3892;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: auto; /* Empuja el pie de página hacia abajo */
+    position: relative;
+    z-index: 10;
 }
 
 #copyright {
@@ -172,49 +172,44 @@ footer{
     color: #50B2F1;
 }
 
-#guiaDenuncias{
+/* Alineación de la caja Guia Denuncias */
+#guiaDenuncias {
     display: flex;
-    display: inline;
+    flex-direction: column;  /* Cambiar a columna para colocar el título encima */
     justify-content: center;
     align-items: center;
-    width: 95%;
+    width: 100%;
     padding: 20px;
     background-color: #1768AC;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin-top: 30px;
     margin-bottom: 30px;
-    margin-left: 50px;
-
 }
 
-#tituloGuiaDenuncias{
+/* Título del bloque Guia Denuncias */
+#tituloGuiaDenuncias {
     width: 100%;
     height: auto;
     background-color: #1D3892;
     display: flex;
     align-items: center;
-    padding-left: 0%;
     justify-content: center;
 }
 
-
-
-#tituloGuiaDenuncias h2{
+#tituloGuiaDenuncias h2 {
     font-family: 'Asap', sans-serif;
     font-size: 36px;
     font-weight: bold;
     color: aliceblue;
-    }
+}
 
-
-
-#contenidoBloque{
+/* Bloque de Contenido */
+#contenidoBloque {
     width: 100%;
-    max-width: 1500px;
     padding: 20px;
     margin: 10px;
-    background-color: aliceblue; /* Color de fondo del contenedor */
+    background-color: aliceblue;
     border-radius: 8px;
     padding-top: 30px;
     display: flex;
@@ -222,55 +217,49 @@ footer{
     font-size: 40x;
     font-family: 'Asap', sans-serif;
     align-items: center;
-
 }
 
-#mainEventPage{
+/* Página de Evento Principal */
+#mainEventPage {
     width: 100%;
     height: 60px;
     background-color: #1768AC;
     display: flex;
     align-items: center;
     justify-content: left;
-
 }
 
-#mainEventPage h1{
+#mainEventPage h1 {
     font-family: 'Asap', sans-serif;
     font-size: 48px;
     font-weight: bold;
     color: aliceblue;
-    }
+}
 
-
-
-/*NEW EVENT FORM*/
-
-#sctFormNewEvent{
+/* Formulario Nuevo Evento */
+#sctFormNewEvent {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 95%;
+    width: 100%;
     padding: 20px;
     background-color: #1768AC;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin-top: 30px;
     margin-bottom: 30px;
-    margin-left: 50px;
 }
 
 #containerForm {
     width: 100%;
-    max-width: 1500px;
     padding: 20px;
     margin: 10px;
-    background-color: aliceblue; /* Color de fondo del contenedor */
+    background-color: aliceblue;
     border-radius: 8px;
-
 }
 
-#titleNewEvent{
+/* Título del formulario Nuevo Evento */
+#titleNewEvent {
     height: 40px;
     background-color: #1D3892;
     display: center;
@@ -278,16 +267,16 @@ footer{
     border-radius: 8px;
 }
 
-#titleNewEventH1{
+#titleNewEventH1 {
     text-align: center;
     font-size: 30px;
     font-family: 'Asap', sans-serif;
     color: aliceblue;
-    padding: 5px 5px 5px 5px ;
+    padding: 5px 5px 5px 5px;
 }
 
-
-#formNewEvent{
+/* Formulario para Nuevo Evento */
+#formNewEvent {
     width: 100%;
     padding-top: 30px;
     display: flex;
@@ -297,19 +286,19 @@ footer{
     align-items: center;
 }
 
+/* Estilo para los inputs del formulario */
 .inputForm {
-    width: 70%;
+    width: 100%;
     padding: 3px;
     margin: 9px;
     border: 2px solid #1768AC;
     border-radius: 5px;
     color: #1D3892;
     font-size: 18px;
-
 }
 
 .dateTimePicker {
-    width: 69%;
+    width: 100%;
     padding: 10px;
     font-size: 16px;
     font-family: 'Asap', sans-serif;
@@ -319,7 +308,7 @@ footer{
 }
 
 .categorySelect {
-    width: 71%;
+    width: 100%;
     padding: 10px;
     font-size: 16px;
     border: 2px solid #1768AC;
@@ -327,7 +316,7 @@ footer{
     margin-top: 10px;
 }
 
-/* Style btnBotonLimpiar*/
+/* Estilos de los botones */
 #btnBotonLimpiar {
     padding: 10px 20px;
     font-size: 25px;
@@ -339,14 +328,12 @@ footer{
     margin-right: 10px;
 }
 
-/* Change the color when passs the mouse */
 #btnBotonLimpiar:hover {
     cursor: pointer;
     background-color: #1D3892;
     color: white;
 }
 
-/* Style btnBotonCrear*/
 #btnBotonCrear {
     padding: 10px 20px;
     font-size: 25px;
@@ -358,32 +345,133 @@ footer{
     margin-right: 10px;
 }
 
-/* Change the color when passs the mouse */
 #btnBotonCrear:hover {
     cursor: pointer;
     background-color: #1D3892;
     color: white;
 }
 
-
-
-.labelFormulario{
+/* Estilo para las etiquetas del formulario */
+.labelFormulario {
     font-size: 20px;
     font-family: 'Asap', sans-serif;
     margin: 10px;
 }
 
-
-#textDescription{
+#textDescription {
     height: 100px;
 }
 
-
-
-/*Validaciones del formulario */
-
-.error{
+/* Estilos de validación */
+.error {
     border: 2px solid red;
 }
 
+#file {
+    font-size: 20px;
+    font-family: 'Asap', sans-serif;
+    margin: 10px;
+}
 
+#btnSubir {
+    font-size: 20px;
+    font-family: 'Asap', sans-serif;
+    margin: 10px;
+}
+
+/* Listado de Denuncias */
+#listadoDenuncias {
+    display: flex;
+    flex-direction: column;  /* Cambiar a columna para colocar el título encima */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    background-color: #1768AC;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 30px 0;
+}
+
+/* Título del listado de denuncias */
+#tituloListadoDenuncias {
+    width: 100%;
+    background-color: #1D3892;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0;
+    border-radius: 8px 8px 0 0;
+}
+
+#tituloListadoDenuncias h2 {
+    font-family: 'Asap', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: aliceblue;
+}
+
+/* Contenido del listado de denuncias */
+#contenidoListado {
+    width: 100%;
+    background-color: aliceblue;
+    border-radius: 0 0 8px 8px;
+    padding: 20px;
+    margin-bottom: 50px; /* Espacio entre la tabla y el pie de página */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Asap', sans-serif;
+    margin-bottom: 80px; /* Añadir margen inferior */
+    background-color: aliceblue
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+    font-size: 18px;
+}
+
+th {
+    background-color: #1768AC;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilos para las clases de estado */
+.estado {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.pendiente {
+    color: orange;
+}
+
+.resuelto {
+    color: green;
+}
+
+.rechazado {
+    color: red;
+}
+
+/* Estilos generales para HTML y Body */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#mainContent {
+    flex: 1; 
+    padding-bottom: 50px; 
+}
