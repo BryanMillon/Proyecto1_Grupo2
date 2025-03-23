@@ -1,17 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!--Link a reset.css-->
-      <link rel="stylesheet" href="../Styles/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Styles/reset.css">
     <link rel="stylesheet" href="../Styles/AccountVerificationPage.css">
-
- 
-
-    <title>Document</title>
+    <title>Verificacion de cuenta</title>
 </head>
 <body>
-    
+    <main>
+        <section id="verificationSection">
+            <header id="logoSection">
+                <img src="../IMG/Logo.svg" alt="Logo Municipalidad">
+                <div>
+                    <h2>MUNICIPALIDAD</h2>
+                    <h3>MONTES DE OCA</h3>
+                </div>
+            </header>
+
+            <div id="titlesSection">
+                <h2>Verificacion de Correo</h2>
+                <h3>Ingrese el codigo de verificacion que te mandamos a tu correo.</h3>
+                <h3>Si no lo encuentras revisa tu folder de spam.</h3>
+
+            </div>
+
+            <form id="form">
+                <div class="inputContainer">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M336 352c97.2 0 176-78.8 176-176S433.2 0 336 0S160 78.8 160 176c0 18.7 2.9 36.8 8.3 53.7L7 391c-4.5 4.5-7 10.6-7 17l0 80c0 13.3 10.7 24 24 24l80 0c13.3 0 24-10.7 24-24l0-40 40 0c13.3 0 24-10.7 24-24l0-40 40 0c6.4 0 12.5-2.5 17-7l33.3-33.3c16.9 5.4 35 8.3 53.7 8.3zM376 96a40 40 0 1 1 0 80 40 40 0 1 1 0-80z"/></svg>
+                    <input type="text" name="text" id="text" placeholder="Codigo" required>
+                </div>
+
+              
+
+                <button type="button" id="btnVerification">Enviar</button>
+
+                <div id="linesContainer">
+                    <div></div>
+                </div>
+
+                <div id="resendCodeContainer">
+                    <a href="../HTML/SignupPage.html">No recibiste el codigo? <span>Reenviar codigo</span></a>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../Javascript/ControladorAccountVerificationPage.js"></script>
 </body>
 </html>

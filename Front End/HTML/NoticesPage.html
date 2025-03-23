@@ -4,19 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Link a reset.css-->
+    
+    <!-- Link a reset.css -->
     <link rel="stylesheet" href="../Styles/reset.css">
-    <!--Link a navegacion.css-->
+    <!-- Link a NoticesPage.css -->
     <link rel="stylesheet" href="../Styles/NoticesPage.css">
-
-
-
-    <!--Link a la fuente-->
+    <!-- Link a la fuente -->
     <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap" rel="stylesheet">
-
-
-    <title>Events</title>
-
+    
+    <title>Notices</title>
 </head>
 
 <body>
@@ -40,7 +36,7 @@
                     <a href="#">PERFIL</a>
                     <ul class="submenu">
                         <li><a href="../HTML/UserprofilePage.html">MI PERFIL</a></li>
-                        <li><a href="../HTML/OtheruserprofilePage.html">PERFIL DE OTROS USUARIOS</a></li>
+                        <li><a href="../HTML/UserProfileAdminView.html">PERFIL DE OTROS USUARIOS</a></li>
                         <li><a href="../HTML/NoticesCreationPage.html">CREAR AVISO</a></li>
                         <li><a href="../HTML/NewsCreationPage.html">CREAR NOTICIA</a></li>
                     </ul>
@@ -49,52 +45,55 @@
         </nav>
     </header>
 
-
-    <!--Section Event-->
-
-    <section id="mainEventPage">
-        <!--Events Title-->
-        <h1>
-            <h1 id="Events">Avisos Municipales</h1>
-        </h1>
-
-    </section>
-
-    
     <main>
 
-    <!--End Section Event-->
+        <!-- Section Event -->
+        <section id="mainEventPage">
+            <h1>AVISOS MUNICIPALES</h1>
+        </section>
 
-    <!--Events-->
+        <!-- Events -->
+        <section id="sctUpcomingEvents">
+            <!-- Start Image -->
+            <div id="imageUpcomingEvents">
+                <!-- Images -->
+                <div id="imageNextEvents" class="styleImagen"></div>
+            </div>
+            <!-- End Image -->
 
-    <section id="sctUpcomingEvents">
-        <!--Title-->
-
-        <h1 id="titleUpcomingEvents">
-            Próximos Avisos
-        </h1>
-        <!--Start Image-->
-        <div id="imageUpcomingEvents">
-            <!--Images-->
-            <div id="imageNextEvents" class="styleImagen">
-        </div>
-         <!--End Imagen-->
-         
-         <div id="containerEvents">
-            <div id="eventContainer">
-         <!-- Events will be added here dynamically  -->
-             </div>
-        </div>
-        
-    </section>
+            <div id="containerEvents">
+                <div id="eventContainer">
+                    <!-- Events will be added here dynamically -->
+                </div>
+            </div>
+        </section>
 
     </main>
 
-    
+    <footer>
+        <div id="copyright">
+            <p>&copy; 2025 Municipalidad de Montes de Oca</p>
+        </div>
 
-    <!--Vincular el js-->
+        <div id="logoFooter">
+            <a href="../HTML/HomePage.html">
+                <img src="../IMG/logofooter.png" alt="logofooter">
+            </a>
+        </div>
+
+        <div id="navFooter">
+            <a href="../HTML/AdminPage.html">ADMINISTRADOR</a>
+            <a href="../HTML/NewsPage.html">NOTICIAS</a>
+            <a href="../HTML/NoticesPage.html">AVISOS</a>
+            <a href="../HTML/ServicesPage.html">SERVICIOS</a>
+            <a href="../HTML/ReportsPage.html">DENUNCIAS</a>
+            <a href="../HTML/InitiativesPage.html">INICIATIVAS</a>
+        </div>
+    </footer>
+
+    <!-- Vincular el js -->
     <script src="../Javascript/ControlatorNoticesPage.js"></script>
-    <!--Sweet Alert-->
+    <!-- Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>

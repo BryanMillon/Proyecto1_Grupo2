@@ -1,8 +1,12 @@
-body{
-    font-family: 'Asap',sans-serif;
+body {
+    font-family: 'Asap', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-header{
+header {
     width: 100%;
     height: 180px;
     background-color: #1D3892;
@@ -11,28 +15,28 @@ header{
     justify-content: space-between;
 }
 
-#logoHeader img{
+#logoHeader img {
     width: 450px;
     margin-left: 50px;
 }
 
-nav{
+nav {
     margin-right: 80px;
 }
 
-nav li{
+nav li {
     display: inline;
     padding: 44px 25px;
 }
 
-nav li a{
+nav li a {
     text-decoration: none;
     color: #FFFFFF;
     font-weight: 600;
     font-size: 20px;
 }
 
-nav li a:hover{
+nav li a:hover {
     color: #50B2F1;
     cursor: pointer;
 }
@@ -90,77 +94,70 @@ nav li {
     display: block;
 }
 
-
-#blueBackground{
+/* Main content area */
+#blueBackground {
     background: rgb(16,73,121);
     background: linear-gradient(180deg, rgba(16,73,121,1) 49%, rgba(9,42,70,1) 99%);
-}
-
-#sctPendingEvents{
     display: flex;
-    display: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5px;
-    margin-left: 200px;
-    margin-right: 200px;
+    flex-wrap: wrap;
+    flex: 1;
+    padding: 30px;
+    justify-content: center;
+    gap: 50px;
 }
 
-#tablePendingEvent{
+
+#sctPendingEvents, #sctPendingUsers {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    max-width: 1200px;
+    margin-bottom: 30px;
 }
 
 
-#titlePendingEvent{
-    border: 5px solid #D9D9D9; /* Bordes internos */
+#tablePendingEvent, #tablePendingUsers {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+}
+
+/* Title container styles - shared between both tables */
+#titlePendingEvent, #titlePendingUsers {
+    border: 5px solid #D9D9D9;
     background-color: #1D3892;
-    margin: 30px;
+    margin-bottom: 20px;
     width: 100%;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
 }
 
-
-#titlePendingEventh1{
+/* Title text styles - shared between both tables */
+#titlePendingEventh1, #titlePendingUserh1 {
     font-family: 'Asap', sans-serif;
     font-size: 35px;
     color: #D9D9D9;
     text-align: center;
-    padding-top: 5px;
-    font-weight: bold
-   
+    padding: 10px;
+    font-weight: bold;
+    margin: 0;
 }
 
-
-
-#tableEventPending {
+/* Table styles - shared between both tables */
+#tableEventPending, #tableUserPending {
     width: 100%;
-    margin-top: 20px;
-    background-color: #FFFFFF ; 
-    color: black; 
+    background-color: #FFFFFF;
+    color: black;
     font-family: 'Asap', sans-serif;
     font-size: 15px;
-    align-items: center;
-
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-#tdCustom{
-    border: 5px solid #D9D9D9; /* Bordes internos */
-    padding: 5px;
-    text-align: center; /* Centrar el texto */
-    vertical-align: middle; /* Centrar verticalmente */
-    word-wrap: break-word; /* Permitir salto de línea */
-    white-space: normal; /* Permitir múltiples líneas */
-    max-width: 200px; /* Limitar el ancho de las celdas */
-}
-
+/* Table header styles - shared between both tables */
 #theadcustom {
-    border: 2px solid FFFFFF; /* Bordes internos */
     background-color: #EAC102;
     height: 30px;
     font-family: 'Asap', sans-serif;
@@ -168,8 +165,24 @@ nav li {
     font-weight: bold;
 }
 
+#theadcustom th {
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #FFFFFF;
+}
 
-#btnPublish {
+/* Table data styles */
+td {
+    border: 2px solid #D9D9D9;
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+/* Button styles */
+.btnAccept, #btnPublish {
     padding: 10px 20px;
     font-size: 16px;
     font-family: 'Asap', sans-serif;
@@ -178,17 +191,15 @@ nav li {
     border: none;
     border-radius: 5px;
     margin-right: 10px;
+    cursor: pointer;
 }
 
-/* Change the color when passs the mouse */
-#btnPublish:hover {
+.btnAccept:hover, #btnPublish:hover {
     background-color: #1D3892;
-    cursor: pointer;
     color: white;
 }
 
-
-#btnCancel {
+.btnDeny, #btnCancel {
     padding: 10px 20px;
     font-size: 16px;
     font-family: 'Asap', sans-serif;
@@ -197,23 +208,22 @@ nav li {
     border: none;
     border-radius: 5px;
     margin-right: 10px;
+    cursor: pointer;
 }
 
-/* Change the color when passs the mouse */
-#btnCancel:hover {
-    cursor: pointer;
+.btnDeny:hover, #btnCancel:hover {
     background-color: #1D3892;
 }
 
-
-
-footer{
+/* Footer styles */
+footer {
     width: 100%;
     height: 200px;
     background-color: #1D3892;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: auto;
 }
 
 #copyright {
@@ -229,7 +239,6 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 200px;
 }
 
 #logoFooter img {
@@ -255,4 +264,33 @@ footer{
     color: #50B2F1;
 }
 
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    #blueBackground {
+        padding: 20px;
+    }
+    
+    #sctPendingEvents, #sctPendingUsers {
+        padding: 0 10px;
+    }
+}
 
+@media (max-width: 768px) {
+    #titlePendingEventh1, #titlePendingUserh1 {
+        font-size: 28px;
+    }
+    
+    #theadcustom {
+        font-size: 16px;
+    }
+    
+    footer {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+    }
+    
+    #copyright, #logoFooter, #navFooter {
+        margin: 10px 0;
+    }
+}

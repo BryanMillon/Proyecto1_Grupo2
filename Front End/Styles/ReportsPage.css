@@ -1,39 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-body{
+body {
+    display: flex;
+    flex-direction: column;
+    height: 125vh; /* Altura mínima igual a la ventana */
     font-family: 'Asap',sans-serif;
 }
 
-header{
+main {
+    background: rgb(16,73,121);
+    background: linear-gradient(180deg, rgba(16,73,121,1) 49%, rgba(9,42,70,1) 99%);
     width: 100%;
-    height: 200;
+}
+
+header {
+    width: 100%;
+    height: 180px;
     background-color: #1D3892;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-#LogoHeader img{
+#logoHeader img {
     width: 450px;
     margin-left: 50px;
 }
 
-nav{
+nav {
     margin-right: 80px;
+    padding: 35px 0;
 }
 
-nav li{
+nav li {
     display: inline;
     padding: 44px 25px;
 }
 
-nav li a{
+nav li a {
     text-decoration: none;
     color: #FFFFFF;
     font-weight: 600;
     font-size: 20px;
 }
 
-nav li a:hover{
+nav li a:hover {
     color: #50B2F1;
     cursor: pointer;
 }
@@ -91,7 +106,7 @@ nav li {
     display: block;
 }
 
-#TituloPagina {
+#mainEventPage {
     width: 100%;
     height: 100px;
     background-color: #1768AC;
@@ -99,99 +114,23 @@ nav li {
     align-items: center;
 }
 
-#TituloPagina h1{
+#mainEventPage h1 {
     color: #FFFFFF;
     font-size: 50px;
     font-weight: 600;
     margin-left: 50px;
 }
 
-
-#ContenedorPrincipal {
-    width: 100%;
-    height: auto;
-    background-color: #D9D9D9;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px 0px 20px 0px;
-}
-
-.servicio {
-    display: flex;
-    background: #FFFFFF;
-    padding: 15px;
-    border-radius: 8px;
-    width: 60%;
-    height: 250px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    justify-content: center;
-}
-
-.servicio img {
-    width: auto;
-    height: auto;
-    border-radius: 8px;
-    margin-right: 15px;
-}
-
-.InfoServicios {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#ContenedorPrincipal h2 {
-    color: #1768AC;
-    margin-bottom: 10px;
-    font-size: 30px;
-}
-
-#ContenedorPrincipal p{
-    font-size: 20px;
-}
-
-#Contacto {
-    background-color: #1D3892;
-    color: #FFFFFF;
-    text-align: center;
-    padding: 50px;
-    font-size: 18px;
-    margin: 20px;
-    border-radius: 10px;
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#Contacto h2{
-    color: #EAC102;
-    font-weight: bold;
-    font-size: 40px;
-    text-align: left;
-}
-
-#Contacto img{
-    width: 30px;
-    height: auto;
-    margin-right: 10px;
-}
-
-#Contacto p{
-    font-size: 28px;
-    font-weight: 500;
-    color: #FFFFFF;
-    text-align: right;
-}
-
-footer{
+footer {
     width: 100%;
     height: 200px;
     background-color: #1D3892;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: auto; /* Empuja el pie de página hacia abajo */
+    position: relative;
+    z-index: 10;
 }
 
 #copyright {
@@ -233,126 +172,94 @@ footer{
     color: #50B2F1;
 }
 
-
-#mainEventPage{
-    width: 100%;
-    height: 60px;
-    background-color: #EAC102;
+/* Alineación de la caja Guia Denuncias */
+#guiaDenuncias {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-}
-
-#Events{
-    font-family: 'Asap', sans-serif;
-    font-size: 48px;
-    font-weight: bold;
-    color: aliceblue;
-    }
-
-
-/*Search*/
-
-.searchContainer {
-    display: flex;
-    justify-content: center;
-    align-items: left;
-}
-
-/* Style search box*/
-.searchBox {
-    width: 200px;
-    padding: 10px;
-    font-size: 16px;
-    font-family: 'Asap', sans-serif;
-    border: 2px solid #1768AC;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-/* Style seach butoon*/
-.searchButton {
-    padding: 10px 20px;
-    font-size: 16px;
-    font-family: 'Asap', sans-serif;
-    background-color: #1768AC;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-/* Change the color when passs the mouse */
-.searchButton:hover {
-    cursor: pointer;
-    background-color: #1D3892;
-}
-
-/*Date Conteiner*/
-
-/* Style Date Conteiner*/
-.dateContainer{
-    width: 100%;
-    max-width: 400px;
-    padding: 10px 20px;
-    box-sizing: border-box;
-    text-align: center;
-    display: flex;
+    flex-direction: column;  /* Cambiar a columna para colocar el título encima */
     justify-content: center;
     align-items: center;
-    margin-right: 60px;
-}
-
-/* Estilo para el input de fecha */
-.datePicker {
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    font-family: 'Asap', sans-serif;
-    border: 2px solid #1768AC;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-#rangeDate{
-    color:black;
-    white-space: nowrap; /* Evita el salto de línea en la etiqueta */
-    font-size: 25px;
-    font-family: 'Asap', sans-serif;
-    text-align: left;
-    margin-right: 10px;
-}
-
-
-
-/*NEW EVENT FORM*/
-
-#sctFormNewEvent{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 95%;
     padding: 20px;
     background-color: #1768AC;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin-top: 30px;
     margin-bottom: 30px;
-    margin-left: 50px;
 }
 
-#conteinerForm {
+/* Título del bloque Guia Denuncias */
+#tituloGuiaDenuncias {
     width: 100%;
-    max-width: 1500px;
+    height: auto;
+    background-color: #1D3892;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#tituloGuiaDenuncias h2 {
+    font-family: 'Asap', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: aliceblue;
+}
+
+/* Bloque de Contenido */
+#contenidoBloque {
+    width: 100%;
     padding: 20px;
     margin: 10px;
-    background-color: aliceblue; /* Color de fondo del contenedor */
+    background-color: aliceblue;
     border-radius: 8px;
-
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    font-size: 40x;
+    font-family: 'Asap', sans-serif;
+    align-items: center;
 }
 
-#titleNewEvent{
+/* Página de Evento Principal */
+#mainEventPage {
+    width: 100%;
+    height: 60px;
+    background-color: #1768AC;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+#mainEventPage h1 {
+    font-family: 'Asap', sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    color: aliceblue;
+}
+
+/* Formulario Nuevo Evento */
+#sctFormNewEvent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    background-color: #1768AC;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#containerForm {
+    width: 100%;
+    padding: 20px;
+    margin: 10px;
+    background-color: aliceblue;
+    border-radius: 8px;
+}
+
+/* Título del formulario Nuevo Evento */
+#titleNewEvent {
     height: 40px;
     background-color: #1D3892;
     display: center;
@@ -360,16 +267,16 @@ footer{
     border-radius: 8px;
 }
 
-#titleNewEventH1{
+#titleNewEventH1 {
     text-align: center;
     font-size: 30px;
     font-family: 'Asap', sans-serif;
     color: aliceblue;
-    padding: 5px 5px 5px 5px ;
+    padding: 5px 5px 5px 5px;
 }
 
-
-#formNewEvent{
+/* Formulario para Nuevo Evento */
+#formNewEvent {
     width: 100%;
     padding-top: 30px;
     display: flex;
@@ -379,19 +286,19 @@ footer{
     align-items: center;
 }
 
+/* Estilo para los inputs del formulario */
 .inputForm {
-    width: 70%;
+    width: 100%;
     padding: 3px;
     margin: 9px;
     border: 2px solid #1768AC;
     border-radius: 5px;
     color: #1D3892;
     font-size: 18px;
-
 }
 
 .dateTimePicker {
-    width: 69%;
+    width: 100%;
     padding: 10px;
     font-size: 16px;
     font-family: 'Asap', sans-serif;
@@ -401,7 +308,7 @@ footer{
 }
 
 .categorySelect {
-    width: 71%;
+    width: 100%;
     padding: 10px;
     font-size: 16px;
     border: 2px solid #1768AC;
@@ -409,8 +316,24 @@ footer{
     margin-top: 10px;
 }
 
+/* Estilos de los botones */
+#btnBotonLimpiar {
+    padding: 10px 20px;
+    font-size: 25px;
+    font-family: 'Asap', sans-serif;
+    background-color: #EA0202;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
 
-/* Style btnBotonCrear*/
+#btnBotonLimpiar:hover {
+    cursor: pointer;
+    background-color: #c00b0b;
+    color: white;
+}
+
 #btnBotonCrear {
     padding: 10px 20px;
     font-size: 25px;
@@ -422,147 +345,133 @@ footer{
     margin-right: 10px;
 }
 
-/* Change the color when passs the mouse */
 #btnBotonCrear:hover {
     cursor: pointer;
     background-color: #1D3892;
     color: white;
 }
 
-/* Style btnBotonPublicar*/
-
-
-#btnBotonPublicar {
-    padding: 10px 20px;
-    font-size: 25px;
-    font-family: 'Asap', sans-serif;
-    background-color: #EAC102;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-/* Change the color when passs the mouse */
-#btnBotonPublicar:hover {
-    background-color: #1D3892;
-    cursor: pointer;
-    color: white;
-}
-
-
-.labelFormulario{
+/* Estilo para las etiquetas del formulario */
+.labelFormulario {
     font-size: 20px;
     font-family: 'Asap', sans-serif;
     margin: 10px;
 }
 
-
-#textDescription{
+#textDescription {
     height: 100px;
 }
 
-
-
-/*Validaciones del formulario */
-
-.error{
+/* Estilos de validación */
+.error {
     border: 2px solid red;
 }
 
-
-
-/*Proximos Eventos*/
-
-#sctUpcomingEvents{
-    display: flex;
-    display: inline;
-    weight: 100vh;
-}
-
-#titleUpcomingEvents{
-    width: 100%;
-    font-size: 50px;
+#file {
+    font-size: 20px;
     font-family: 'Asap', sans-serif;
-    color: #1D3892;
-    background-color: white;
-    text-align: center;
+    margin: 10px;
 }
 
-/*Imagen*/
+#btnSubir {
+    font-size: 20px;
+    font-family: 'Asap', sans-serif;
+    margin: 10px;
+}
 
-#imageUpcomingEvents{
+/* Listado de Denuncias */
+#listadoDenuncias {
+    display: flex;
+    flex-direction: column;  /* Cambiar a columna para colocar el título encima */
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 350px;
-}
-
-
-#imageNextEvents{
-    background-image: url("../IMG/imageEvent.jpg");
-}
-
-.styleImagen{
-    background-position: center;
-    width: 100%;
-    height: 350px; /* O ajusta según necesidad */
-    background-repeat: no-repeat;
-    object-fit: contain;
-}
-
-
-/*Se listen los eventos en contenedores*/
-
-
-.containerEvents {
-    width: 95%;
     padding: 20px;
     background-color: #1768AC;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-    margin-left: 50px;
-    
+    margin: 30px 0;
 }
 
-#eventContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.eventCard {
+/* Título del listado de denuncias */
+#tituloListadoDenuncias {
     width: 100%;
-    max-width: 300px;
-    background-color:aliceblue ;
-    border: 5px solid #EAC102;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #1D3892;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0;
+    border-radius: 8px 8px 0 0;
 }
 
-.eventCard:hover {
-    transform: scale(1.05);
-    border: 3px solid #EAC102;;
-}
-
-.eventHeader {
+#tituloListadoDenuncias h2 {
     font-family: 'Asap', sans-serif;
-    font-size: 25px;
+    font-size: 36px;
     font-weight: bold;
-    color: #1D3892;
+    color: aliceblue;
 }
 
-.eventDetail {
+/* Contenido del listado de denuncias */
+#contenidoListado {
+    width: 100%;
+    background-color: aliceblue;
+    border-radius: 0 0 8px 8px;
+    padding: 20px;
+    margin-bottom: 50px; /* Espacio entre la tabla y el pie de página */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
     font-family: 'Asap', sans-serif;
-    margin-top: 10px;
-    color: gray;
-
+    margin-bottom: 80px; /* Añadir margen inferior */
+    background-color: aliceblue
 }
 
+th, td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+    font-size: 18px;
+}
 
+th {
+    background-color: #1768AC;
+    color: white;
+}
 
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
 
+/* Estilos para las clases de estado */
+.estado {
+    font-weight: bold;
+    text-transform: uppercase;
+}
 
+.pendiente {
+    color: orange;
+}
+
+.resuelto {
+    color: green;
+}
+
+.rechazado {
+    color: red;
+}
+
+/* Estilos generales para HTML y Body */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#mainContent {
+    flex: 1; 
+    padding-bottom: 50px; 
+}

@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Link a reset.css-->
-    <link rel="stylesheet" href="../Styles/reset.css">
-    <link rel="stylesheet" href="../Styles/UserprofilePage.css">
+        <!--Link a reset.css-->
+        <link rel="stylesheet" href="../Styles/reset.css">
+        <link rel="stylesheet" href="../Styles/UserProfileAdminView.css">
         <!--Link a la fuente-->
         <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap" rel="stylesheet">
-
+    
     <title>Document</title>
 </head>
 <body>
-
     <header>
         <div id="logoHeader">
             <a href="../HTML/HomePage.html">
@@ -32,7 +31,7 @@
                 <a href="#">PERFIL</a>
                 <ul class="submenu">
                     <li><a href="../HTML/UserprofilePage.html">MI PERFIL</a></li>
-                    <li><a href="../HTML/OtheruserprofilePage.html">PERFIL DE OTROS USUARIOS</a></li>
+                    <li><a href="../HTML/UserProfileAdminView.html">PERFIL DE OTROS USUARIOS</a></li>
                     <li><a href="../HTML/NoticesCreationPage.html">CREAR AVISO</a></li>
                     <li><a href="../HTML/NewsCreationPage.html">CREAR NOTICIA</a></li>
                 </ul>
@@ -41,35 +40,46 @@
     </nav>
     </header>
 
-    
-    <main>
-        <div class="profile-container">
-            <div class="section-header">Información Personal:</div>
-            <div class="profile-content">
-                <div class="profile-image">
-                    <img src="../IMG/fotoperfil.jpg" alt="Usuario">
-                    <a href="#" class="edit-link">Editar</a>
-                </div>
-                <div class="profile-details">
-                    <input type="text" placeholder="Nombre" disabled>
-                    <input type="text" placeholder="Apellidos" disabled>
-                    <input type="text" placeholder="Dirección" disabled>
-                    <input type="text" placeholder="Señas Adicionales" disabled>
-                    <input type="text" placeholder="Teléfono" disabled>
-                    <input type="email" placeholder="Correo" disabled>
-                </div>
-                
-                <div class="edit-buttons">
-                <button id="cancelButton" class="btn-cancel" style="display:none;">Cancelar</button>
-                <button id="saveButton" class="btn-save" style="display:none;">Guardar Cambios</button>
-                </div>
-                
-                <div class="edit-bottom">
-                    <a href="#" class="edit-link">Editar</a>
-                </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Usuarios Registrados</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+        <div class="container">
+            <h2>Usuarios Registrados</h2>
+            <div class="search-box">
+                <input type="text" id="search" placeholder="Buscar usuario...">
             </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Distrito</th>
+                    </tr>
+                </thead>
+                <tbody id="userTable">
+                    <tr onclick="viewProfile('Juan', 'Perez', 'San José')">
+                        <td>Juan</td>
+                        <td>Perez</td>
+                        <td>San Pedro</td>
+                    </tr>
+                    <tr onclick="viewProfile('Maria', 'Lopez', 'Cartago')">
+                        <td>Maria</td>
+                        <td>Lopez</td>
+                        <td>San Pedro</td>
+                    </tr>
+                    <tr onclick="viewProfile('Carlos', 'Gomez', 'Heredia')">
+                        <td>Carlos</td>
+                        <td>Gomez</td>
+                        <td>San Pedro</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </main>
+
     <footer>
         <div id="copyright">
         <p>&copy; 2025 Municipalidad de Montes de Oca</p>
@@ -90,8 +100,7 @@
             <a href="../HTML/InitiativesPage.html">INICIATIVAS</a>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../Javascript/ControladorUserProfilePage.js"></script>
-
+    
+    
 </body>
 </html>
