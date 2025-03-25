@@ -278,6 +278,27 @@ nav li {
 }
 
 
+
+#btnBotonLimpiar {
+    padding: 10px 20px;
+    font-size: 25px;
+    font-family: 'Asap', sans-serif;
+    background-color: #EA0202;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+
+
+#btnBotonLimpiar:hover {
+    cursor: pointer;
+    background-color: #b43838;
+    color: white;
+}
+
+
 .labelFormulario{
     font-size: 20px;
     margin: 10px;
