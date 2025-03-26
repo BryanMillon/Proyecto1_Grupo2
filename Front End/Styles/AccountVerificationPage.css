@@ -170,9 +170,14 @@ html, body {
   #resendCodeContainer a span {
     color: #EAC102;
   }
-  
-  #verificationSection button {
-   
+
+  .sectionButtons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #btnVerification{
     border-radius: 15px;
     background: var(--eac-102, #EAC102);
     width: 273px;
@@ -188,10 +193,48 @@ html, body {
     margin: 30px auto 0;
     cursor: pointer;
   }
-  
-  #verificationSection button:hover{
+
+  #btnVerification:hover{
     background-color: #1768AC;
   }
+
+  #btnBack{
+    border-radius: 15px;
+    background: #50B2F1;
+    width: 273px;
+    height: 55px;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 93.021%;
+    border: none;
+    margin: 30px auto 0;
+    cursor: pointer;
+  }
+
+  #btnBack:hover{
+    border-radius: 15px;
+    background: #1768AC;
+    width: 273px;
+    height: 55px;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 93.021%;
+    border: none;
+    margin: 30px auto 0;
+    cursor: pointer;
+  }
+  
+ 
+  
+
   
   #linesContainer {
     display: flex;
