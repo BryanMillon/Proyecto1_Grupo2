@@ -45,17 +45,25 @@
     <main>
         <div class="profile-container">
             <div class="section-header">Información Personal:</div>
-            <div class="profile-content">
-                <div class="profile-image">
-                    <img src="../IMG/fotoperfil.jpg" alt="Usuario">
-                    <a href="#" class="edit-link">Editar</a>
-                </div>
+
+            <div class="profile-image">
+                <img src="../IMG/Perfil-logo.svg" alt="Usuario" id="profileImage">
+                <a href="#" class="edit-link" id="editPhotoLink">Editar</a>
+                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+            </div>
+
                 <div class="profile-details">
+                    <label>Nombre</label>
                     <input type="text" placeholder="Nombre" disabled>
+                    <label>Apellidos</label>
                     <input type="text" placeholder="Apellidos" disabled>
+                    <label>Direccion</label>
                     <input type="text" placeholder="Dirección" disabled>
+                    <label>Señas Adicionales</label>
                     <input type="text" placeholder="Señas Adicionales" disabled>
+                    <label>Teléfono</label>
                     <input type="text" placeholder="Teléfono" disabled>
+                    <label>Correo</label>
                     <input type="email" placeholder="Correo" disabled>
                 </div>
                 
@@ -64,10 +72,14 @@
                 <button id="saveButton" class="btn-save" style="display:none;">Guardar Cambios</button>
                 </div>
                 
-                <div class="edit-bottom">
-                    <a href="#" class="edit-link">Editar</a>
+                <div class="edit-buttons">
+                    <button id="cancelButton" class="btn-cancel" style="display:none;">Cancelar</button>
+                    <button id="saveButton" class="btn-save" style="display:none;">Guardar Cambios</button>
                 </div>
-            </div>
+
+                <div class="edit-bottom">
+                    <a href="#" class="edit-link" id="editInfoLink">Editar</a>
+                </div>
         </div>
     </main>
     <footer>
