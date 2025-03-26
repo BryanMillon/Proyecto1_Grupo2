@@ -37,5 +37,15 @@ function sendData(){
     }
 }
 
+
+
 btnBotonPublicar.addEventListener("click",sendData);
 btnBotonCrear.addEventListener("click",sendData);
+
+btnBotonLimpiar.addEventListener("click", function () {
+    textTituloNoticia.value = "";
+    textSubtituloNoticia.value = "";
+    optionCategoria.value = "";
+    textContent.value = "";
+    textDescription.value = "";
+});

@@ -38,5 +38,14 @@ function sendData(){
     }
 }
 
+
 btnBotonPublicar.addEventListener("click",sendData);
 btnBotonCrear.addEventListener("click",sendData);
+
+btnBotonLimpiar.addEventListener("click", function () {
+    textNombreAviso.value = "";
+    dateTimePicker.value = "";
+    eventCategory.value = "";
+    textPlace.value = "";
+    textDescription.value = "";
+});
