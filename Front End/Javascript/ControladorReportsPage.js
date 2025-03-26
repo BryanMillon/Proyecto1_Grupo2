@@ -4,7 +4,8 @@ const inputDate = document.getElementById("dateTimePicker");
 const inputCategory = document.getElementById("eventCategory");
 const inputPlace = document.getElementById("textPlace");
 const inputDescription = document.getElementById("textDescription");
-const inputFile = document.getElementById("file");
+const archivo = document.getElementById("archivo");
+const btnSubir = document.getElementById("btnSubir");
 const btnSubmit = document.getElementById("btnBotonCrear");
 const btnCancel = document.getElementById("btnBotonLimpiar");
 
@@ -44,24 +45,15 @@ function handleSubmit() {
     }
 }
 
-// Función para limpiar el formulario con confirmación
-function clearForm() {
-    Swal.fire({
-        title: "¿Estás seguro?",
-        text: "Se borrarán todos los datos ingresados.",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Sí, borrar",
-        cancelButtonText: "Cancelar"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            document.getElementById("containerForm").reset(); // Reiniciar el formulario
-            document.querySelectorAll(".error").forEach(input => input.classList.remove("error")); // Quitar clases de error
-            Swal.fire("Formulario limpiado", "Los datos han sido eliminados.", "success");
-        }
-    });
-}
+
 
 // Agregar eventos a los botones
 btnSubmit.addEventListener("click", handleSubmit);
-btnBotonLimpiar.addEventListener("click", clearForm);
+
+btnCancel.addEventListener("click", function () {
+    textNombreAviso.value = "";
+    dateTimePicker.value = "";
+    eventCategory.value = "";
+    textPlace.value = "";
+    textDescription.value = "";
+});
