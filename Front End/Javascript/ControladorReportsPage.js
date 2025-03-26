@@ -64,4 +64,4 @@ function clearForm() {
 
 // Agregar eventos a los botones
 btnSubmit.addEventListener("click", handleSubmit);
-btnCancel.addEventListener("click", clearForm);
+btnBotonLimpiar.addEventListener("click", clearForm);
