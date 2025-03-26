@@ -127,17 +127,18 @@ nav li {
 }
 
     /*Imagen principal*/
-    .imageMostRecentNew {
+    #imageMostRecentNew {
         width: 100%;
-        height: 600px; 
+        height: 500px; 
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 10px; 
         overflow: hidden; 
     }
+    
 
-    .imageRecentNews {
+    #imageRecentNews {
         width: 90%;
         height: 100%;
         background-image: url("../IMG/noticiasBackground.jpg");
@@ -146,13 +147,16 @@ nav li {
         border-radius: 10px;
     }
 
-    #styleImagen{
+    .styleImagen{
+        width:100%;
+        height:100%;
+        background-image: url("../IMG/imageEvent.jpg");
+        background-size: cover;
         background-position: center;
-        width: 100%;
-        height: 350px; /* O ajusta según necesidad */
-        background-repeat: no-repeat;
-        object-fit: contain;         
+        border-radius: 10px; /      
     }
+
+
     /*Fin Imagen principal*/
 
     /*Caracteristicas de los contenedores*/
