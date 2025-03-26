@@ -77,3 +77,23 @@ function actionBottonCancel(){
     });
 }
 
+/*Button functions*/
+
+//Publish
+function actionbtnAccept(){
+    Swal.fire({
+        title: "Denuncia Procesada",
+        text: "Esta denuncia se procesará",
+        icon: "success"
+     });
+    }
+
+//Cancel
+function actionbtnDeny(){
+    Swal.fire({
+        title: "Denuncia Rechazada",
+        text: "Esta denuncia no se procesará",
+        icon: "error"
+    });
+}
+
