@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
-   <!--Link a reset.css-->
-   <link rel="stylesheet" href="../Styles/reset.css">
-    <!--Link a navegacion.css-->
-    <link rel="stylesheet" href="../Styles/NewsPage.css">
+    <!--Titulo de la pagina-->
+    <title>Creacion de Noticias</title>
 
-    <!--Link a la fuente-->
-    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap" rel="stylesheet">
-
-    <title>Events</title>
+     <!--Estilos-->
+        <!--Reset-->
+        <link rel="stylesheet" href="../Styles/reset.css">
+        <!--Estilo pericipal (.css) -->
+        <link rel="stylesheet" href ="../Styles/NewsCreationPage.css">
+        <!--Fuente/s-->
+        <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
+    <!--Logo y Barra de navegacion-->
     <header>
-        <div id="logoHeader">
-            <a href="../HTML/HomePage.html">
+        <!--Logo en Header-->
+        <div class="logoHeader">
+            <a href = "../HTML/HomePage.html"> 
                 <img src="../IMG/logoheader.png" alt="logoheader">
             </a>
         </div>
         
+        <!--Barra de navegacion-->
         <nav>
             <ul>
                 <li><a href="../HTML/AdminPage.html ">ADMINISTRADOR</a></li>
@@ -45,80 +46,72 @@
             </ul>
         </nav>
     </header>
+    
+    <main>
+        <!--Titulo de Seccion-->
+        <seccion class="mainPageTitle">
+            <h1>NUEVA NOTICIA</h1>
+        </seccion>
 
-    <!--Section Event-->
-
-    <section id="mainNewsPage">
-        <!--Events Title-->
-        <h1>
-            NUEVA NOTICIA
-        </h1>
-
-    </section>
-
-    <!--End Section Event-->
-
-    <!--New Event Form-->
-
-    <section id="sctFormNewEvent">
-        <form id="conteinerForm">
-
-            <!--Title-->
-            <div id="titleNewEvent">
-                <h1 id="titleNewEventH1">
-                    Nueva Noticia
-                </h1>
-                <!--End Title-->
-            </div>
-
-
-            <!--Start Form-->
-            <div id="formNewEvent">
-
-                <!--Name-->
-                <label class="labelFormulario" for="textNombreAviso">Titulo de la Noticia:</label>
-                <input class="inputForm" id="textNombreAviso" type="text" ; required>
-
-                <!--Categoria del evento-->
-                <label class="labelFormulario" for="eventCategory">Categoria</label>
-                <select id="eventCategory" class="categorySelect" required>
-                    <option value="" disabled selected>Selecciona una categoría</option>
-                    <option value="politica">Politica</option>
-                    <option value="deportiva">Deportiva</option>
-                    <option value="economica">Economica</option>
-                    <option value="culturales">Cultural</option>
-                    <option value="sociales">Social</option>
-                    <option value="entretenimiento">Entretenimiento</option>
-                    <option value="nacionales">Nacional</option>
-                    <option value="mundiales">Mundiales</option>
-                </select>
-
-                <!--Subtitle-->
-                <label class="labelFormulario" for="textSubtitle">Subtitulo:</label>
-                <input class="inputForm" id="textSubtitle" type="text" ; required>
-
-                <!--Content Event-->
-
-                <label class="labelFormulario" for="textDescription">Contenido:</label>
-                <form for="textDescription" action="#"></form>
-                <input class="inputForm" id="textDescription" type="text" ; required>
-
-                <div>
-                    <button id="btnBotonCrear" type="button"> Crear</button>
-                    <button id="btnBotonPublicar" type="button"> Publicar</button>
+        <!--Formulario de Nueva Noticia-->
+        <section id="sctFormNewNew">
+            <form id="conteinerForm">
+                <!--Titulo del formulario-->
+                <div id="titleNewNew">
+                    <h1 id="titleNewNewH1">
+                        Nueva Noticia
+                    </h1>
                 </div>
 
+                <!--Inicio del formulario-->
+                <div id="formNewNew">
 
-                <!--End Form-->
+                    <!--Titulo-->
+                    <label class="labelFormulario" for="textTituloNoticia">Título de la Noticia:</label>
+                    <input class="inputForm" id="textTituloNoticia" type="text" ; required>
+
+                    <!--Subtitulo-->
+                    <label class="labelFormulario" for="textSubtituloNoticia">Subtitulo de la Noticia:</label>
+                    <input class="inputForm" id="textSubtituloNoticia" type="text" ; required>
+
+                    <!--Categoria-->
+                    <label class="labelFormulario" for="optionCategoria">Categoría:</label>
+                    <select id="optionCategoria" class="categorySelect" required>
+                        <option value="" disabled selected>Selecciona una Categoría</option>
+                        <option value="politica">Política</option>
+                        <option value="deportiva">Deportiva</option>
+                        <option value="economica">Económica</option>
+                        <option value="cultural">Cultural</option>
+                        <option value="social">Social</option>
+                        <option value="entretenimiento">Entretenimiento</option>
+                        <option value="nacional">Nacional</option>
+                        <option value="internacionales">Internacionales</option>
+                    </select>
+
+                    <!--Contenido del articulo-->
+                    <label class="labelFormulario" for="textContent">Contenido del Artículo:</label>
+                    <form for="textContent" action="#"></form>
+                    <input class="inputFormContent" id="textContent" type="text" ; required>
+
+                    <!--Botones-->
+                    <div>
+                        <!--Boton que limpia los datos del formulario-->
+                        <button id="btnBotonLimpiar" type="reset" value="reset"> Cancelar</button>
+                        <!--Botones de Crear y publicar (llaman a la funcion "sendData" del js)-->
+                        <button id="btnBotonCrear" type="button"> Crear</button>
+                        <button id="btnBotonPublicar" type="button"> Publicar</button>
+                    </div>
+
             </div>
-            <!--End Container Form -->
+            <!--Fin del Formulario-->
         </form>
-    </section>
-    <!--End Event Form-->
+        <!--Fin del contenedor-->
+        </section>
+    </main>
 
     <footer>
         <div id="copyright">
-           <p>&copy; 2025 Municipalidad de Montes de Oca</p>
+            <p>&copy; 2025 Municipalidad de Montes de Oca</p>
         </div>
 
         <div id="logoFooter">
@@ -126,7 +119,7 @@
                 <img src="../IMG/logofooter.png" alt="logofooter">
             </a>
         </div>
-    
+
         <div id="navFooter">
             <a href="../HTML/AdminPage.html">ADMINISTRADOR</a>
             <a href="../HTML/NewsPage.html">NOTICIAS</a>
@@ -137,9 +130,9 @@
         </div>
     </footer>
 
-    <!--Vincular el js-->
-    <script src="../Javascript/ControlatorNoticesPage.js"></script>
+    <!--Vinculador con JavaScript-->
+    <script src="../Javascript/ControladorNewsCreation.js"></script>
     <!--Sweet Alert-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
 </body>
+</html>
