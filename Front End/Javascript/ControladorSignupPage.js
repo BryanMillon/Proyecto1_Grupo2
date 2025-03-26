@@ -33,16 +33,16 @@ function inputsValidation() {
 
 function emailValidation() {
     let error = false;
-    let userText = inputEmail.value.trim;
+    let userText = inputEmail.value;
     let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    
-    if (!regex.test(userText)) {
-        inputEmail.classList.add("error");
-        inputEmail.value = "";
+    if (regex.test(userText) == false) {
+        inputEmail.classList.add("error"); // Añadir la clase error si el correo es inválido
+        inputCedula.value = ""; 
         error = true;
     } else {
-        inputEmail.classList.remove("error");
+        inputEmail.classList.remove("error"); // Eliminar la clase error si el correo es válido
     }
+
     return error;
 }
 
