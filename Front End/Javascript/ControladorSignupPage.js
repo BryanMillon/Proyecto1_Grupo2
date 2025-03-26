@@ -19,8 +19,9 @@ function inputsValidation() {
     let list = document.querySelectorAll("#form [required]");
 
     for (let i = 0; i < list.length; i++) {
-        if (list[i].value === '') {
+        if (list[i].value.trim === '') {
             list[i].classList.add("error");
+            list[i].value = "";
             error = true;
         } else {
             list[i].classList.remove("error");
@@ -32,11 +33,12 @@ function inputsValidation() {
 
 function emailValidation() {
     let error = false;
-    let userText = inputEmail.value;
+    let userText = inputEmail.value.trim;
     let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     
     if (!regex.test(userText)) {
         inputEmail.classList.add("error");
+        inputEmail.value = "";
         error = true;
     } else {
         inputEmail.classList.remove("error");
@@ -53,6 +55,7 @@ function cedulaValidation() {
     
     if (!regex.test(cedula)) {
         inputCedula.classList.add("error");
+        inputCedula.value = ""; 
         error = true;
     } else {
         inputCedula.classList.remove("error");
@@ -69,6 +72,7 @@ function telefonoValidation() {
     
     if (!regex.test(telefono)) {
         inputTelefono.classList.add("error");
+        inputTelefono.value = "";
         error = true;
     } else {
         inputTelefono.classList.remove("error");
@@ -85,6 +89,7 @@ function passwordValidation() {
     
     if (!regex.test(password)) {
         inputPassword.classList.add("error");
+        inputPassword.value = "";
         error = true;
     } else {
         inputPassword.classList.remove("error");
@@ -98,6 +103,7 @@ function passwordMatchValidation() {
     
     if (inputPassword.value !== inputPasswordVerification.value) {
         inputPasswordVerification.classList.add("error");
+        inputPasswordVerification.value = "";
         error = true;
     } else {
         inputPasswordVerification.classList.remove("error");
@@ -112,6 +118,7 @@ function nameValidation() {
     
     if (!regex.test(inputNombre.value)) {
         inputNombre.classList.add("error");
+        inputNombre.value = "";
         error = true;
     } else {
         inputNombre.classList.remove("error");
@@ -119,6 +126,7 @@ function nameValidation() {
     
     if (!regex.test(inputApellido1.value)) {
         inputApellido1.classList.add("error");
+        inputApellido1.value = "";
         error = true;
     } else {
         inputApellido1.classList.remove("error");
@@ -126,6 +134,7 @@ function nameValidation() {
     
     if (!regex.test(inputApellido2.value)) {
         inputApellido2.classList.add("error");
+        inputApellido2.value = "";
         error = true;
     } else {
         inputApellido2.classList.remove("error");
