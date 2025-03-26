@@ -6,42 +6,42 @@ const news = [
         titulo: "Accidente de gran escala en el sur",
         subtitulo: "Accidente nuclear deja a 3 heridos y 2 muertos",
         categoria: "Nacional" ,
-        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del pais",
+        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del país",
         fechaPublicacion: "202X-XX-XX XX:XX PM"
     },
     { 
         titulo: "Accidente de gran escala en el sur",
         subtitulo: "Accidente nuclear deja a 3 heridos y 2 muertos",
         categoria: "Nacional" ,
-        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del pais",
+        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del país",
         fechaPublicacion: "202X-XX-XX XX:XX PM"
     },
     { 
         titulo: "Accidente de gran escala en el sur",
         subtitulo: "Accidente nuclear deja a 3 heridos y 2 muertos",
         categoria: "Nacional" ,
-        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del pais",
+        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del país",
         fechaPublicacion: "202X-XX-XX XX:XX PM"
     },
     { 
         titulo: "Accidente de gran escala en el sur",
         subtitulo: "Accidente nuclear deja a 3 heridos y 2 muertos",
         categoria: "Nacional" ,
-        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del pais",
+        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del país",
         fechaPublicacion: "202X-XX-XX XX:XX PM"
     },
     { 
         titulo: "Accidente de gran escala en el sur",
         subtitulo: "Accidente nuclear deja a 3 heridos y 2 muertos",
         categoria: "Nacional" ,
-        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del pais",
+        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del país",
         fechaPublicacion: "202X-XX-XX XX:XX PM"
     },
     { 
         titulo: "Accidente de gran escala en el sur",
         subtitulo: "Accidente nuclear deja a 3 heridos y 2 muertos",
         categoria: "Nacional" ,
-        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del pais",
+        contenido: "Por el sur de costa rica una explocion nuclear se expande afectando a mitad del país",
         fechaPublicacion: "202X-XX-XX XX:XX PM"
     },
 ]
@@ -64,7 +64,7 @@ function showNews() {
             <div class="newsDetail"><strong>Subtitulo:</strong> ${news.subtitulo}</div>
             <div class="newsDetail"><strong>Categoría:</strong> ${news.categoria}</div>
             <div class="newsDetail"><strong>Articulo:</strong> ${news.contenido}</div>
-            <div class="newsDetail"><strong>Fecha de Publicacion:</strong> ${news.fechaPublicacion}</div>
+            <div class="newsDetail"><strong>Fecha de Publicación:</strong> ${news.fechaPublicacion}</div>
         `;
         articlesCountainer.appendChild(newCard);
     });

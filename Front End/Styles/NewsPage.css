@@ -143,9 +143,9 @@ nav li {
         height: 100%;
         background-image: url("../IMG/noticiasBackground.jpg");
         background-size: cover;
-        background-position: center bottom;
-        border-radius: 10px; /
-    }
+        background-position: center bottom ;
+        border-radius: 10px;
+
 
     .styleImagen{
         width:100%;
