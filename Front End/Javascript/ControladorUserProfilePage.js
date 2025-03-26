@@ -1,14 +1,39 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const editButton = document.querySelector(".edit-bottom .edit-link");
+    // === ELEMENTOS ===
+    const editButton = document.getElementById("editInfoLink");
     const saveButton = document.getElementById("saveButton");
     const cancelButton = document.getElementById("cancelButton");
     const inputs = document.querySelectorAll(".profile-details input");
 
+    const fileInput = document.getElementById("fileInput");
+    const editPhotoLink = document.getElementById("editPhotoLink");
+    const profileImage = document.getElementById("profileImage");
+
     let valoresOriginales = {};
 
-    // Habilitar edición al hacer clic en "Editar"
+    // === CAMBIO DE FOTO ===
+    editPhotoLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        fileInput.click();
+    });
+
+    fileInput.addEventListener("change", function () {
+        const file = fileInput.files[0];
+        if (file && file.type.startsWith("image/")) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                profileImage.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        } else {
+            Swal.fire("Archivo inválido", "Por favor selecciona una imagen válida.", "error");
+        }
+    });
+
+    // === BOTÓN EDITAR INFORMACIÓN ===
     editButton.addEventListener("click", function (e) {
         e.preventDefault();
+        valoresOriginales = {};
         inputs.forEach(input => {
             valoresOriginales[input.placeholder] = input.value;
             input.removeAttribute("disabled");
@@ -18,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cancelButton.style.display = "inline-block";
     });
 
-    // Función para restaurar valores originales al cancelar
+    // === BOTÓN CANCELAR ===
     cancelButton.addEventListener("click", function () {
         inputs.forEach(input => {
             input.value = valoresOriginales[input.placeholder];
@@ -29,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cancelButton.style.display = "none";
     });
 
+    // === VALIDACIONES ===
     function validarCamposVacios() {
         let error = false;
         inputs.forEach(input => {
@@ -59,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return !regex.test(emailInput.value);
     }
 
+    // === BOTÓN GUARDAR CAMBIOS ===
     saveButton.addEventListener("click", function () {
         let errores = {
             vacios: validarCamposVacios(),
