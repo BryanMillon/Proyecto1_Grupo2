@@ -7,6 +7,7 @@
     <!--Link a reset.css-->
     <link rel="stylesheet" href="../Styles/reset.css">
     <link rel="stylesheet" href="../Styles/InitiativesCreationPage.css">
+    <link rel="stylesheet" href="../Styles/InitiativesPage.css">
 
         <!--Link a la fuente-->
         <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap" rel="stylesheet">
@@ -28,7 +29,7 @@
             <li><a href="../HTML/NoticesPage.html">AVISOS</a></li>
             <li><a href="../HTML/ServicesPage.html">SERVICIOS</a></li>
             <li><a href="../HTML/ReportsPage.html">DENUNCIAS</a></li>
-            <li><a href="../HTML/InitiativesPage.html">INICIATIVAS</a></li>
+            <li><a href="../HTML/InitiativesCreationPage.html">INICIATIVAS</a></li>
             <li class="dropdown">
                 <a href="#">PERFIL</a>
                 <ul class="submenu">
@@ -43,6 +44,32 @@
     </header>
 
     <main>
+
+
+                <!--Titulo de Seccion-->
+                <seccion class="mainPageTitle">
+                    <h1>INICIATIVAS</h1>
+                </seccion>
+        
+                <!--Seccion Principal-->
+                <section class="iniciativeSection">
+        
+                    <!--Imagen Principal-->
+                    <div id="imageIniciative">
+                        <!-- Imagen -->
+                        <div id="imageIniciatives" class="styleImage"></div>
+                    </div>
+        
+                    <!--Contenedor de Noticias-->
+                    <div id="initiativeContainer">
+                        <!--Contenedor de Articulo (son anadidos de forma dinamica por medio del "ControladorNews")-->
+                        <div id="articleCountainer">
+                            <!--Contenido del Articulo-->
+                        </div>
+                    </div>
+                </section>
+
+
         <div class="form-container">
             <div class="form-header">Formulario de Iniciativa</div>
     
@@ -103,6 +130,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../Javascript/IniciativesCreationPage.js"></script>
+    <script src="../Javascript/ControladorIniciatives.js"></script>
 
 
 </body>
