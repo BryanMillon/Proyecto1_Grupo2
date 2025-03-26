@@ -97,3 +97,39 @@ function actionbtnDeny(){
     });
 }
 
+/*Button functions tabla Usuarios*/
+document.addEventListener("DOMContentLoaded", function() {
+    chargeTable(); // Cargar la tabla de eventos
+
+    // Seleccionar todos los botones de aceptar y denegar en la tabla de usuarios
+    const botonesAceptar = document.querySelectorAll(".btnAccept");
+    const botonesDenegar = document.querySelectorAll(".btnDeny");
+
+    // Asignar aceptar y luego denegar
+    botonesAceptar.forEach(boton => {
+        boton.addEventListener("click", actionBottonAccept);
+    });
+
+
+    botonesDenegar.forEach(boton => {
+        boton.addEventListener("click", actionBottonDenegar);
+    });
+});
+
+function actionBottonAccept(){
+    Swal.fire({
+        title: "Usuario aceptado Exitosamente",
+        text: "Este usuario ahora tendra perfil de concejal",
+        icon: "success"
+     });
+    }
+
+//Cancel
+function actionBottonDenegar(){
+    Swal.fire({
+        title: "Usuario Denegado",
+        text: "Este usuario no tendra perfil como concejal",
+        icon: "error"
+    });
+}
+
