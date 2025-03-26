@@ -118,8 +118,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function actionBottonAccept(){
     Swal.fire({
-        title: "Usuario aceptado Exitosamente",
-        text: "Este usuario ahora tendra perfil de concejal",
+        title: "Aceptado Exitosamente",
+        text: "Acción aceptada", // cambiar luego para el mensaje para cada tabla
         icon: "success"
      });
     }
@@ -127,8 +127,8 @@ function actionBottonAccept(){
 //Cancel
 function actionBottonDenegar(){
     Swal.fire({
-        title: "Usuario Denegado",
-        text: "Este usuario no tendra perfil como concejal",
+        title: "Denegado Exitosamente",
+        text: "Acción Denegada", // cambiar luego para el mensaje para cada tabla
         icon: "error"
     });
 }
