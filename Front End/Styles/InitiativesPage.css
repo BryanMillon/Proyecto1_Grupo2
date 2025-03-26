@@ -140,8 +140,9 @@ nav li {
     
 
     #imageIniciatives {
-        width: 90%;
-        height: 100%;
+
+        width: 50%;
+        height: 60%;
         background-image: url("../IMG/iniciative.jpg");
         background-size: cover;
         background-position: center bottom;
@@ -161,16 +162,19 @@ nav li {
     /*Fin Imagen principal*/
 
     /*Caracteristicas de los contenedores*/
-    #initiativeContainer {
-        width: 95%;
-        height: 100%px;
-        padding: 20px;
-        background-color: #D9D9D9;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        margin: 25px auto;
-    
-    }
+   #initiativeContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 95%;
+    height: 100%;
+    padding: 20px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 25px auto;
+}
     
     #articleCountainer {
         display: flex;
@@ -275,4 +279,5 @@ footer {
 
 img{
     max-width: 100%;
-}}
+}
+
