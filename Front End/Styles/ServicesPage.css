@@ -11,7 +11,7 @@ header{
     justify-content: space-between;
 }
 
-#LogoHeader img{
+#logoHeader img{
     width: 450px;
     margin-left: 50px;
 }
@@ -90,7 +90,7 @@ nav li {
     display: block;
 }
 
-#TituloPagina {
+#tituloPagina {
     width: 100%;
     height: 100px;
     background-color: #1768AC;
@@ -98,7 +98,7 @@ nav li {
     align-items: center;
 }
 
-#TituloPagina h1{
+#tituloPagina h1{
     color: #FFFFFF;
     font-size: 50px;
     font-weight: 600;
@@ -106,7 +106,7 @@ nav li {
 }
 
 
-#ContenedorPrincipal {
+#contenedorPrincipal {
     width: 100%;
     height: auto;
     background-color: #D9D9D9;
@@ -135,23 +135,23 @@ nav li {
     margin-right: 15px;
 }
 
-.InfoServicios {
+.infoServicios {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-#ContenedorPrincipal h2 {
+#contenedorPrincipal h2 {
     color: #1768AC;
     margin-bottom: 10px;
     font-size: 30px;
 }
 
-#ContenedorPrincipal p{
+#contenedorPrincipal p{
     font-size: 20px;
 }
 
-#Contacto {
+#contacto {
     background-color: #1D3892;
     color: #FFFFFF;
     text-align: center;
@@ -164,20 +164,20 @@ nav li {
     margin-right: auto;
 }
 
-#Contacto h2{
+#contacto h2{
     color: #EAC102;
     font-weight: bold;
     font-size: 40px;
     text-align: left;
 }
 
-#Contacto img{
+#contacto img{
     width: 30px;
     height: auto;
     margin-right: 10px;
 }
 
-#Contacto p{
+#contacto p{
     font-size: 28px;
     font-weight: 500;
     color: #FFFFFF;
@@ -202,19 +202,19 @@ footer{
     color: #FFFFFF;
 }
 
-#LogoFooter {
+#logoFooter {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 200px;
 }
 
-#LogoFooter img {
+#logoFooter img {
     width: 200px;
     height: auto;
 }
 
-#NavFooter {
+#navFooter {
     display: flex;
     flex-direction: column;
     text-align: right;
@@ -222,12 +222,12 @@ footer{
     gap: 20px;
 }
 
-#NavFooter a {
+#navFooter a {
     color: #FFFFFF;
     text-decoration: none;
     font-weight: bold;
 }
 
-#NavFooter a:hover {
+#navFooter a:hover {
     color: #50B2F1;
 }
