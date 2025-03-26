@@ -249,6 +249,7 @@ nav li {
     margin-right: 10px;
 }
 
+
 /*Cambio de color cuando el mause pasa por encima (Limpiar)*/
 #btnBotonLimpiar:hover {
     cursor: pointer;
