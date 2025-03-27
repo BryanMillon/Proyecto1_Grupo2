@@ -3,14 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Styles/ReportsPage.css">
+    <link rel="stylesheet" href="../Styles/NoticesPage.css">
 
-   <!--Link a reset.css-->
-   <link rel="stylesheet" href="../Styles/reset.css">
+    <!--Link a reset.css-->
+ <link rel="stylesheet" href="../Styles/reset.css">
 
-    <title>Document</title>
+ <!--Link a navegacion.css-->
+ <link rel="stylesheet" href="../Styles/ReportsPage.css">
+
+
+ <!--Link a la fuente-->
+ <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap" rel="stylesheet">
+
+ 
+ <title>Denuncias Ciudadanas</title>
 </head>
 <body>
     
+    <header>
+        <div id="logoHeader">
+            <a href="../HTML/HomePage.html">
+                <img src="../IMG/logoheader.png" alt="logoheader">
+            </a>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="../HTML/AdminPage.html ">ADMINISTRADOR</a></li>
+                <li><a href="../HTML/NewsPage.html">NOTICIAS</a></li>
+                <li><a href="../HTML/NoticesPage.html">AVISOS</a></li>
+                <li><a href="../HTML/ServicesPage.html">SERVICIOS</a></li>
+                <li><a href="../HTML/ReportsPage.html">DENUNCIAS</a></li>
+                <li><a href="../HTML/InitiativesCreationPage.html">INICIATIVAS</a></li>
+                <li class="dropdown">
+                    <a href="#">PERFIL</a>
+                    <ul class="submenu">
+                        <li><a href="../HTML/UserprofilePage.html">MI PERFIL</a></li>
+                        <li><a href="../HTML/UserProfileAdminView.html">PERFIL DE OTROS USUARIOS</a></li>
+                        <li><a href="../HTML/NoticesCreationPage.html">CREAR AVISO</a></li>
+                        <li><a href="../HTML/NewsCreationPage.html">CREAR NOTICIA</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+<section id="mainEventPage">
+    <h1>
+        DENUNCIAS CIUDADANAS
+    </h1>    
+</section>
+
+
+<!--Section Guia Denuncias-->
+
+<section id="guiaDenuncias">
+    
+    <div id= "tituloGuiaDenuncias">
+        <h2>
+            Guía Denuncias
+        </h2>
+    </div>
+
+
+    
+    <div id="contenidoBloque">
+            <p>Son peticiones de las personas usuarias habitantes del cantón o contribuyentes relacionadas con la gestión municipal, permiten abordar problemas, identificar
+                necesidades, proponer soluciones y llevar a cabo
+                acciones conjuntas para mejorar la calidad de vida y el
+                funcionamiento del cantón.<br>
+                 <br>
+                 Tipos de gestiones: <br>
+
+                
+                 <br>
+                                1. Solicitud pública<br>
+                                2. Queja<br>
+                                3. Denuncia<br>
+                                4. Sugerencia<br>
+                                5. Felicitación<br>
+                <br>
+                Pasos para enviar su denuncia o gestión pública:<br>
+                <br>
+                1. Ingresar al sistema con su usuario y contraseña.<br>
+                2. Completar el formulario de denuncia.<br>
+                3. Hacer Click en “Enviar a la municipalidad”<br>
+                <br>
+                El personal municipal procesará el caso y tomará las acciones respoectivas según la legislación y reglamentos que apliquen.<br>
+            </p>
+    </div>
+    
+    </section>
+
+
+<!--New Event Form-->
+
+<section id="sctFormNewEvent">
+    <form id="containerForm">
+
+         <!--Title-->
+        <div id="titleNewEvent">
+            <h1 id="titleNewEventH1">
+                Nueva Denuncia
+            </h1>
+        <!--End Title--> 
+        </div>
+        
+
+        <!--Start Form-->
+        <div id="formNewEvent">
+
+            <!--Name-->
+            <label class="labelFormulario"for="textNombreAviso">Título Denuncia:</label>
+            <input 
+                class="inputForm" 
+                id="textNombreAviso"
+                type="text";
+                required
+            >
+
+            <!--Date and Hour-->
+            
+            <label class="labelFormulario" for="dateTimePicker">Fecha y hora del suceso:</label>
+            <input type="datetime-local" id="dateTimePicker" class="dateTimePicker" required>
+
+            <!--Categoria del evento-->
+            <label class="labelFormulario" for="eventCategory">Categoria</label>
+            <select id="eventCategory" class="categorySelect" required>
+                <option value="" disabled selected>Selecciona una categoría</option>
+                <option value="cultura">Solicitud pública</option>
+                <option value="cultura">Queja</option>
+                <option value="deportes">Denuncia</option>
+                <option value="educacion">Sugerencia</option>
+                <option value="reuniones">Felicitación</option>
+            </select>
+
+
+            <!--Place Event-->
+            <label class="labelFormulario" for="textPlace">Lugar del suceso:</label>
+            <form for="textPlace" action="#"></form>
+            <input 
+                class="inputForm" 
+                id="textPlace"
+                type="text";
+                required
+            >
+
+            <!--Description Event-->
+
+            <label class="labelFormulario" for="textDescription">Descripción:</label>
+            <form for="textDescription" action="#"></form>
+            <input 
+                class="inputForm" 
+                id="textDescription"
+                type="text";
+                required>
+            <!--Event Evidence-->
+
+            <label class="labelFormulario" for="archivo">Seleccionar archivo:</label>
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+                <input type="file" id="archivo" name="archivo" class="archivo_clase">
+
+            </form>
+
+            <div>
+                <br><br>
+                <button id="btnBotonLimpiar" type="button"> Cancelar</button>
+                <button id="btnBotonCrear" type="button"> Enviar a la Municipalidad</button>
+            </div>
+
+        <!--End Form-->
+        </div>
+    <!--End Container Form -->
+    </form>
+</section>
+<!--End Event Form-->
+
+
+<!--Section Listado de Denuncias-->
+
+<section id="listadoDenuncias">
+    
+    <div id= "tituloListadoDenuncias">
+        <h2>
+            Listado de Denuncias
+        </h2>
+    </div>
+
+    <div id="mainContent">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Denuncia</th>
+                    <th>Fecha de Envío</th>
+                    <th>Título Denuncia</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>2025-03-15</td>
+                    <td>Bache en la avenida principal</td>
+                    <td class="estado pendiente">Pendiente</td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>2025-03-14</td>
+                    <td>Basura acumulada en la plaza</td>
+                    <td class="estado resuelto">Resuelto</td>
+                </tr>
+                <tr>
+                    <td>003</td>
+                    <td>2025-03-13</td>
+                    <td>Alumbrado público dañado</td>
+                    <td class="estado pendiente">Pendiente</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+<footer>
+    <div id="copyright">
+       <p>&copy; 2025 Municipalidad de Montes de Oca</p>
+    </div>
+
+    <div id="LogoFooter">
+        <a href="../HTML/HomePage.html">
+            <img src="../IMG/logofooter.png" alt="logofooter">
+        </a>
+    </div>
+
+    <div id="NavFooter">
+        <a href="../HTML/AdminPage.html">ADMINISTRADOR</a>
+        <a href="../HTML/NewsPage.html">NOTICIAS</a>
+        <a href="../HTML/NoticesPage.html">AVISOS</a>
+        <a href="../HTML/ServicesPage.html">SERVICIOS</a>
+        <a href="../HTML/ReportsPage.html">DENUNCIAS</a>
+        <a href="../HTML/InitiativesPage.html">INICIATIVAS</a>
+    </div>
+</footer>
+
+
+
+<!--Vincular el js-->
+<script src="../Javascript/ControladorReportsPage.js"></script>
+<!--Sweet Alert-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

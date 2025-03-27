@@ -1,43 +1,154 @@
-header{
+body {
+    font-family: 'Asap', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
     width: 100%;
-    height: 60px;
+    height: 180px;
     background-color: #1D3892;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-#blueBackground{
-    background-color: #1768AC;
+#logoHeader img {
+    width: 450px;
+    margin-left: 50px;
 }
 
+nav {
+    margin-right: 80px;
+}
 
-#sctPendingEvents{
-    height: 300px;
-    background-color: #1768AC;
-    display: flex;
+nav li {
+    display: inline;
+    padding: 44px 25px;
+}
+
+nav li a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+nav li a:hover {
+    color: #50B2F1;
+    cursor: pointer;
+}
+
+nav ul {
+    display: flex;  
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 40px;
+}
+
+nav li {
+    position: relative;
+    padding: 20px 25px;
+    display: flex; 
     align-items: center;
-    justify-content: space-between;
-    margin-right: 30px;
-    margin-left: 30px;
-    margin-top: 10px;/*este despues lo tengo que quitar*/
-
 }
 
-#tablePendingEvent{
-    background-color: aliceblue;
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%; 
+    right: 0px;
+    background-color: #1768AC;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+    border-radius: 5px;
+    -webkit-box-shadow: 6px 0px 18px 0px rgba(0,0,0,0.6);
+    -moz-box-shadow: 6px 0px 18px 0px rgba(0,0,0,0.6);
+    box-shadow: 6px 0px 18px 0px rgba(0,0,0,0.6);
+    z-index: 1000;
+}
+
+.submenu li {
     width: 100%;
-    height: 100%px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    text-align: left;
+}
 
+.submenu li a {
+    display: block;
+    padding: 10px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.submenu li a:hover {
+    color: #50B2F1;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+/* Main content area */
+#blueBackground {
+    background: rgb(16,73,121);
+    background: linear-gradient(180deg, rgba(16,73,121,1) 49%, rgba(9,42,70,1) 99%);
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    padding: 30px;
+    justify-content: center;
+    gap: 50px;
 }
 
 
-#titlePendingEvent{
+#sctPendingEvents, #sctPendingUsers {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 30px;
+}
+
+
+#tablePendingEvent, #tablePendingUsers {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+}
+
+/* Title container styles - shared between both tables */
+#titlePendingEvent, #titlePendingUsers {
+    border: 5px solid #D9D9D9;
     background-color: #1D3892;
-    margin: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+/* Title text styles - shared between both tables */
+#titlePendingReport {
+    font-family: 'Asap', sans-serif;
+    font-size: 35px;
+    color: #D9D9D9;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    margin: 0;
+}
+/* Title container styles - shared between both tables */
+#titlePendingReport {
+    border: 5px solid #D9D9D9;
+    background-color: #1D3892;
+    margin-bottom: 20px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -45,41 +156,32 @@ header{
 }
 
 
-#titlePendingEventh1{
+
+
+/* Title text styles - shared between both tables */
+#titlePendingEventh1, #titlePendingUserh1 {
     font-family: 'Asap', sans-serif;
     font-size: 35px;
-    color: aliceblue;
+    color: #D9D9D9;
     text-align: center;
-    padding-top: 5px;
-    font-weight: bold
-   
+    padding: 10px;
+    font-weight: bold;
+    margin: 0;
 }
 
-
-
-#tableEventPending {
+/* Table styles - shared between both tables */
+#tableEventPending, #tableUserPending {
     width: 100%;
-    margin-top: 20px;
-    background-color: white ; 
-    color: black; 
+    background-color: #FFFFFF;
+    color: black;
     font-family: 'Asap', sans-serif;
     font-size: 15px;
-    align-items: center;
-
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-#tdCustom{
-    border: 2px solid gray; /* Bordes internos */
-    padding: 5px;
-    text-align: center; /* Centrar el texto */
-    vertical-align: middle; /* Centrar verticalmente */
-    word-wrap: break-word; /* Permitir salto de línea */
-    white-space: normal; /* Permitir múltiples líneas */
-    max-width: 200px; /* Limitar el ancho de las celdas */
-}
-
+/* Table header styles - shared between both tables */
 #theadcustom {
-    border: 2px solid gray; /* Bordes internos */
     background-color: #EAC102;
     height: 30px;
     font-family: 'Asap', sans-serif;
@@ -87,8 +189,24 @@ header{
     font-weight: bold;
 }
 
+#theadcustom th {
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #FFFFFF;
+}
 
-#btnPublish {
+/* Table data styles */
+td {
+    border: 2px solid #D9D9D9;
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+/* Button styles */
+.btnAccept, #btnPublish {
     padding: 10px 20px;
     font-size: 16px;
     font-family: 'Asap', sans-serif;
@@ -97,17 +215,15 @@ header{
     border: none;
     border-radius: 5px;
     margin-right: 10px;
+    cursor: pointer;
 }
 
-/* Change the color when passs the mouse */
-#btnPublish:hover {
+.btnAccept:hover, #btnPublish:hover {
     background-color: #1D3892;
-    cursor: pointer;
     color: white;
 }
 
-
-#btnCancel {
+.btnDeny, #btnCancel {
     padding: 10px 20px;
     font-size: 16px;
     font-family: 'Asap', sans-serif;
@@ -116,16 +232,89 @@ header{
     border: none;
     border-radius: 5px;
     margin-right: 10px;
+    cursor: pointer;
 }
 
-/* Change the color when passs the mouse */
-#btnCancel:hover {
-    cursor: pointer;
+.btnDeny:hover, #btnCancel:hover {
     background-color: #1D3892;
 }
 
+/* Footer styles */
+footer {
+    width: 100%;
+    height: 200px;
+    background-color: #1D3892;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
 
+#copyright {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
 
+#logoFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+#logoFooter img {
+    width: 200px;
+    height: auto;
+}
 
+#navFooter {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin-right: 50px;
+    gap: 20px;
+}
 
+#navFooter a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#navFooter a:hover {
+    color: #50B2F1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    #blueBackground {
+        padding: 20px;
+    }
+    
+    #sctPendingEvents, #sctPendingUsers {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    #titlePendingEventh1, #titlePendingUserh1 {
+        font-size: 28px;
+    }
+    
+    #theadcustom {
+        font-size: 16px;
+    }
+    
+    footer {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+    }
+    
+    #copyright, #logoFooter, #navFooter {
+        margin: 10px 0;
+    }
+}

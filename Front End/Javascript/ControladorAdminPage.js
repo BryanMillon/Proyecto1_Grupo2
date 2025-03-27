@@ -1,4 +1,3 @@
-
 /*ESTO MAS ADELANTE LO VOY A SACAR DE LA TABLA DE LA BASE DE DATOS, ES SOLAMENTE POR EL MOMENTO*/
 const lista = [
     { 
@@ -74,6 +73,62 @@ function actionBottonCancel(){
     Swal.fire({
         title: "Evento No Publicado",
         text: "Este evento ha sido cancelado y no se ha publicado.",
+        icon: "error"
+    });
+}
+
+/*Button functions*/
+
+//Publish
+function actionbtnAccept(){
+    Swal.fire({
+        title: "Denuncia Procesada",
+        text: "Esta denuncia se procesará",
+        icon: "success"
+     });
+    }
+
+//Cancel
+function actionbtnDeny(){
+    Swal.fire({
+        title: "Denuncia Rechazada",
+        text: "Esta denuncia no se procesará",
+        icon: "error"
+    });
+}
+
+/*Button functions tabla Usuarios*/
+document.addEventListener("DOMContentLoaded", function() {
+    chargeTable(); // Cargar la tabla de eventos
+
+    // Seleccionar todos los botones de aceptar y denegar en la tabla de usuarios
+    const botonesAceptar = document.querySelectorAll(".btnAccept");
+    const botonesDenegar = document.querySelectorAll(".btnDeny");
+
+    // Asignar aceptar y luego denegar
+    botonesAceptar.forEach(boton => {
+        boton.addEventListener("click", actionBottonAccept);
+    });
+
+
+    botonesDenegar.forEach(boton => {
+        boton.addEventListener("click", actionBottonDenegar);
+    });
+});
+
+function actionBottonAccept(){
+    Swal.fire({
+        title: "Aceptado Exitosamente",
+        text: "Acción aceptada", // cambiar luego para el mensaje para cada tabla
+        icon: "success"
+     });
+    }
+
+//Cancel
+function actionBottonDenegar(){
+    Swal.fire({
+        title: "Denegado Exitosamente",
+        text: "Acción Denegada", // cambiar luego para el mensaje para cada tabla
         icon: "error"
     });
 }
