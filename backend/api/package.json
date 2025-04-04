@@ -1,0 +1,27 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Back end del proyecto",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BryanMillon/Proyecto1_Grupo2.git"
+  },
+  "author": "Bryan Millon, Alejandro Vega, Maciel Gomez, Javier Cazanga, Wendy Quesada, Ivan Ccopa, Jose Zamora",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BryanMillon/Proyecto1_Grupo2/issues"
+  },
+  "homepage": "https://github.com/BryanMillon/Proyecto1_Grupo2#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "mongoose": "^8.13.2",
+    "nodemon": "^3.1.9"
+  }
+}
