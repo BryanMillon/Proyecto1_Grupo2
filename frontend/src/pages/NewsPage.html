@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Titulo de la pagina-->
+    <title>Noticias</title>
+
+     <!--Estilos-->
+        <!--Reset-->
+        <link rel="stylesheet" href="../Styles/reset.css">
+        <!--Estilo pericipal (.css) -->
+        <link rel="stylesheet" href ="../Styles/NewsPage.css">
+        <!--Fuente/s-->
+        <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!--Logo y Barra de navegacion-->
+    <header>
+        <!--Logo en Header-->
+        <div class="logoHeader">
+            <a href = "../pages/HomePage.html"> 
+                <img src="../../public/images/logoheader.png" alt="logoheader">
+            </a>
+        </div>
+        
+        <!--Barra de navegacion-->
+        <nav>
+            <ul>
+                <li><a href="../pages/AdminPage.html ">ADMINISTRADOR</a></li>
+                <li><a href="../pages/NewsPage.html">NOTICIAS</a></li>
+                <li><a href="../pages/NoticesPage.html">AVISOS</a></li>
+                <li><a href="../pages/ServicesPage.html">SERVICIOS</a></li>
+                <li><a href="../pages/ReportsPage.html">DENUNCIAS</a></li>
+                <li><a href="../pages/InitiativesCreationPage.html">INICIATIVAS</a></li>
+                <li class="dropdown">
+                    <a href="#">PERFIL</a>
+                    <ul class="submenu">
+                        <li><a href="../pages/UserprofilePage.html">MI PERFIL</a></li>
+                        <li><a href="../pages/UserProfileAdminView.html">PERFIL DE OTROS USUARIOS</a></li>
+                        <li><a href="../pages/NoticesCreationPage.html">CREAR AVISO</a></li>
+                        <li><a href="../pages/NewsCreationPage.html">CREAR NOTICIA</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+        <!--Titulo de Seccion-->
+        <seccion class="mainPageTitle">
+            <h1>NOTICIAS</h1>
+        </seccion>
+
+        <!--Seccion Principal de Noticias-->
+        <section class="newsSeccion">
+
+            <!--Imagen Principal-->
+            <div class="imageMostRecentNew">
+                <!-- Imagen -->
+                <div class="imageRecentNews" id="styleImage"></div>
+            </div>
+
+            <!--Contenedor de Noticias-->
+            <div id="newsCountainer">
+                <!--Contenedor de Articulo (son anadidos de forma dinamica por medio del "ControladorNews")-->
+                <div id="articleCountainer">
+                    <!--Contenido del Articulo-->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div id="copyright">
+            <p>&copy; 2025 Municipalidad de Montes de Oca</p>
+        </div>
+
+        <div id="logoFooter">
+            <a href="../pages/HomePage.html">
+                <img src="../../public/images/logofooter.png" alt="logofooter">
+            </a>
+        </div>
+
+        <div id="navFooter">
+            <a href="../pages/AdminPage.html">ADMINISTRADOR</a>
+            <a href="../pages/NewsPage.html">NOTICIAS</a>
+            <a href="../pages/NoticesPage.html">AVISOS</a>
+            <a href="../pages/ServicesPage.html">SERVICIOS</a>
+            <a href="../pages/ReportsPage.html">DENUNCIAS</a>
+            <a href="../pages/InitiativesPage.html">INICIATIVAS</a>
+        </div>
+    </footer>
+
+    <!--Vinculador con JavaScript-->
+    <script src="../js/ControladorNews.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+.env
+
+# Cache y dependencias temporales
+.cache/
+.vscode/
+*.swp

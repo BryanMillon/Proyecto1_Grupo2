@@ -1,0 +1,255 @@
+body{
+    font-family: 'Asap',sans-serif;
+}
+
+header{
+    width: 100%;
+    height: 180px;
+    background-color: #1D3892;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logoHeader img{
+    width: 450px;
+    margin-left: 50px;
+}
+
+nav{
+    margin-right: 80px;
+}
+
+
+nav li a{
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+nav li a:hover{
+    color: #50B2F1;
+    cursor: pointer;
+}
+
+nav ul {
+    display: flex;  
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 40px;
+}
+
+nav li {
+    position: relative;
+    padding: 20px 25px;
+    display: flex; 
+    align-items: center;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%; 
+    right: 0px;
+    background-color: #1768AC;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+    border-radius: 5px;
+    -webkit-box-shadow: 6px 0px 18px 0px rgba(0,0,0,0.6);
+    -moz-box-shadow: 6px 0px 18px 0px rgba(0,0,0,0.6);
+    box-shadow: 6px 0px 18px 0px rgba(0,0,0,0.6);
+    z-index: 1000;
+}
+
+.submenu li {
+    width: 100%;
+    text-align: left;
+}
+
+.submenu li a {
+    display: block;
+    padding: 10px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.submenu li a:hover {
+    color: #50B2F1;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+#navBar {
+    width: 100%;
+    height: 100px;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navBar li{
+    display: inline;
+    padding: 44px 25px;
+}
+
+#navBar li a{
+    text-decoration: none;
+    color: #1D3892;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+#navBar li a:hover{
+    color: #50B2F1;
+    cursor: pointer;
+}
+
+
+#contenedorHome{
+    background: rgb(16,73,121);
+    background: linear-gradient(180deg, rgba(16,73,121,1) 49%, rgba(9,42,70,1) 99%);
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#imgHome{
+    width: 80%;
+    height: 100%;
+    background-image: url(../../public/images/municipalidadhome.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+#contenedorPrincipal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 50px;
+    background-color: #D9D9D9;
+}
+
+.filaBloques {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.bloque {
+    background-color: #FFFFFF;
+    width: 350px;
+    height: 400px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.encabezadoBloque {
+    width: 100%;
+    background-color: #1D3892;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.contenidoBloque {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    gap: 20px;
+}
+
+.contenidoBloque img{
+    width: 120px;
+}
+
+.contenidoBloque p{
+    text-align: center;
+    padding: 20px;
+}
+
+.btnBloque {
+    background-color: #FFD700;
+    color: #1D3892;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btnBloque a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.btnBloque:hover {
+    background-color: #E6C200;
+}
+
+footer{
+    width: 100%;
+    height: 200px;
+    background-color: #1D3892;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#copyright {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+#logoFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 200px;
+}
+
+#logoFooter img {
+    width: 200px;
+    height: auto;
+}
+
+#navFooter {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin-right: 50px;
+    gap: 20px;
+}
+
+#navFooter a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#navFooter a:hover {
+    color: #50B2F1;
+}
