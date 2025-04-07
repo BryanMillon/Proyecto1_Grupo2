@@ -11,7 +11,7 @@ const crear_aviso= async(pNombre, pFechaHora,pCategoria, pLugar, pDescripcion)=>
             responseType: "json",
             data:{
                     nombre:pNombre,
-                    fechaHora:pFechaHora,
+                    fechayhora:pFechaHora,
                     categoria:pCategoria,
                     lugar:pLugar,
                     descripcion:pDescripcion
@@ -31,7 +31,7 @@ const crear_aviso= async(pNombre, pFechaHora,pCategoria, pLugar, pDescripcion)=>
               });
     }
 
-    //Evalua si la persona ya existe
+    //Evalua si el aviso ya existe
 
     }else{
         Swal.fire({
@@ -56,3 +56,38 @@ const crear_aviso= async(pNombre, pFechaHora,pCategoria, pLugar, pDescripcion)=>
         
     }
 }
+
+
+
+
+
+const listar_avisos_BD= async()=>{
+
+    let lista_avisos = []
+    
+    try {
+        //Libreria para conectar el fronend del backend
+        const res= await axios({
+            method: "get",
+            url: "http://localhost:3000/notices",
+            responseType: "json"
+        })
+
+        lista_avisos = res.data.lista_avisos;
+        console.log(lista_avisos)
+    }
+
+    catch (error) {
+            console.log(error)
+            Swal.fire({
+                title: "Error",
+                text: "Error al listar avisos",
+                icon: "error"
+            });
+            
+        }
+
+    return lista_avisos
+   
+
+    }
