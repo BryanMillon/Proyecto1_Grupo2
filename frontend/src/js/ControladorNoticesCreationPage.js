@@ -20,6 +20,17 @@ function validateEmphyFields() {
     return error;
 }
 
+
+
+//limpiar campos del formulario
+function limpiarCampos(){
+    textNombreAviso.value = "";
+    dateTimePicker.value = "";
+    eventCategory.value = "";
+    textPlace.value = "";
+    textDescription.value = "";
+}
+
 function sendData(){
     let errorCamposVacios = validateEmphyFields();
 
@@ -30,22 +41,22 @@ function sendData(){
             icon: "warning"
           });
     }else{
-        Swal.fire({
-            title: "Exito",
-            text: "Su evento se ha enviado exitosamente",
-            icon: "success"
-          });
+
+        let nombre= inputNameEvent.value;
+        let dateTimePicker= inputDateEvent.value;
+        let eventCategory= inputCategoryEvent .value;
+        let textPlace= inputPlaceEvent.value;
+        let textDescription= inputDescriptionEvent.value;
+
+        crear_aviso(nombre, dateTimePicker,eventCategory, textPlace, textDescription)
+        limpiarCampos()
+
     }
 }
-
 
 btnBotonPublicar.addEventListener("click",sendData);
 btnBotonCrear.addEventListener("click",sendData);
 
 btnBotonLimpiar.addEventListener("click", function () {
-    textNombreAviso.value = "";
-    dateTimePicker.value = "";
-    eventCategory.value = "";
-    textPlace.value = "";
-    textDescription.value = "";
+    limpiarCampos()
 });
