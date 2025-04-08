@@ -5,7 +5,7 @@
 let events = []
 
 const showEvents=async()=>{
-    events =  await listar_avisos_BD();
+    events =  await listar_proximos_avisos_BD();
 
     events.sort((a, b) => new Date(a.fechayhora) - new Date(b.fechayhora));
 
