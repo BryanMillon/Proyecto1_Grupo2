@@ -206,7 +206,7 @@ td {
 }
 
 /* Button styles */
-.btnAccept, #btnPublish {
+.btnAccept {
     padding: 10px 20px;
     font-size: 16px;
     font-family: 'Asap', sans-serif;
@@ -218,12 +218,12 @@ td {
     cursor: pointer;
 }
 
-.btnAccept:hover, #btnPublish:hover {
+.btnAccept:hover {
     background-color: #1D3892;
     color: white;
 }
 
-.btnDeny, #btnCancel {
+.btnDeny {
     padding: 10px 20px;
     font-size: 16px;
     font-family: 'Asap', sans-serif;
@@ -235,7 +235,7 @@ td {
     cursor: pointer;
 }
 
-.btnDeny:hover, #btnCancel:hover {
+.btnDeny:hover {
     background-color: #1D3892;
 }
 

@@ -31,7 +31,7 @@ function limpiarCampos(){
     textDescription.value = "";
 }
 
-function sendData(){
+function Guardar_Aviso_Creado(){
     let errorCamposVacios = validateEmphyFields();
 
     if(errorCamposVacios){
@@ -48,14 +48,38 @@ function sendData(){
         let textPlace= inputPlaceEvent.value;
         let textDescription= inputDescriptionEvent.value;
 
-        crear_aviso(nombre, dateTimePicker,eventCategory, textPlace, textDescription)
+        crear_aviso(nombre, dateTimePicker,eventCategory, textPlace, textDescription, 'pendiente')
         limpiarCampos()
 
     }
 }
 
-btnBotonPublicar.addEventListener("click",sendData);
-btnBotonCrear.addEventListener("click",sendData);
+function Publicar_Aviso_Creado(){
+    let errorCamposVacios = validateEmphyFields();
+
+    if(errorCamposVacios){
+        Swal.fire({
+            title: "Campos vacios",
+            text: "Revisa los campos marcados en rojo",
+            icon: "warning"
+          });
+    }else{
+
+        let nombre= inputNameEvent.value;
+        let dateTimePicker= inputDateEvent.value;
+        let eventCategory= inputCategoryEvent .value;
+        let textPlace= inputPlaceEvent.value;
+        let textDescription= inputDescriptionEvent.value;
+
+        crear_aviso(nombre, dateTimePicker,eventCategory, textPlace, textDescription, 'publicado')
+        limpiarCampos()
+    }
+}
+
+
+
+btnBotonPublicar.addEventListener("click",Publicar_Aviso_Creado);
+btnBotonCrear.addEventListener("click",Guardar_Aviso_Creado);
 
 btnBotonLimpiar.addEventListener("click", function () {
     limpiarCampos()

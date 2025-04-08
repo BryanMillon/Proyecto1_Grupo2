@@ -1,73 +1,103 @@
-/*ESTO MAS ADELANTE LO VOY A SACAR DE LA TABLA DE LA BASE DE DATOS, ES SOLAMENTE POR EL MOMENTO*/
-const lista = [
-    { 
-        nombre: "Mantenimiento eléctrico",
-        categoria: "Mantenimiento",
-        lugar: "Edificio A",
-        fechaHora: "2025-03-10 10:00 AM",
-        descripcion: "Se realizará un mantenimiento eléctrico en el Edificio A. Se recomienda tomar precauciones."
-    },
-    { 
-        nombre: "Reunión de seguridad",
-        categoria: "Reunión",
-        lugar: "Sala de conferencias",
-        fechaHora: "2025-03-12 3:00 PM",
-        descripcion: "Reunión para discutir temas de seguridad en la empresa."
-    },
-    { 
-        nombre: "Suspensión de agua",
-        categoria: "Aviso importante",
-        lugar: "Toda la instalación",
-        fechaHora: "2025-03-15 8:00 AM",
-        descripcion: "El servicio de agua potable será suspendido temporalmente por mantenimiento."
-    }
-];
+//Referencias al DM
+const cuerpoTablaAvisos = document.querySelector("#tableEventPending tbody")
 
-function chargeTable() {
-    //Bring the table that was created in the html with its respective columns
-    const tbody = document.querySelector("#tableEventPending tbody");
+let listaAvisos= []
 
-     // Clear table before loading data
-    tbody.innerHTML = "";
 
-    //Here we are going to grab each element of the list that was created above for the moment fixed
-    lista.forEach((item, index) => {
+function crearBotones(fila,i){
+    //para la columna de acciones
+    //definir la celda en donde van a ir los botones
+    let celda_btn_publicar = fila.insertCell()
 
-        //Create the row
-        const fila = document.createElement("tr");
+    //crear un boton en la celda
+    let boton_publicar = document.createElement('button')
+    let boton_cancelar = document.createElement('button')
 
-        fila.innerHTML = `
-            <td id= "tdCustom">${item.nombre}</td>
-            <td id= "tdCustom">${item.fechaHora}</td>
-            <td id= "tdCustom">${item.categoria}</td>
-            <td id= "tdCustom">${item.lugar}</td>
-            <td id= "tdCustom">${item.descripcion}</td>
-            <td  id= "tdCustom">
-                <!-index is inserting the value of the index variable into the text string.
-                As a result, an onclick attribute is created on each of the buttons that when clicked calls the actionBottonPublish or actionBottonCancel() function-->
-                <button id="btnPublish" onclick="actionBottonPublish(${index})">Publicar</button>
-                <button id="btnCancel" onclick="actionBottonCancel(${index})">Cancelar</button>
-            </td>
-        `;
+    //estilos del boton editar
+    boton_publicar.innerText = "Publicar"
 
-        //Add the row to the table
-        tbody.appendChild(fila);
-    });
+    //asignar clase CSS al boton publicar
+    boton_publicar.classList.add('btnAccept');
+
+
+    //estilos del boton Cancelar
+    boton_cancelar.innerText = "Cancelar"
+
+    //asignar clase CSS al boton publicar
+    boton_cancelar.classList.add('btnDeny');
+
+
+    //vamos a definir a quien le pertenecen los botones
+    celda_btn_publicar.appendChild(boton_publicar)
+    celda_btn_publicar.appendChild(boton_cancelar)
+
+    //agregar eventos a los botones
+    boton_publicar.addEventListener("click",()=>{
+        localStorage.setItem("id_mongo",listaAvisos[i]["_id"])
+        let id = localStorage.getItem("id_mongo")
+
+        console.log(listaAvisos[i]['nombre'])
+
+        actualizarEstado(
+            id
+            ,listaAvisos[i]['nombre']
+            ,listaAvisos[i]['fechayhora']
+            ,listaAvisos[i]['categoria']
+            ,listaAvisos[i]['lugar']
+            ,listaAvisos[i]['descripcion']
+            ,'publicado'
+        )
+        chargeTable()
+    })
+
+    boton_cancelar.addEventListener("click",()=>{
+        localStorage.setItem("id_mongo",listaAvisos[i]["_id"])
+        let id = localStorage.getItem("id_mongo")
+
+        console.log(listaAvisos[i]['nombre'])
+
+        actualizarEstado(
+            id
+            ,listaAvisos[i]['nombre']
+            ,listaAvisos[i]['fechayhora']
+            ,listaAvisos[i]['categoria']
+            ,listaAvisos[i]['lugar']
+            ,listaAvisos[i]['descripcion']
+            ,'cancelado'
+        )
+        chargeTable()
+    })
 }
+
+
+const chargeTable=async()=>{
+    //Bring the table that was created in the html with its respective columns
+    listaAvisos =  await listar_avisos_pending_BD();
+    
+    //limpiar la tabla
+    
+    cuerpoTablaAvisos.innerHTML=""
+
+     for(let i=0;i<listaAvisos.length;i++){
+            
+        let fila = cuerpoTablaAvisos.insertRow()
+
+        fila.insertCell().innerHTML=listaAvisos[i]['nombre']
+        fila.insertCell().innerHTML=listaAvisos[i]['fechayhora']
+        fila.insertCell().innerHTML=listaAvisos[i]['categoria']
+        fila.insertCell().innerHTML=listaAvisos[i]['lugar']
+        fila.insertCell().innerHTML=listaAvisos[i]['descripcion']
+
+        crearBotones(fila,i)
+    }
+
+}
+
 
 document.addEventListener("DOMContentLoaded", chargeTable);
 
+
 /*Button functions*/
-
-//Publish
-function actionBottonPublish(){
-    Swal.fire({
-        title: "Evento Publicado Exitosamente",
-        text: "Este evento ahora va a ser visible para todos los usuarios",
-        icon: "success"
-     });
-    }
-
 //Cancel
 function actionBottonCancel(){
     Swal.fire({
@@ -76,6 +106,7 @@ function actionBottonCancel(){
         icon: "error"
     });
 }
+
 
 /*Button functions*/
 
