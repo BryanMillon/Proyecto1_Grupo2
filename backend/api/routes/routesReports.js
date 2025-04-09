@@ -1,5 +1,5 @@
 const express= require("express");
-const Report= require('../models/Reports');
+const Report= require('./models/Reports');
 const router= express.Router();
 
 
@@ -13,7 +13,7 @@ router.get('/reports', async(req, res) => {
      /*res: donde viaja la información de la respuesta*/
  
      try {
-        const reportsHistoricosDB= await Notice.find() /*Lista de denuncias*/
+        const reportsHistoricosDB= await Report.find() /*Lista de denuncias*/
 
         res.json({
             lista_avisos: reportsHistoricosDB,
@@ -29,12 +29,6 @@ router.get('/reports', async(req, res) => {
         
      }
 })
-
-
-
-
-
-
 
 
 
@@ -46,7 +40,7 @@ router.get('/reportsPending', async(req, res) => {
  
 
      try {
-        const reportsHistoricosDB= await Notice.find({ estado: 'pendiente' }) /*Lista de denuncias*/
+        const reportsHistoricosDB= await Report.find({ estado: 'pendiente' }) /*Lista de denuncias*/
 
         res.json({
             lista_avisos: reportsHistoricosDB,
@@ -64,7 +58,7 @@ router.get('/reportsPending', async(req, res) => {
 })
 
 
-/*Nos traiga todas los avisos en estado publicado  */
+/*Nos traiga todas las denuncias en estado publicado  */
 
 router.get('/Nextreports', async(req, res) => {
     /*req: donde viaja la información de la petición*/
@@ -77,11 +71,11 @@ router.get('/Nextreports', async(req, res) => {
 
 
      try {
-        const reportsHistoricosDB= await Notice.find({ estado: 'publicado', fechayhora: { $gte: today } }) /*Lista de avisos*/
+        const reportsHistoricosDB= await Report.find({ estado: 'publicado', fechayhora: { $gte: today } }) /*Lista de denuncias*/
 
         res.json({
-            lista_avisos: reportsHistoricosDB,
-            mensaje: "Avisos recuperados exitosamente"
+            lista_denuncias: reportsHistoricosDB,
+            mensaje: "Denuncias recuperadas exitosamente"
 
         })
 
@@ -105,7 +99,7 @@ router.post('/reports', async(req, res) => {
     try {
         await newReport.save() /*Graba la denuncia en la base de datos*/
         res.json({
-            notice: newReport,
+            report: newReport,
             mensaje: "Denuncia creada exitosamente",
             resultado: "true"
         })
@@ -119,7 +113,7 @@ router.post('/reports', async(req, res) => {
 
 
 //DELETE
-//http://localhost:3000/personas
+//http://localhost:3000/reports
 router.delete('/reports',async(req,res)=>{
 
     const id = req.query.id
@@ -161,11 +155,11 @@ router.delete('/reports',async(req,res)=>{
 //http://localhost:3000/reportsUpdateStatus
 router.put('/reportsUpdateStatus',async(req,res)=>{
     //proporcionar un parametro de busqueda
-    const id_notice = req.query.id;
+    const id_report = req.query.id;
 
     try {
 
-        const denunciaPublicado = await Notice.findByIdAndUpdate(id_report, req.body, { new: true });
+        const denunciaPublicado = await Report.findByIdAndUpdate(id_report, req.body, { new: true });
         if(!denunciaPublicado){
             return res.json({
                 mensaje:"La denuncia no existe"
