@@ -9,7 +9,7 @@ const reportsSchema= new mongoose.Schema({
     lugar:{type: String, required:true},
     descripcion:{type: String, required:true},
     estado:{type: String, required:true,
-        enum: ['pendiente', 'resuelto'
+        enum: ['pendiente', 'resuelto', 'publicado'
             ]}
 })
 
