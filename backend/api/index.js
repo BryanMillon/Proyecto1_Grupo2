@@ -7,6 +7,9 @@ require('dotenv').config()
 //Routes
 const routesNotices= require("./routes/routesNotices");
 const routesReports= require("./routes/routesReports");
+const routesSignUp = require("./routes/routeSignUp")
+const routeAccountVerification = require("./routes/routeAccountVerification")
+
 
 /*Establecer la conexión con Mongo */
 mongoose.connect(process.env.MONGO_URI)
@@ -30,6 +33,11 @@ res.send('Hola Mundo desde el proyecto!')
 //habilitar routes
 app.use('/',routesNotices);
 app.use('/',routesReports);
+app.use('/',routesSignUp);
+app.use('/',routeAccountVerification);
+
+
+
 
 // servir archivos estáticos desde la carpeta public
 app.use(express.static('public'));
