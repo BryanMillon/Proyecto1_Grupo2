@@ -1,4 +1,3 @@
-
 const inputNombre = document.getElementById("nombre");
 const inputApellido1 = document.getElementById("apellido1");
 const inputApellido2 = document.getElementById("apellido2");
@@ -11,8 +10,22 @@ const inputEmail = document.getElementById("email");
 const inputPassword = document.getElementById("password");
 const inputPasswordVerification = document.getElementById("passwordVerification");
 const btnSignup = document.getElementById("btnSignup");
-const fileInput = document.getElementById("file-input");
 
+const btnUploadImg = document.getElementById("btnUploadImg"); 
+const previewImg = document.getElementById("preview");
+
+
+let imagenURL = "";
+
+
+let widget_cloudinary = initCloudinaryWidget(previewImg, (url) => {
+    imagenURL = url; 
+});
+
+
+btnUploadImg.addEventListener('click', () => {
+    widget_cloudinary.open();
+}, false);
 
 function inputsValidation() {
     let error = false;
@@ -30,22 +43,20 @@ function inputsValidation() {
     return error;
 }
 
-
 function emailValidation() {
     let error = false;
     let userText = inputEmail.value;
     let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (regex.test(userText) == false) {
-        inputEmail.classList.add("error"); // Añadir la clase error si el correo es inválido
-        inputCedula.value = ""; 
+        inputEmail.classList.add("error"); 
+        inputEmail.value = ""; 
         error = true;
     } else {
-        inputEmail.classList.remove("error"); // Eliminar la clase error si el correo es válido
+        inputEmail.classList.remove("error"); 
     }
 
     return error;
 }
-
 
 function cedulaValidation() {
     let error = false;
@@ -63,11 +74,10 @@ function cedulaValidation() {
     return error;
 }
 
-
 function telefonoValidation() {
     let error = false;
     let telefono = inputTelefono.value.trim();
-    // Formato para teléfonos de Costa Rica (8 dígitos)
+    
     let regex = /^[2-8]\d{3}-?\d{4}$|^\d{8}$/;
     
     if (!regex.test(telefono)) {
@@ -79,7 +89,6 @@ function telefonoValidation() {
     }
     return error;
 }
-
 
 function passwordValidation() {
     let error = false;
@@ -97,7 +106,6 @@ function passwordValidation() {
     return error;
 }
 
-
 function passwordMatchValidation() {
     let error = false;
     
@@ -110,7 +118,6 @@ function passwordMatchValidation() {
     }
     return error;
 }
-
 
 function nameValidation() {
     let error = false;
@@ -143,21 +150,6 @@ function nameValidation() {
     return error;
 }
 
-// Validación de tamaño de archivos (solo si se sube una imagen)
-function fileValidation() {
-    let error = false;
-    
-    if (fileInput.files.length > 0) {
-        const fileSize = fileInput.files[0].size; // en bytes
-        const maxSize = 5 * 1024 * 1024; // 5MB
-        
-        if (fileSize > maxSize) {
-            error = true;
-        }
-    }
-    
-    return error;
-}
 
 
 function cleanInputs() {
@@ -172,10 +164,9 @@ function cleanInputs() {
     inputEmail.value = "";
     inputPassword.value = "";
     inputPasswordVerification.value = "";
-    document.getElementById("preview").src = "../IMG/Perfil-logo.svg";
-    fileInput.value = "";
+    document.getElementById("preview").src = "../../public/images/Perfil-logo.svg";
+    imagenURL = ""; 
 }
-
 
 function sendData() {
     const isEmptyFields = inputsValidation();
@@ -185,9 +176,7 @@ function sendData() {
     const isPasswordInvalid = passwordValidation();
     const isPasswordMismatch = passwordMatchValidation();
     const isNameInvalid = nameValidation();
-    const isFileInvalid = fileValidation();
     
-  
     if (isEmptyFields) {
         Swal.fire({
             title: "Campos vacíos",
@@ -230,13 +219,38 @@ function sendData() {
             text: "Verifica que ambas contraseñas sean iguales",
             icon: "warning"
         });
-    } else if (isFileInvalid) {
-        Swal.fire({
-            title: "Archivo inválido",
-            text: "La imagen de perfil debe ser menor a 5MB",
-            icon: "warning"
-        });
     } else {
+        const userData = {
+            nombre: inputNombre.value,
+            apellido1: inputApellido1.value,
+            apellido2: inputApellido2.value,
+            cedula: inputCedula.value,
+            userType: selectUser.value,
+            distrito: selectDistrict.value,
+            direccion: inputDireccion.value,
+            telefono: inputTelefono.value,
+            email: inputEmail.value,
+            password: inputPassword.value,
+            imageUrl: imagenURL // URL de la imagen desde Cloudinary
+        };
+        console.log(userData)
+
+        // Llamar a la función crear_usuario
+        registerUser(
+            userData.nombre, 
+            userData.apellido1, 
+            userData.apellido2, 
+            userData.cedula, 
+            userData.userType, 
+            userData.distrito, 
+            userData.direccion, 
+            userData.telefono, 
+            userData.email, 
+            userData.password, 
+            userData.imageUrl
+        );
+        console.log("URL de la imagen:", imagenURL);
+        
         Swal.fire({
             title: "Registro exitoso",
             text: "Te hemos enviado un correo de verificación",
@@ -244,25 +258,11 @@ function sendData() {
         }).then((result) => {
             if (result.isConfirmed) {
                 cleanInputs();
-                window.location.href = "../HTML/AccountVerificationPage.html";
+                window.location.href = "../pages/AccountVerificationPage.html";
             }
         });
     }
 }
-
-// Evento para previsualización de imagen
-fileInput.addEventListener("change", function() {
-    const preview = document.getElementById("preview");
-    const file = fileInput.files[0];
-    
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            preview.src = e.target.result;
-        }
-        reader.readAsDataURL(file);
-    }
-});
 
 // Evento para el botón de registro
 btnSignup.addEventListener("click", sendData);
