@@ -4,23 +4,37 @@ const user = require('../models/signUp');
 const router = express.Router();
 
 router.post('/accountVerification', async (req, res) => {
-    const { email, codigoVerificacion } = req.body;
+    const { email, cedula, codigoVerificacion } = req.body;
 
     try {
-        const usuario = await user.findOne({ email });
+       
+        if (!email && !cedula) {
+            return res.status(400).json({ message: 'Se debe proporcionar el correo electrónico o la cédula' });
+        }
+
+   
+        let usuario;
+        if (email) {
+            usuario = await user.findOne({ email });
+        } else if (cedula) {
+            usuario = await user.findOne({ cedula });
+        }
 
         if (!usuario) {
             return res.status(404).json({ message: 'Usuario no encontrado' });
         }
 
+       
         if (usuario.verificado) {
             return res.status(400).json({ message: 'El usuario ya está verificado' });
         }
 
+     
         if (usuario.codigoVerificacion !== codigoVerificacion) {
             return res.status(400).json({ message: 'Código de verificación incorrecto' });
         }
 
+       
         usuario.verificado = true;
         usuario.codigoVerificacion = null; 
         await usuario.save();
