@@ -22,7 +22,7 @@
             </header>
 
             <div id="titlesSection">
-                <h2>Verificacion de Correo</h2>
+                <h2>Verificacion de Cuenta</h2>
                 <h3>Ingrese el codigo de verificacion que te mandamos a tu correo.</h3>
                 <h3>Si no lo encuentras revisa tu folder de spam.</h3>
 
@@ -30,9 +30,21 @@
 
             <form id="form">
                 <div class="inputContainer">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M336 352c97.2 0 176-78.8 176-176S433.2 0 336 0S160 78.8 160 176c0 18.7 2.9 36.8 8.3 53.7L7 391c-4.5 4.5-7 10.6-7 17l0 80c0 13.3 10.7 24 24 24l80 0c13.3 0 24-10.7 24-24l0-40 40 0c13.3 0 24-10.7 24-24l0-40 40 0c6.4 0 12.5-2.5 17-7l33.3-33.3c16.9 5.4 35 8.3 53.7 8.3zM376 96a40 40 0 1 1 0 80 40 40 0 1 1 0-80z"/></svg>
-                    <input type="text" name="text" id="text" placeholder="Codigo" required>
+                 
                 </div>
+
+                <form id="form">
+                    <div class="inputContainer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
+                          </svg>
+                        <input type="text" name="text" id="emailOrId" placeholder="Correo electrónico o Cedula" required>
+                    </div>
+    
+                    <div class="inputContainer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M336 352c97.2 0 176-78.8 176-176S433.2 0 336 0S160 78.8 160 176c0 18.7 2.9 36.8 8.3 53.7L7 391c-4.5 4.5-7 10.6-7 17l0 80c0 13.3 10.7 24 24 24l80 0c13.3 0 24-10.7 24-24l0-40 40 0c13.3 0 24-10.7 24-24l0-40 40 0c6.4 0 12.5-2.5 17-7l33.3-33.3c16.9 5.4 35 8.3 53.7 8.3zM376 96a40 40 0 1 1 0 80 40 40 0 1 1 0-80z"/></svg>
+                        <input type="text" name="text" id="code" placeholder="Codigo" required>
+                    </div>
                 
 
                 <div class="sectionButtons">
@@ -50,7 +62,9 @@
             </form>
         </section>
     </main>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../services/serviceAccountVerification.js" type="text/javascript"></script>
     <script src="../js/ControladorAccountVerificationPage.js"></script>
 </body>
 </html>

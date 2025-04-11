@@ -47,7 +47,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: ""
   },
-  userType: {
+  rol: {
     type: String,
     enum: ["vecino", "concejal", "administrador"],
     default: "vecino"

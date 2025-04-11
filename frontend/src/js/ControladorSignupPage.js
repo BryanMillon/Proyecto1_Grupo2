@@ -32,12 +32,19 @@ function inputsValidation() {
     let list = document.querySelectorAll("#form [required]");
 
     for (let i = 0; i < list.length; i++) {
-        if (list[i].value.trim === '') {
-            list[i].classList.add("error");
-            list[i].value = "";
+        const element = list[i];
+
+
+        if ((element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') && element.value.trim() === '') {
+            element.classList.add("error");
+            element.value = "";
+            error = true;
+        } 
+        else if (element.tagName === 'SELECT' && element.value === '') {
+            element.classList.add("error");
             error = true;
         } else {
-            list[i].classList.remove("error");
+            element.classList.remove("error");
         }
     }
     return error;
@@ -168,7 +175,7 @@ function cleanInputs() {
     imagenURL = ""; 
 }
 
-function sendData() {
+async function sendData() {
     const isEmptyFields = inputsValidation();
     const isEmailInvalid = emailValidation();
     const isCedulaInvalid = cedulaValidation();
@@ -231,36 +238,58 @@ function sendData() {
             telefono: inputTelefono.value,
             email: inputEmail.value,
             password: inputPassword.value,
-            imageUrl: imagenURL // URL de la imagen desde Cloudinary
+            imageUrl: imagenURL 
         };
-        console.log(userData)
+       
 
-        // Llamar a la función crear_usuario
-        registerUser(
-            userData.nombre, 
-            userData.apellido1, 
-            userData.apellido2, 
-            userData.cedula, 
-            userData.userType, 
-            userData.distrito, 
-            userData.direccion, 
-            userData.telefono, 
-            userData.email, 
-            userData.password, 
-            userData.imageUrl
-        );
-        console.log("URL de la imagen:", imagenURL);
-        
-        Swal.fire({
-            title: "Registro exitoso",
-            text: "Te hemos enviado un correo de verificación",
-            icon: "success"
-        }).then((result) => {
-            if (result.isConfirmed) {
+        try {
+            
+            const result = await registerUser(
+                userData.nombre, 
+                userData.apellido1, 
+                userData.apellido2, 
+                userData.cedula, 
+                userData.userType, 
+                userData.distrito, 
+                userData.direccion, 
+                userData.telefono, 
+                userData.email, 
+                userData.password, 
+                userData.imageUrl
+            );
+            
+       
+            if (result && result.success) {
                 cleanInputs();
-                window.location.href = "../pages/AccountVerificationPage.html";
+            } else if (result.error === 'cedula_duplicada') {
+                Swal.fire({
+                    title: "Cédula duplicada",
+                    text: "La cédula ingresada ya se encuentra registrada.",
+                    icon: "warning"
+                });
+            } else if (result.error === 'email_duplicado') {
+                Swal.fire({
+                    title: "Correo duplicado",
+                    text: "El correo electrónico ya se encuentra registrado.",
+                    icon: "warning"
+                });
+            } else {
+                Swal.fire({
+                    title: "Error en el registro",
+                    text: "Ocurrió un error inesperado. Por favor intenta de nuevo.",
+                    icon: "error"
+                });
             }
-        });
+            
+        } catch (error) {
+            console.error("Error en el proceso de registro:", error);
+
+            Swal.fire({
+                title: "Error en el registro",
+                text: "Ocurrió un error inesperado. Por favor intenta de nuevo.",
+                icon: "error"
+            });
+        }
     }
 }
 
