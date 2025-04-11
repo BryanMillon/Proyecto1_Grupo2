@@ -1,6 +1,7 @@
 const btnVerification = document.getElementById("btnVerification");
 const emailOrIdInput = document.getElementById("emailOrId");
 const codeInput = document.getElementById("code");
+const btnResendCode = document.getElementById("btnResendCode");
 
 function InputsValidation() {
     let error = false;
@@ -66,6 +67,28 @@ async function sendData() {
         cleanInputs();
     }
 }
+
+
+
+btnResendCode.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    const emailOrCedula = emailOrIdInput.value.trim();
+
+    if (!emailOrCedula) {
+        emailOrIdInput.classList.add("error"); 
+        Swal.fire({
+            title: 'Campo vacío',
+            text: 'Tienes que agregar tu correo o cédula con el cual se registro para reenviar el código',
+            icon: 'warning'
+        });
+        return;
+    } else {
+        emailOrIdInput.classList.remove("error"); 
+    }
+
+    await resendVerificationCode(emailOrCedula);
+});
 
 
 btnVerification.addEventListener("click", sendData);
