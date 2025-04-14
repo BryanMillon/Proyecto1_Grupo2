@@ -136,7 +136,6 @@ const listar_avisos_pending_BD= async()=>{
                 })
         
                 lista_avisos = res.data.lista_avisos;
-                console.log(lista_avisos)
             }
         
             catch (error) {

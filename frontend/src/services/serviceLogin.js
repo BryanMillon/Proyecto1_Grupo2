@@ -12,9 +12,13 @@ const LoginUser = async (pEmail, pPassword) => {
             }
         });
         
-        console.log(res.data.resultado)
 
         if (res.data.resultado){
+        localStorage.setItem("id_mongo", res.data.usuario._id)
+
+        localStorage.setItem("rolLogIn", res.data.usuario.rol)
+   
+
         // Registro exitoso
         await Swal.fire({
             title: "Inicio de sesión exitoso",
