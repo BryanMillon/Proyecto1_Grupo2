@@ -55,7 +55,6 @@ function sendData() {
             icon: "warning"
         });
     } else {
-        cleanInputs();
         LoginUser(inputEmail.value, inputPassword.value);
     }
 }
