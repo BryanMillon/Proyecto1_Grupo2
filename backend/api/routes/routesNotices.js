@@ -1,5 +1,5 @@
 const express= require("express");
-const Notice= require('../models/Notice');
+const Notice= require('../models/notice');
 const router= express.Router();
 
 
@@ -29,12 +29,6 @@ router.get('/notices', async(req, res) => {
         
      }
 })
-
-
-
-
-
-
 
 
 

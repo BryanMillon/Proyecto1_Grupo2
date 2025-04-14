@@ -2,6 +2,8 @@ const inputEmail = document.getElementById("email");
 const inputPassword = document.getElementById("password");
 const btnLogIn = document.getElementById("btnLogIn");
 
+
+
 function InputsValidation() {
     let error = false;
     let list = document.querySelectorAll("#form [required]");
@@ -53,13 +55,10 @@ function sendData() {
             icon: "warning"
         });
     } else {
-        Swal.fire({
-            title: "Éxito",
-            text: "Tus datos se han enviado correctamente",
-            icon: "success"
-        });
         cleanInputs();
+        LoginUser(inputEmail.value, inputPassword.value);
     }
 }
+
 
 btnLogIn.addEventListener("click", sendData);

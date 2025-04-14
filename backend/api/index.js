@@ -9,6 +9,7 @@ const routesNotices= require("./routes/routesNotices");
 const routesReports= require("./routes/routesReports");
 const routesSignUp = require("./routes/routeSignUp")
 const routeAccountVerification = require("./routes/routeAccountVerification")
+const routeLogin = require("./routes/routeLogin")
 
 
 /*Establecer la conexión con Mongo */
@@ -35,7 +36,7 @@ app.use('/',routesNotices);
 app.use('/',routesReports);
 app.use('/',routesSignUp);
 app.use('/',routeAccountVerification);
-
+app.use('/',routeLogin);
 
 
 
