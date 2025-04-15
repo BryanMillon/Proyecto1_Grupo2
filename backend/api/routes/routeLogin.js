@@ -2,6 +2,7 @@
 const express= require("express");
 const User= require('../models/user');
 const router= express.Router();
+const bcrypt = require('bcryptjs');
 
 
 /*Nos traiga todos los usuarios de la base de datos*/
@@ -54,7 +55,9 @@ router.post('/LoginUser', async (req, res) => {
         }
 
        
-        if (usuario.password !== password) {
+        const passwordValida = await bcrypt.compare(password, usuario.password);
+
+        if (!passwordValida) {
             return res.json({ 
                 resultado: false,
                 message: 'Contraseña incorrecta' });
