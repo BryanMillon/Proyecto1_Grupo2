@@ -7,7 +7,10 @@ function generarCodigoVerificacion() {
 
 async function enviarCorreoVerificacion(correo, codigoVerificacion) {
     const transporter = nodemailer.createTransport({
-        service: 'gmail', 
+        service: 'gmail',
+        tls: {
+            rejectUnauthorized: false   // Ignorar certificados no verificados (No recomendado en producción)
+          },
         auth: {
             user: process.env.MAIL_USER,
             pass: process.env.MAIL_PASS
