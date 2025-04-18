@@ -31,7 +31,6 @@ router.get('/notices', async(req, res) => {
 })
 
 
-
 /*Nos traiga todas los avisos en estado pending  */
 
 router.get('/noticesPending', async(req, res) => {
