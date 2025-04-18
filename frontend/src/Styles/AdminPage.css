@@ -107,7 +107,7 @@ nav li {
 }
 
 
-#sctPendingEvents, #sctPendingUsers {
+#sctPendingEvents, #sctPendingUsers, #sctPendingNews {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -116,7 +116,7 @@ nav li {
 }
 
 
-#tablePendingEvent, #tablePendingUsers {
+#tablePendingEvent, #tablePendingUsers, #tablePendingNew {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -124,7 +124,7 @@ nav li {
 }
 
 /* Title container styles - shared between both tables */
-#titlePendingEvent, #titlePendingUsers {
+#titlePendingEvent, #titlePendingUsers, #titlePendingNew {
     border: 5px solid #D9D9D9;
     background-color: #1D3892;
     margin-bottom: 20px;
@@ -159,7 +159,7 @@ nav li {
 
 
 /* Title text styles - shared between both tables */
-#titlePendingEventh1, #titlePendingUserh1 {
+#titlePendingEventh1, #titlePendingUserh1, #titlePendingNewh1 {
     font-family: 'Asap', sans-serif;
     font-size: 35px;
     color: #D9D9D9;
@@ -170,7 +170,7 @@ nav li {
 }
 
 /* Table styles - shared between both tables */
-#tableEventPending, #tableUserPending {
+#tableEventPending, #tableUserPending, #tableNewPending {
     width: 100%;
     background-color: #FFFFFF;
     color: black;

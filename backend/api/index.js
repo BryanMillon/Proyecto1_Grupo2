@@ -6,6 +6,7 @@ require('dotenv').config()
 
 //Routes
 const routesNotices= require("./routes/routesNotices");
+const routesNews= require("./routes/routesNews");
 const routesReports= require("./routes/routesReports");
 const routesSignUp = require("./routes/routeSignUp")
 const routeAccountVerification = require("./routes/routeAccountVerification")
@@ -33,6 +34,7 @@ res.send('Hola Mundo desde el proyecto!')
 
 //habilitar routes
 app.use('/',routesNotices);
+app.use('/',routesNews);
 app.use('/',routesReports);
 app.use('/',routesSignUp);
 app.use('/',routeAccountVerification);
