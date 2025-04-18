@@ -1,13 +1,13 @@
 
 //Funcion para registrar personas
 
-const crear_aviso= async(pNombre, pFechaHora,pCategoria, pLugar, pDescripcion, pEstado)=>{
+const crear_denuncia= async(pNombre, pFechaHora,pCategoria, pLugar, pDescripcion, pEstado)=>{
     
     try {
         //Libreria para conectar el fronend del backend
         const res= await axios({
             method: "post",
-            url: "http://localhost:3000/notices",
+            url: "http://localhost:3000/reports",
             responseType: "json",
             data:{
                     nombre:pNombre,
