@@ -2,28 +2,28 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 function generarCodigoVerificacion() {
-    return Math.floor(100000 + Math.random() * 900000).toString(); 
+    return Math.floor(100000 + Math.random() * 900000).toString();
 }
 
-async function enviarCorreoVerificacion(correo, codigoVerificacion) {
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        tls: {
-            rejectUnauthorized: false   // Ignorar certificados no verificados (No recomendado en producción)
-          },
-        auth: {
-            user: process.env.MAIL_USER,
-            pass: process.env.MAIL_PASS
-        }
-    });
+function generarTemplateHTML(codigo, tipo = 'verificacion') {
+    const titulo = tipo === 'recuperacion' ? 'Recuperación de Contraseña' : 'Verificación de Correo';
+    const mensajePrincipal = tipo === 'recuperacion'
+        ? 'Hemos recibido una solicitud para restablecer tu contraseña.'
+        : 'Gracias por registrarte. Para completar el proceso, verifica tu correo.';
+    const mensajeSecundario = tipo === 'recuperacion'
+        ? 'Este es tu código para recuperar el acceso a tu cuenta:'
+        : 'Este es tu código de verificación:';
+    const mensajeFinal = tipo === 'recuperacion'
+        ? 'Si no solicitaste este cambio, puedes ignorar este mensaje.'
+        : 'Ingresa este código en la página de verificación para activar tu cuenta.';
 
-    const htmlTemplate = `
+    return `
     <!DOCTYPE html>
     <html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Verificación de Correo - Municipalidad de Montes de Oca</title>
+        <title>${titulo} - Municipalidad de Montes de Oca</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -91,14 +91,15 @@ async function enviarCorreoVerificacion(correo, codigoVerificacion) {
                         <text x="55" y="38" font-size="14" font-weight="bold">MONTES DE OCA</text>
                     </svg>
                 </div>
-                <h1>Verificación de Correo</h1>
+                <h1>${titulo}</h1>
                 <div class="content">
-                    <p>Tu código de verificación es:</p>
-                    <div class="verification-code">${codigoVerificacion}</div>
-                    <p>Ingresa este código en la página de verificación para activar tu cuenta.</p>
+                    <p>${mensajePrincipal}</p>
+                    <p>${mensajeSecundario}</p>
+                    <div class="verification-code">${codigo}</div>
+                    <p>${mensajeFinal}</p>
                 </div>
                 <div class="footer">
-                    <p>Este es un correo automático, por favor no responda a este mensaje.</p>
+                    <p>Este es un correo automático, por favor no respondas a este mensaje.</p>
                     <p>© 2025 Municipalidad de Montes de Oca. Todos los derechos reservados.</p>
                 </div>
             </div>
@@ -106,10 +107,30 @@ async function enviarCorreoVerificacion(correo, codigoVerificacion) {
     </body>
     </html>
     `;
+}
+
+async function enviarCorreoVerificacion(correo, codigo, tipo = 'verificacion') {
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        tls: {
+            rejectUnauthorized: false
+        },
+        auth: {
+            user: process.env.MAIL_USER,
+            pass: process.env.MAIL_PASS
+        }
+    });
+
+    const htmlTemplate = generarTemplateHTML(codigo, tipo);
+
+    const asunto = tipo === 'recuperacion'
+        ? 'Recuperación de contraseña - Municipalidad de Montes de Oca'
+        : 'Verificación de correo - Municipalidad de Montes de Oca';
+
     const mailOptions = {
         from: process.env.MAIL_USER,
         to: correo,
-        subject: 'Verificación de correo - Municipalidad de Montes de Oca',
+        subject: asunto,
         html: htmlTemplate
     };
 

@@ -1,5 +1,6 @@
 const inputEmail = document.getElementById("email");
 const btnRecovery = document.getElementById("btnRecovery");
+import { solicitarCodigoVerificacion } from "../services/servicePasswordReset.js";
 
 function InputsValidation() {
     let error = false;
@@ -34,29 +35,46 @@ function cleanInputs() {
     inputEmail.value = "";
 }
 
-function sendData() {
+async function sendData() {
     let isInputsValidationError = InputsValidation();
     let isEmailValidationError = emailValidation();
 
     if (isInputsValidationError) {
-        Swal.fire({
+        return Swal.fire({
             title: "Campos vacíos",
             text: "Revisa los campos marcados",
             icon: "warning"
         });
-    } else if (isEmailValidationError) {
-        Swal.fire({
+    }
+
+    if (isEmailValidationError) {
+        return Swal.fire({
             title: "Error en el correo",
             text: "Ingresa un correo válido. El formato debe ser user@email.com",
             icon: "warning"
         });
-    } else {
+    }
+
+    // ✅ Si las validaciones pasan, se hace la petición al backend
+    const email = inputEmail.value.trim();
+    const result = await solicitarCodigoVerificacion(email);
+
+    if (result.success) {
         Swal.fire({
-            title: "Éxito",
-            text: "Tus datos se han enviado correctamente. Si tu correo se encuentra en nuestra base de datos, recibiras un correo con los pasos para recuperar tu contraseña",
+            title: "¡Éxito!",
+            text: result.data.msg,
             icon: "success"
         });
         cleanInputs();
+        setTimeout(() => {
+            window.location.href = "../pages/PasswordResetPage.html";
+        }, 3000); 
+    } else {
+        Swal.fire({
+            title: "Error",
+            text: result.data.msg,
+            icon: "error"
+        });
     }
 }
 
