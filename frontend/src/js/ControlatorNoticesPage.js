@@ -11,7 +11,6 @@ const showEvents=async()=>{
 
     events.sort((a, b) => new Date(a.fechayhora) - new Date(b.fechayhora));
 
-
     const eventsContainer = document.getElementById('eventContainer');
 
     for(let i=0;i<events.length;i++){
