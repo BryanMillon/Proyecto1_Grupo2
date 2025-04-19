@@ -67,6 +67,9 @@ const userSchema = new mongoose.Schema({
   creadoEn: {
     type: Date,
     default: Date.now
+  },
+  codigoRecuperacion: {
+    type: String
   }
 });
 
