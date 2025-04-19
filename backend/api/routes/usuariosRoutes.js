@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Usuario = require('./usuariosModel');
+const Usuario = require('../models/usuariosModel');
 
 // Obtener perfil por ID
 router.get('/:id', async (req, res) => {
