@@ -11,8 +11,8 @@ const routesReports= require("./routes/routesReports");
 const routesSignUp = require("./routes/routeSignUp")
 const routeAccountVerification = require("./routes/routeAccountVerification")
 const routeLogin = require("./routes/routeLogin")
-const iniciativasRoutes = require('./api/iniciativasRoutes');
-const usuariosRoutes = require('./api/usuariosRoutes');
+const iniciativasRoutes = require('./routes/iniciativasRoutes');
+const usuariosRoutes = require('./routes/usuariosRoutes');
 
 
 /*Establecer la conexión con Mongo */

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Iniciativa = require('./iniciativasModel');
+const Iniciativa = require('../models/iniciativasModel');
 
 // Crear una iniciativa
 router.post('/', async (req, res) => {
