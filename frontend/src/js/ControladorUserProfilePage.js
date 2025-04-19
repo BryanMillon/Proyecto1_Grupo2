@@ -11,6 +11,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let valoresOriginales = {};
 
+    // === OBTENER USUARIO DESDE localStorage ===
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    const usuarioId = usuario ? usuario._id : null;
+
+    // === CARGAR DATOS DEL PERFIL AL INICIAR ===
+    if (usuarioId) {
+        fetch(`http://localhost:3000/api/usuarios/${usuarioId}`)
+            .then(res => res.json())
+            .then(data => {
+                document.querySelector('input[placeholder="Nombre"]').value = data.nombre || '';
+                document.querySelector('input[placeholder="Apellidos"]').value = data.apellidos || '';
+                document.querySelector('input[placeholder="Dirección"]').value = data.direccion || '';
+                document.querySelector('input[placeholder="Señas Adicionales"]').value = data.senas || '';
+                document.querySelector('input[placeholder="Teléfono"]').value = data.telefono || '';
+                document.querySelector('input[placeholder="Correo"]').value = data.correo || '';
+                if (data.fotoPerfil) {
+                    profileImage.src = data.fotoPerfil;
+                }
+            })
+            .catch(error => {
+                console.error("Error al cargar el perfil:", error);
+            });
+    }
+
     // === CAMBIO DE FOTO ===
     editPhotoLink.addEventListener("click", function (e) {
         e.preventDefault();
@@ -106,10 +130,42 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (errores.correo) {
             Swal.fire("Error en Correo", "Formato de correo electrónico inválido.", "error");
         } else {
-            Swal.fire("Perfil Actualizado", "Tu información ha sido guardada exitosamente.", "success");
-            inputs.forEach(input => input.setAttribute("disabled", "true"));
-            saveButton.style.display = "none";
-            cancelButton.style.display = "none";
+            if (!usuarioId) {
+                Swal.fire("Error", "Usuario no encontrado", "error");
+                return;
+            }
+
+            const datosActualizados = {
+                nombre: document.querySelector('input[placeholder="Nombre"]').value,
+                apellidos: document.querySelector('input[placeholder="Apellidos"]').value,
+                direccion: document.querySelector('input[placeholder="Dirección"]').value,
+                senas: document.querySelector('input[placeholder="Señas Adicionales"]').value,
+                telefono: document.querySelector('input[placeholder="Teléfono"]').value,
+                correo: document.querySelector('input[placeholder="Correo"]').value,
+                fotoPerfil: profileImage.src
+            };
+
+            fetch(`http://localhost:3000/api/usuarios/${usuarioId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(datosActualizados)
+            })
+            .then(response => {
+                if (response.ok) {
+                    Swal.fire("Perfil Actualizado", "Tu información ha sido guardada exitosamente.", "success");
+                    inputs.forEach(input => input.setAttribute("disabled", "true"));
+                    saveButton.style.display = "none";
+                    cancelButton.style.display = "none";
+                } else {
+                    Swal.fire("Error", "No se pudo actualizar el perfil", "error");
+                }
+            })
+            .catch(error => {
+                Swal.fire("Error", "Ocurrió un error al guardar", "error");
+                console.error(error);
+            });
         }
     });
 });

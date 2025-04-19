@@ -1,4 +1,9 @@
 //Referencias al DM
+
+///////////////////////////////////////
+////Tabla administracion de Eventos////
+///////////////////////////////////////
+
 const cuerpoTablaAvisos = document.querySelector("#tableEventPending tbody")
 
 let listaAvisos= []
@@ -73,7 +78,6 @@ function crearBotones(fila,i){
 const chargeTable=async()=>{
     //Bring the table that was created in the html with its respective columns
     listaAvisos =  await listar_avisos_pending_BD();
-    
     //limpiar la tabla
     
     cuerpoTablaAvisos.innerHTML=""
@@ -164,3 +168,137 @@ function actionBottonDenegar(){
     });
 }
 
+////////////////////////////////////////
+////Tabla Administracion de Noticias////
+////////////////////////////////////////
+
+const cuerpoTablaNoticias = document.querySelector("#tableNewPending tbody")
+
+let listaNoticias= []
+
+
+function crearBotones(fila,i){
+    //para la columna de acciones
+    //definir la celda en donde van a ir los botones
+    let celda_btn_publicar = fila.insertCell()
+
+    //crear un boton en la celda
+    let boton_publicar = document.createElement('button')
+    let boton_cancelar = document.createElement('button')
+
+    //estilos del boton editar
+    boton_publicar.innerText = "Publicar"
+
+    //asignar clase CSS al boton publicar
+    boton_publicar.classList.add('btnAccept');
+
+
+    //estilos del boton Cancelar
+    boton_cancelar.innerText = "Cancelar"
+
+    //asignar clase CSS al boton publicar
+    boton_cancelar.classList.add('btnDeny');
+
+
+    //vamos a definir a quien le pertenecen los botones
+    celda_btn_publicar.appendChild(boton_publicar)
+    celda_btn_publicar.appendChild(boton_cancelar)
+
+    //agregar eventos a los botones
+    boton_publicar.addEventListener("click",()=>{
+        localStorage.setItem("id_mongo",listaNoticias[i]["_id"])
+        let id = localStorage.getItem("id_mongo")
+
+        console.log(listaNoticias[i]['titulo'])
+
+        actualizarNoticiasEstado(
+            id
+            ,listaNoticias[i]['titulo']
+            ,listaNoticias[i]['subtitulo']
+            ,listaNoticias[i]['categoria']
+            ,listaNoticias[i]['contenido']
+            ,listaNoticias[i]['fechaDePublicacion']
+            ,'publicado'
+        )
+        chargeTableNews()
+    })
+
+    boton_cancelar.addEventListener("click",()=>{
+        localStorage.setItem("id_mongo",listaNoticias[i]["_id"])
+        let id = localStorage.getItem("id_mongo")
+
+        console.log(listaNoticias[i]['titulo'])
+
+        actualizarNoticiasEstado(
+            id
+            ,listaNoticias[i]['titulo']
+            ,listaNoticias[i]['subtitulo']
+            ,listaNoticias[i]['categoria']
+            ,listaNoticias[i]['contenido']
+            ,listaNoticias[i]['fechaDePublicacion']
+            ,'publicado'
+        )
+        chargeTableNews()
+    })
+}
+
+
+const chargeTableNews=async()=>{
+    //Bring the table that was created in the html with its respective columns
+    listaNoticias =  await listar_noticias_pending_BD();
+    //limpiar la tabla
+    
+    cuerpoTablaNoticias.innerHTML=""
+
+     for(let i=0;i<listaNoticias.length;i++){
+            
+        let fila = cuerpoTablaNoticias.insertRow()
+
+        fila.insertCell().innerHTML=listaNoticias[i]['titulo']
+        fila.insertCell().innerHTML=listaNoticias[i]['subtitulo']
+        fila.insertCell().innerHTML=listaNoticias[i]['categoria']
+        fila.insertCell().innerHTML=listaNoticias[i]['contenido']
+        fila.insertCell().innerHTML=listaNoticias[i]['fechaDePublicacion']
+
+        crearBotones(fila,i)
+    }
+
+}
+
+document.addEventListener("DOMContentLoaded", chargeTableNews);
+
+/*Button functions tabla Usuarios*/
+document.addEventListener("DOMContentLoaded", function() {
+    chargeTableNews(); // Cargar la tabla de noticias
+
+    // Seleccionar todos los botones de aceptar y denegar en la tabla de usuarios
+    const botonesAceptar = document.querySelectorAll(".btnAccept");
+    const botonesDenegar = document.querySelectorAll(".btnDeny");
+
+    // Asignar aceptar y luego denegar
+    botonesAceptar.forEach(boton => {
+        boton.addEventListener("click", actionBottonAcceptNew);
+    });
+
+
+    botonesDenegar.forEach(boton => {
+        boton.addEventListener("click", actionBottonDenyNew);
+    });
+});
+
+function actionBottonAcceptNew(){
+    Swal.fire({
+        title: "Aceptado Exitosamente",
+        text: "Acción aceptada", // cambiar luego para el mensaje para cada tabla
+        icon: "success"
+     });
+    }
+
+//Cancel
+function actionBottonDenyNew(){
+    Swal.fire({
+        title: "Denegado Exitosamente",
+        text: "Acción Denegada", // cambiar luego para el mensaje para cada tabla
+        icon: "error"
+    });
+}

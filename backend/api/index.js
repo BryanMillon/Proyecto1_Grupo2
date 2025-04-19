@@ -6,10 +6,13 @@ require('dotenv').config()
 
 //Routes
 const routesNotices= require("./routes/routesNotices");
+const routesNews= require("./routes/routesNews");
 const routesReports= require("./routes/routesReports");
 const routesSignUp = require("./routes/routeSignUp")
 const routeAccountVerification = require("./routes/routeAccountVerification")
 const routeLogin = require("./routes/routeLogin")
+const iniciativasRoutes = require('./api/iniciativasRoutes');
+const usuariosRoutes = require('./api/usuariosRoutes');
 
 
 /*Establecer la conexión con Mongo */
@@ -33,10 +36,13 @@ res.send('Hola Mundo desde el proyecto!')
 
 //habilitar routes
 app.use('/',routesNotices);
+app.use('/',routesNews);
 app.use('/',routesReports);
 app.use('/',routesSignUp);
 app.use('/',routeAccountVerification);
 app.use('/',routeLogin);
+app.use('/',iniciativasRoutes);
+app.use('/',usuariosRoutes);
 
 
 
