@@ -1,97 +1,223 @@
-// Obtener referencias a los elementos del formulario
-const inputTitle = document.getElementById("textNombreAviso");
-const inputDate = document.getElementById("dateTimePicker");
-const inputCategory = document.getElementById("eventCategory");
-const inputPlace = document.getElementById("textPlace");
-const inputDescription = document.getElementById("textDescription");
-const archivo = document.getElementById("archivo");
-const btnSubir = document.getElementById("btnSubir");
-const btnSubmit = document.getElementById("btnBotonCrear");
-const btnCancel = document.getElementById("btnBotonLimpiar");
+// Obtener todas las referencias del DOM para el formulario de denuncias
+const inputNameReport = document.getElementById("textNombreDenuncia");
+const inputDateReport = document.getElementById("dateTimePickerDenuncia");
+const inputCategoryReport = document.getElementById("reportCategory");
+const inputPlaceReport = document.getElementById("textPlaceDenuncia");
+const inputDescriptionReport = document.getElementById("textDescriptionDenuncia");
 
-// Función para validar que no haya campos vacíos
+// Validar que no haya campos vacíos
 function validateEmptyFields() {
     let error = false;
-    let requiredInputs = document.querySelectorAll("#formNewEvent [required]");
-    
-    requiredInputs.forEach(input => {
-        if (input.value.trim() === "") {
-            input.classList.add('error'); // Agregar clase de error si el campo está vacío
+    let ListInputsRequired = document.querySelectorAll("#formNewDenuncia [required]");
+    for (let i = 0; i < ListInputsRequired.length; i++) {
+        if (ListInputsRequired[i].value == "") {
+            ListInputsRequired[i].classList.add('error');
             error = true;
         } else {
-            input.classList.remove('error'); // Quitar clase de error si el campo está lleno
+            ListInputsRequired[i].classList.remove('error');
         }
-    });
+    }
     return error;
 }
 
-// Función para manejar el envío del formulario
-function handleSubmit() {
-    let hasErrors = validateEmptyFields();
-    
-    if (hasErrors) {
+// Limpiar los campos del formulario de denuncia
+function limpiarCamposDenuncia() {
+    inputNameReport.value = "";
+    inputDateReport.value = "";
+    inputCategoryReport.value = "";
+    inputPlaceReport.value = "";
+    inputDescriptionReport.value = "";
+}
+
+// Crear una denuncia
+function Guardar_Denuncia_Creada() {
+    let errorCamposVacios = validateEmptyFields();
+
+    if (errorCamposVacios) {
         Swal.fire({
             title: "Campos vacíos",
             text: "Revisa los campos marcados en rojo",
             icon: "warning"
         });
     } else {
-        Swal.fire({
-            title: "Éxito",
-            text: "Su denuncia se ha enviado exitosamente",
-            icon: "success"
-        });
-        // Aquí se puede agregar código para enviar los datos del formulario al servidor
+        let nombre = inputNameReport.value;
+        let dateTime = inputDateReport.value;
+        let categoria = inputCategoryReport.value;
+        let lugar = inputPlaceReport.value;
+        let descripcion = inputDescriptionReport.value;
+
+        crear_denuncia(nombre, dateTime, categoria, lugar, descripcion, 'pendiente');
+        limpiarCamposDenuncia();
     }
 }
 
+// Publicar una denuncia
+function Publicar_Denuncia_Creada() {
+    let errorCamposVacios = validateEmptyFields();
 
+    if (errorCamposVacios) {
+        Swal.fire({
+            title: "Campos vacíos",
+            text: "Revisa los campos marcados en rojo",
+            icon: "warning"
+        });
+    } else {
+        let nombre = inputNameReport.value;
+        let dateTime = inputDateReport.value;
+        let categoria = inputCategoryReport.value;
+        let lugar = inputPlaceReport.value;
+        let descripcion = inputDescriptionReport.value;
 
-// Agregar eventos a los botones
-btnSubmit.addEventListener("click", handleSubmit);
+        crear_denuncia(nombre, dateTime, categoria, lugar, descripcion, 'publicado');
+        limpiarCamposDenuncia();
+    }
+}
 
-btnCancel.addEventListener("click", function () {
-    textNombreAviso.value = "";
-    dateTimePicker.value = "";
-    eventCategory.value = "";
-    textPlace.value = "";
-    textDescription.value = "";
+// Crear una denuncia en el servidor
+function crear_denuncia(nombre, dateTime, categoria, lugar, descripcion, estado) {
+    const newReport = {
+        nombre: nombre,
+        fechayhora: dateTime,
+        categoria: categoria,
+        lugar: lugar,
+        descripcion: descripcion,
+        estado: estado
+    };
+
+    fetch("http://localhost:3000/reports", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newReport),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.resultado === "true") {
+            Swal.fire({
+                title: "Denuncia creada exitosamente",
+                icon: "success"
+            });
+        }
+    })
+    .catch(error => {
+        console.error("Error al crear la denuncia:", error);
+    });
+}
+
+// Lógica de visibilidad de opciones según el tipo de usuario para las denuncias
+document.addEventListener("DOMContentLoaded", function () {
+    const tipoUsuario = localStorage.getItem("rolLogIn"); 
+    const adminItemHeader = document.getElementById("adminNavItemHeader");
+    const adminItemFooter = document.getElementById("adminNavItemFooter");
+    const crearDenuncia = document.getElementById("crearDenuncia");
+    const botonPublicar = document.getElementById("btnBotonPublicar");
+
+    console.log(tipoUsuario)
+
+    if (tipoUsuario !== "administrador") {
+        if (adminItemHeader) {
+            adminItemHeader.style.display = "none";
+        }
+    }
+
+    if (tipoUsuario !== "administrador") {
+        if (adminItemFooter) {
+            adminItemFooter.style.display = "none";
+        }
+    }
+
+    if (tipoUsuario == "vecino") {
+        if (crearDenuncia) {
+            crearDenuncia.style.display = "none";
+        }
+    }
+
+    if (tipoUsuario == "concejal") {
+        if (botonPublicar) {
+            botonPublicar.style.display = "none";
+        }
+    }
 });
 
-//Rutina para eliminar del header las acciones del Admin
+// Eventos de los botones para crear y publicar denuncias
+btnBotonPublicar.addEventListener("click", Publicar_Denuncia_Creada);
+btnBotonCrear.addEventListener("click", Guardar_Denuncia_Creada);
+btnBotonLimpiar.addEventListener("click", function () {
+    limpiarCamposDenuncia();
+});
 
-const tipoUsuario = localStorage.getItem("rolLogIn"); 
-const adminItemHeader = document.getElementById("adminNavItemHeader");
-const adminItemFooter = document.getElementById("adminNavItemFooter");
-const crearAviso = document.getElementById("crearAviso");
-const crearNoticia = document.getElementById("crearNoticia");
-const botonPublicar = document.getElementById("btnBotonPublicar");
+/* CONTROLAR LAS DENUNCIAS */
 
+/* DESPUÉS DE QUE VIENEN DESDE LA BASE DE DATOS */
 
-console.log(tipoUsuario)
+let reports = []
 
-// Ocultar la opción de ADMINISTRADOR si no es administrador
-if (tipoUsuario !== "administrador") {
-    if (adminItemHeader) {
-        adminItemHeader.style.display = "none";
-    }
+// Función para mostrar las denuncias
+const showReports = async () => {
+    // Recuperar las denuncias de la base de datos
+    reports = await listar_proximos_denuncias_BD();
+
+    // Ordenar las denuncias por fecha y hora
+    reports.sort((a, b) => new Date(a.fechayhora) - new Date(b.fechayhora));
+
+    // Obtener el contenedor donde se van a mostrar las denuncias
+    const reportsContainer = document.getElementById('reportContainer');
+
+    // Recorrer todas las denuncias y mostrarlas
+    for (let i = 0; i < reports.length; i++) {
+        const reportCard = document.createElement('div');
+        reportCard.classList.add('reportCard');
+        
+        // Crear el contenido de cada tarjeta de denuncia
+        reportCard.innerHTML = `
+            <div class="reportHeader"> ${reports[i]['nombre']}</div>
+            <div class="reportDetail"><strong>Fecha y Hora:</strong> ${reports[i]['fechayhora']}</div>
+            <div class="reportDetail"><strong>Categoría:</strong> ${reports[i]['categoria']}</div>
+            <div class="reportDetail"><strong>Lugar:</strong> ${reports[i]['lugar']}</div>
+            <div class="reportDetail"><strong>Descripción:</strong> ${reports[i]['descripcion']}</div>
+            <div class="reportDetail"><strong>Estado:</strong> ${reports[i]['estado']}</div>
+        `;
+
+        // Agregar la tarjeta al contenedor de denuncias
+        reportsContainer.appendChild(reportCard);
+    };
 }
 
-// Ocultar la opción de ADMINISTRADOR si no es administrador
-if (tipoUsuario !== "administrador") {
-    if (adminItemFooter) {
-        adminItemFooter.style.display = "none";
-    }
-}
+// Cuando se carga la página, ejecutamos la función
+document.addEventListener("DOMContentLoaded", function () {
+    // Obtener el tipo de usuario desde el almacenamiento local
+    const tipoUsuario = localStorage.getItem("rolLogIn"); 
+    const adminItemHeader = document.getElementById("adminNavItemHeader");
+    const adminItemFooter = document.getElementById("adminNavItemFooter");
+    const crearDenuncia = document.getElementById("crearDenuncia");
 
-if (tipoUsuario == "vecino") {
-    if (crearAviso) {
-        crearAviso.style.display = "none";
-    }
-}
+    // Mostrar por consola el tipo de usuario para verificar
+    console.log(tipoUsuario)
 
-if (tipoUsuario == "vecino") {
-    if (crearNoticia) {
-        crearNoticia.style.display = "none";
+    // Ocultar la opción de ADMINISTRADOR si no es un administrador
+    if (tipoUsuario !== "administrador") {
+        if (adminItemHeader) {
+            adminItemHeader.style.display = "none";
+        }
     }
-}
+
+    // Ocultar la opción de ADMINISTRADOR en el pie de página si no es administrador
+    if (tipoUsuario !== "administrador") {
+        if (adminItemFooter) {
+            adminItemFooter.style.display = "none";
+        }
+    }
+
+    // Ocultar el botón de "Crear Denuncia" si el usuario es un "vecino"
+    if (tipoUsuario == "vecino") {
+        if (crearDenuncia) {
+            crearDenuncia.style.display = "none";
+        }
+    }
+});
+
+// Al cargar la página, mostramos las denuncias
+window.onload = function () {
+    showReports();
+};
