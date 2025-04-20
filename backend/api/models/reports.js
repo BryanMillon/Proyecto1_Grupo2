@@ -10,6 +10,8 @@ const reportsSchema= new mongoose.Schema({
     descripcion:{type: String, required:true},
     estado:{type: String, required:true,
         enum: ['pendiente', 'resuelto', 'publicado'
+    foto: { type: String } // URL del archivo de la foto
+        });
             ]}
 })
 
