@@ -1,71 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/NoticesPage.css">
-
     <!--Link a reset.css-->
- <link rel="stylesheet" href="../Styles/reset.css">
+    <link rel="stylesheet" href="../Styles/reset.css">
+    <!--Link a ReportsPage.css-->
+    <link rel="stylesheet" href="../Styles/ReportsPage.css">
+    <!--Link a la fuente-->
+    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap" rel="stylesheet">
 
- <!--Link a navegacion.css-->
- <link rel="stylesheet" href="../Styles/ReportsPage.css">
-
-
- <!--Link a la fuente-->
- <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap" rel="stylesheet">
-
- 
- <title>Denuncias Ciudadanas</title>
+    <title>Denuncias Ciudadanas</title>
 </head>
 <body>
-    
+
+    <script>
+        // Variable que indica si el usuario es administrador
+        let isAdmin = true;  // Cambiar a false si no es admin
+
+        // Función para cambiar el contenido según si es admin o no
+        function updateUIForAdmin() {
+            if (isAdmin) {
+                // Si es admin, muestra los enlaces de administrador
+                document.getElementById("adminNavItemHeader").style.display = 'block';
+                document.getElementById("NavFooterAdmin").style.display = 'block';
+                document.getElementById("NavFooterUser").style.display = 'none';
+            } else {
+                // Si no es admin, oculta los enlaces de admin
+                document.getElementById("adminNavItemHeader").style.display = 'none';
+                document.getElementById("NavFooterAdmin").style.display = 'none';
+                document.getElementById("NavFooterUser").style.display = 'block';
+            }
+        }
+        
+        // Llamar a la función al cargar la página
+        window.onload = updateUIForAdmin;
+    </script>
+
+    <!-- Header -->
     <header>
-            <div id="logoHeader">
-                <a href="../pages/HomePage.html">
-                    <img src="../../public/images/logoheader.png" alt="logoheader">
-                </a>
-            </div>
-            
-            <nav>
-                <ul>
-                    <li id="adminNavItemHeader"><a href="../pages/AdminPage.html ">ADMINISTRADOR</a></li>
-                    <li><a href="../pages/NewsPage.html">NOTICIAS</a></li>
-                    <li><a href="../pages/NoticesPage.html">AVISOS</a></li>
-                    <li><a href="../pages/ServicesPage.html">SERVICIOS</a></li>
-                    <li><a href="../pages/ReportsPage.html">DENUNCIAS</a></li>
-                    <li><a href="../pages/InitiativesCreationPage.html">INICIATIVAS</a></li>
-                    <li class="dropdown">
-                        <a href="#">PERFIL</a>
-                        <ul class="submenu">
-                            <li><a href="../pages/UserprofilePage.html">MI PERFIL</a></li>
-                            <li><a href="../pages/UserProfileAdminView.html">PERFIL DE OTROS USUARIOS</a></li>
-                            <li id="crearAviso"><a href="../pages/NoticesCreationPage.html">CREAR AVISO</a></li>
-                            <li id="crearNoticia"><a href="../pages/NewsCreationPage.html">CREAR NOTICIA</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
+        <div id="logoHeader">
+            <a href="../pages/HomePage.html">
+                <img src="../../public/images/logoheader.png" alt="logoheader">
+            </a>
+        </div>
+
+        <nav>
+            <ul>
+                <!-- Enlace solo visible si es admin -->
+                <li id="adminNavItemHeader" style="display: none;"><a href="../pages/AdminPage.html">ADMINISTRADOR</a></li>
+                <li><a href="../pages/NewsPage.html">NOTICIAS</a></li>
+                <li><a href="../pages/NoticesPage.html">AVISOS</a></li>
+                <li><a href="../pages/ServicesPage.html">SERVICIOS</a></li>
+                <li><a href="../pages/ReportsPage.html">DENUNCIAS</a></li>
+                <li><a href="../pages/InitiativesCreationPage.html">INICIATIVAS</a></li>
+                <li class="dropdown">
+                    <a href="#">PERFIL</a>
+                    <ul class="submenu">
+                        <li><a href="../pages/UserprofilePage.html">MI PERFIL</a></li>
+                        <li><a href="../pages/UserProfileAdminView.html">PERFIL DE OTROS USUARIOS</a></li>
+                        <li id="crearAviso"><a href="../pages/NoticesCreationPage.html">CREAR AVISO</a></li>
+                        <li id="crearNoticia"><a href="../pages/NewsCreationPage.html">CREAR NOTICIA</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
     </header>
 
+    <!-- Sección de Denuncias -->
+    <section id="mainEventPage">
+        <h1>DENUNCIAS CIUDADANAS</h1>    
+    </section>
 
-<section id="mainEventPage">
-    <h1>
-        DENUNCIAS CIUDADANAS
-    </h1>    
-</section>
-
-
-<!--Section Guia Denuncias-->
+    <!-- Guía de Denuncias -->
+   <!--Section Guia Denuncias-->
 
 <section id="guiaDenuncias">
     
     <div id= "tituloGuiaDenuncias">
         <h2>
-            Guía Denuncias
+            Guía para Crear Denuncias
         </h2>
     </div>
-
 
     
     <div id="contenidoBloque">
@@ -93,149 +110,190 @@
                 El personal municipal procesará el caso y tomará las acciones respoectivas según la legislación y reglamentos que apliquen.<br>
             </p>
     </div>
-    
     </section>
 
+    <!-- Formulario para Nueva Denuncia -->
+    <div id="formNewEvent">
 
-<!--New Event Form-->
+        <!--Name-->
+        <label class="labelFormulario"for="textNombreAviso">Título Denuncia:</label>
+        <input 
+            class="inputForm" 
+            id="textNombreAviso"
+            type="text";
+            required
+        >
 
-<section id="sctFormNewEvent">
-    <form id="containerForm">
-
-         <!--Title-->
-        <div id="titleNewEvent">
-            <h1 id="titleNewEventH1">
-                Nueva Denuncia
-            </h1>
-        <!--End Title--> 
-        </div>
+        <!--Date and Hour-->
         
+        <label class="labelFormulario" for="dateTimePicker">Fecha y hora del suceso:</label>
+        <input type="datetime-local" id="dateTimePicker" class="dateTimePicker" required>
 
-        <!--Start Form-->
-        <div id="formNewEvent">
+        <!--Categoria del evento-->
+        <label class="labelFormulario" for="eventCategory">Categoria</label>
+        <select id="eventCategory" class="categorySelect" required>
+            <option value="" disabled selected>Selecciona una categoría</option>
+            <option value="cultura">Solicitud pública</option>
+            <option value="cultura">Queja</option>
+            <option value="deportes">Denuncia</option>
+            <option value="educacion">Sugerencia</option>
+            <option value="reuniones">Felicitación</option>
+        </select>
 
-            <!--Name-->
-            <label class="labelFormulario"for="textNombreAviso">Título Denuncia:</label>
-            <input 
-                class="inputForm" 
-                id="textNombreAviso"
-                type="text";
-                required
-            >
+        <!--Place Event-->
+        <label class="labelFormulario" for="textPlace">Lugar del suceso:</label>
+        <form for="textPlace" action="#"></form>
+        <input 
+            class="inputForm" 
+            id="textPlace"
+            type="text";
+            required
+        >
 
-            <!--Date and Hour-->
-            
-            <label class="labelFormulario" for="dateTimePicker">Fecha y hora del suceso:</label>
-            <input type="datetime-local" id="dateTimePicker" class="dateTimePicker" required>
+        <!--Description Event-->
 
-            <!--Categoria del evento-->
-            <label class="labelFormulario" for="eventCategory">Categoria</label>
-            <select id="eventCategory" class="categorySelect" required>
-                <option value="" disabled selected>Selecciona una categoría</option>
-                <option value="cultura">Solicitud pública</option>
-                <option value="cultura">Queja</option>
-                <option value="deportes">Denuncia</option>
-                <option value="educacion">Sugerencia</option>
-                <option value="reuniones">Felicitación</option>
-            </select>
+        <label class="labelFormulario" for="textDescription">Descripción:</label>
+        <form for="textDescription" action="#"></form>
+        <input 
+            class="inputForm" 
+            id="textDescription"
+            type="text";
+            required>
+        <!--Event Evidence-->
 
+        <label class="labelFormulario" for="archivo">Seleccionar archivo:</label>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <input type="file" id="archivo" name="archivo" class="archivo_clase">
 
-            <!--Place Event-->
-            <label class="labelFormulario" for="textPlace">Lugar del suceso:</label>
-            <form for="textPlace" action="#"></form>
-            <input 
-                class="inputForm" 
-                id="textPlace"
-                type="text";
-                required
-            >
+        </form>
 
-            <!--Description Event-->
-
-            <label class="labelFormulario" for="textDescription">Descripción:</label>
-            <form for="textDescription" action="#"></form>
-            <input 
-                class="inputForm" 
-                id="textDescription"
-                type="text";
-                required>
-            <!--Event Evidence-->
-
-            <label class="labelFormulario" for="archivo">Seleccionar archivo:</label>
-            <form action="upload.php" method="post" enctype="multipart/form-data">
-                <input type="file" id="archivo" name="archivo" class="archivo_clase">
-
-            </form>
-
-            <div>
-                <br><br>
-                <button id="btnBotonLimpiar" type="button"> Cancelar</button>
-                <button id="btnBotonCrear" type="button"> Enviar a la Municipalidad</button>
-            </div>
-
-        <!--End Form-->
+        <div>
+            <br><br>
+            <button id="btnBotonLimpiar" type="button"> Cancelar</button>
+            <button id="btnBotonCrear" type="button"> Enviar a la Municipalidad</button>
         </div>
-    <!--End Container Form -->
-    </form>
+
+    <!--End Form-->
+    </div>
+<!--End Container Form -->
+</form>
 </section>
 <!--End Event Form-->
 
 
-<!--Section Listado de Denuncias-->
 
+  <!-- Sección Listado de Denuncias -->
 <section id="listadoDenuncias">
     <div id="containerEvents">
         <div id="eventContainer">
-            <!-- Events will be added here dynamically -->
+            <!-- Aquí se agregarán las denuncias dinámicamente -->
         </div>
     </div>
 </section>
 
+<script>
+    // Función para listar las denuncias activas desde la base de datos
+    const listar_denuncias_BD = async () => {
+        let lista_denuncias = [];
 
-<footer>
-    <div id="copyright">
-       <p>&copy; 2025 Municipalidad de Montes de Oca</p>
-    </div>
+        try {
+            // Llamada al backend para obtener las denuncias
+            const res = await axios({
+                method: "get",
+                url: "http://localhost:3000/reports",  // Asegúrate de usar la URL correcta para tus denuncias
+                responseType: "json"
+            });
 
-    <div id="LogoFooter">
-        <a href="../pages/HomePage.html">
-            <img src="../../public/images/logofooter.png" alt="logofooter">
-        </a>
-    </div>
+            lista_denuncias = res.data.lista_denuncias; // Suponiendo que la respuesta tiene esta estructura
 
-    <div id="NavFooter">
-        <a href="../pages/AdminPage.html">ADMINISTRADOR</a>
-        <a href="../pages/NewsPage.html">NOTICIAS</a>
-        <a href="../pages/NoticesPage.html">AVISOS</a>
-        <a href="../pages/ServicesPage.html">SERVICIOS</a>
-        <a href="../pages/ReportsPage.html">DENUNCIAS</a>
-        <a href="../pages/InitiativesPage.html">INICIATIVAS</a>
-    </div>
-</footer>
+            // Llamada a la función para mostrar las denuncias
+            mostrar_denuncias(lista_denuncias);
 
+        } catch (error) {
+            console.log(error);
+            Swal.fire({
+                title: "Error",
+                text: "Error al listar denuncias",
+                icon: "error"
+            });
+        }
+    };
 
+    // Función para mostrar las denuncias en el HTML
+    const mostrar_denuncias = (denuncias) => {
+        const contenedor = document.getElementById("eventContainer");
 
- <!--Axios-->
- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
- <!-- Sweet Alert -->
- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
- <!-- Vincular el js -->
- <script src="../services/serviceReports.js"></script>
- <script src="../js/ControlatorReportsPage.js"></script>
+        // Limpiar el contenedor antes de agregar las denuncias
+        contenedor.innerHTML = "";
 
+        // Iterar sobre las denuncias y agregarlas al HTML
+        denuncias.forEach((denuncia) => {
+            const div = document.createElement("div");
+            div.classList.add("evento");
 
+            div.innerHTML = `
+                <div class="evento-titulo">
+                    <h3>${denuncia.nombre}</h3>
+                </div>
+                <div class="evento-fecha">
+                    <p>${denuncia.fechayhora}</p>
+                </div>
+                <div class="evento-lugar">
+                    <p>Lugar: ${denuncia.lugar}</p>
+                </div>
+                <div class="evento-descripcion">
+                    <p>${denuncia.descripcion}</p>
+                </div>
+                <div class="evento-estado">
+                    <p>Estado: ${denuncia.estado}</p>
+                </div>
+            `;
 
+            // Agregar la denuncia al contenedor
+            contenedor.appendChild(div);
+        });
+    };
 
+    // Llamar a la función para listar las denuncias al cargar la página
+    window.onload = listar_denuncias_BD;
+</script>
 
+    <!-- Footer -->
+    <footer>
+        <div id="copyright">
+            <p>&copy; 2025 Municipalidad de Montes de Oca</p>
+        </div>
 
+        <div id="LogoFooter">
+            <a href="../pages/HomePage.html">
+                <img src="../../public/images/logofooter.png" alt="logofooter">
+            </a>
+        </div>
 
+        <div id="NavFooter">
+            <!-- Enlaces solo visibles si es admin -->
+            <a href="../pages/AdminPage.html" id="NavFooterAdmin" style="display: none;">ADMINISTRADOR</a>
+            <a href="../pages/NewsPage.html">NOTICIAS</a>
+            <a href="../pages/NoticesPage.html">AVISOS</a>
+            <a href="../pages/ServicesPage.html">SERVICIOS</a>
+            <a href="../pages/ReportsPage.html">DENUNCIAS</a>
+            <a href="../pages/InitiativesPage.html">INICIATIVAS</a>
+            <!-- Enlaces solo visibles si no es admin -->
+            <div id="NavFooterUser" style="display: none;">
+                <a href="../pages/UserprofilePage.html">MI PERFIL</a>
+            </div>
+        </div>
+    </footer>
 
+    <!-- Cargar bibliotecas -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../services/serviceReports.js"></script>
+    <script src="../js/ControlatorReportsPage.js"></script>
 
-
-
-
-
-
-
+    <script>
+        // Llamar a la función cuando la página cargue
+        window.onload = updateUIForAdmin;
+    </script>
 </body>
 </html>
