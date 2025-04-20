@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Función para cargar los concejales pendientes en la tabla
 async function cargarSolicitudesConcejales() {
     try {
-        const res = await axios.get('/api/concejales/pendientes');
+        const res = await axios.get('/api/concejales/pendientes') //en esta linea traigo la peticion de front al backend 
         const usuarios = res.data;
         const tbody = document.querySelector('#tableUserPending tbody');
         tbody.innerHTML = ''; // Limpia la tabla antes de llenarla
@@ -230,7 +230,7 @@ function aceptarConcejal(id) {
             cargarSolicitudesConcejales(); // recarga la tabla
         })
         .catch(() => {
-            Swal.fire('Error', 'No se pudo aprobar', 'error');
+            Swal.fire('No se pudo aprobar la solicitud', 'error');
         });
 }
 
