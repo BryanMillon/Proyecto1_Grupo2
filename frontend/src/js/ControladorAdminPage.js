@@ -132,8 +132,12 @@ function actionbtnDeny(){
     });
 }
 
+///////////////////////////////////////////////////
+////Tabla Administracion de UsuariosConcejales////
+/////////////////////////////////////////////////
+
 /*Button functions tabla Usuarios*/
-document.addEventListener("DOMContentLoaded", function() {
+/*document.addEventListener("DOMContentLoaded", function() {
     chargeTable(); // Cargar la tabla de eventos
 
     // Seleccionar todos los botones de aceptar y denegar en la tabla de usuarios
@@ -166,7 +170,82 @@ function actionBottonDenegar(){
         text: "Acción Denegada", // cambiar luego para el mensaje para cada tabla
         icon: "error"
     });
+}*/
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    chargeTable();
+    cargarSolicitudesConcejales();
+});
+
+// Función para cargar los concejales pendientes en la tabla
+async function cargarSolicitudesConcejales() {
+    try {
+        const res = await axios.get('/api/concejales/pendientes');
+        const usuarios = res.data;
+        const tbody = document.querySelector('#tableUserPending tbody');
+        tbody.innerHTML = ''; // Limpia la tabla antes de llenarla
+
+        usuarios.forEach(usuario => {
+            const fila = document.createElement('tr');
+            fila.innerHTML = `
+                <td>${usuario.nombre}</td>
+                <td>${usuario.apellido1}</td>
+                <td>${usuario.apellido2}</td>
+                <td>${usuario.email}</td>
+                <td>${usuario.rol}</td>
+                <td>
+                    <button class="btnAccept" data-id="${usuario._id}">Aceptar</button>
+                    <button class="btnDeny" data-id="${usuario._id}">Denegar</button>
+                </td>
+            `;
+            tbody.appendChild(fila);
+        });
+
+        // Asignar evento para aceptar
+        document.querySelectorAll('.btnAccept').forEach(btn => {
+            btn.onclick = () => {
+                const id = btn.getAttribute('data-id');
+                aceptarConcejal(id);
+            };
+        });
+
+        // Asignar evento para rechazar
+        document.querySelectorAll('.btnDeny').forEach(btn => {
+            btn.onclick = () => {
+                const id = btn.getAttribute('data-id');
+                rechazarConcejal(id);
+            };
+        });
+    } catch (err) {
+        console.error('Error cargando solicitudes:', err);
+    }
 }
+
+// Función para aceptar un concejal
+function aceptarConcejal(id) {
+    axios.put(`/api/concejales/${id}/aprobar`)
+        .then(() => {
+            Swal.fire('Concejal aceptado con éxito', '', 'success');
+            cargarSolicitudesConcejales(); // recarga la tabla
+        })
+        .catch(() => {
+            Swal.fire('Error', 'No se pudo aprobar', 'error');
+        });
+}
+
+// Función para rechazar un concejal
+function rechazarConcejal(id) {
+    axios.put(`/api/concejales/${id}/rechazar`)
+        .then(() => {
+            Swal.fire('Concejal rechazado con éxito', '', 'success');
+            cargarSolicitudesConcejales(); // recarga la tabla
+        })
+        .catch(() => {
+            Swal.fire('Error', 'No se pudo rechazar', 'error');
+        });
+}
+  
 
 ////////////////////////////////////////
 ////Tabla Administracion de Noticias////
