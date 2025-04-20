@@ -352,7 +352,6 @@ footer {
 }
 
 
-
 .archivo_clase {
     padding: 10px 20px;
     font-size: 20px;
@@ -369,7 +368,6 @@ footer {
     background-color: #D9D9D9;
     color: black;
 }
-
 
 
 /* Estilo para las etiquetas del formulario */
@@ -496,3 +494,5 @@ html, body {
     flex: 1; 
     padding-bottom: 50px; 
 }
+
+
