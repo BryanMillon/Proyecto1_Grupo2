@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+  (function () {
+    const isAuthenticated = localStorage.getItem('usuario_autenticado');
+    if (!isAuthenticated || isAuthenticated !== 'true') {
+      window.location.href = 'LoginPage.html';
+    }
+  })();
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
