@@ -45,6 +45,7 @@ app.use('/',routeLogin);
 app.use('/',iniciativasRoutes);
 app.use('/',usuariosRoutes);
 app.use('/',routeRecoveryPassword);
+app.use('/',userRoutes);
 
 
 
