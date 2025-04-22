@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // === ELEMENTOS ===
     const editButton = document.getElementById("editInfoLink");
     const saveButton = document.getElementById("saveButton");
     const cancelButton = document.getElementById("cancelButton");
@@ -21,13 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(res => res.json())
             .then(data => {
                 document.querySelector('input[placeholder="Nombre"]').value = data.nombre || '';
-                document.querySelector('input[placeholder="Apellidos"]').value = data.apellidos || '';
+                document.querySelector('input[placeholder="Apellidos"]').value = `${data.apellido1 || ''} ${data.apellido2 || ''}`;
                 document.querySelector('input[placeholder="Dirección"]').value = data.direccion || '';
-                document.querySelector('input[placeholder="Señas Adicionales"]').value = data.senas || '';
                 document.querySelector('input[placeholder="Teléfono"]').value = data.telefono || '';
-                document.querySelector('input[placeholder="Correo"]').value = data.correo || '';
-                if (data.fotoPerfil) {
-                    profileImage.src = data.fotoPerfil;
+                document.querySelector('input[placeholder="Correo"]').value = data.email || '';
+                if (data.imageUrl) {
+                    profileImage.src = data.imageUrl;
                 }
             })
             .catch(error => {
@@ -135,14 +133,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
+            const apellidosSeparados = document.querySelector('input[placeholder="Apellidos"]').value.trim().split(" ");
             const datosActualizados = {
                 nombre: document.querySelector('input[placeholder="Nombre"]').value,
-                apellidos: document.querySelector('input[placeholder="Apellidos"]').value,
+                apellido1: apellidosSeparados[0] || '',
+                apellido2: apellidosSeparados[1] || '',
                 direccion: document.querySelector('input[placeholder="Dirección"]').value,
-                senas: document.querySelector('input[placeholder="Señas Adicionales"]').value,
                 telefono: document.querySelector('input[placeholder="Teléfono"]').value,
-                correo: document.querySelector('input[placeholder="Correo"]').value,
-                fotoPerfil: profileImage.src
+                email: document.querySelector('input[placeholder="Correo"]').value,
+                imageUrl: profileImage.src
             };
 
             fetch(`http://localhost:3000/api/usuarios/${usuarioId}`, {

@@ -1,5 +1,5 @@
 // Función para registrar denuncias
-const crear_denuncia = async(pNombre, pFechaHora, pCategoria, pLugar, pDescripcion, pEstado) => {
+const crear_denuncia = async(pNombre, pFechaHora, pCategoria, pLugar, pDescripcion, pEstado, pUserId) => {
     try {
         // Librería para conectar el frontend con el backend
         const res = await axios({
@@ -12,11 +12,12 @@ const crear_denuncia = async(pNombre, pFechaHora, pCategoria, pLugar, pDescripci
                 categoria: pCategoria,
                 lugar: pLugar,
                 descripcion: pDescripcion,
-                estado: pEstado
+                estado: pEstado,
+                userId: pUserId
             }
         });
 
-        console.log(res);
+        console.log(res)
 
         if (res.data.resultado == false) {
             if (res.data.error.code == 11000) {
@@ -28,14 +29,14 @@ const crear_denuncia = async(pNombre, pFechaHora, pCategoria, pLugar, pDescripci
             }
         } else {
             Swal.fire({
-                title: "Registro exitoso",
+                title: "Denuncia registrada exitosamente",
                 text: "La denuncia se registró exitosamente",
                 icon: "success"
             });
-
-            setTimeout(() => {
-                window.location.href = "ReportsPage.html";  // Redirige a la página de denuncias
-            }, 1500);
+            
+            //setTimeout(() => {
+                //window.location.href = "ReportsPage.html";  // Redirige a la página de denuncias
+            //}, 1500);
         }
 
     } catch (error) {
@@ -62,6 +63,7 @@ const listar_denuncias_BD = async() => {
 
         lista_denuncias = res.data.lista_denuncias;
         console.log(lista_denuncias);
+        
     } catch (error) {
         console.log(error);
         Swal.fire({

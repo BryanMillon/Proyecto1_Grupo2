@@ -18,8 +18,10 @@ const routesSignUp = require("./routes/routeSignUp");
 const routeAccountVerification = require("./routes/routeAccountVerification");
 const routeLogin = require("./routes/routeLogin");
 const iniciativasRoutes = require('./routes/iniciativasRoutes');
+
 const usuariosRoutes = require('./routes/usuariosRoutes');
 const routeRecoveryPassword = require('./routes/routeRecoveryPassword');
+
 
 /*Establecer la conexión con Mongo */
 mongoose.connect(process.env.MONGO_URI)
@@ -63,6 +65,7 @@ app.get('/', (req, res) => {
   res.send('Hola Mundo desde el proyecto!')
 });
 
+
 // Middleware para verificar autenticación (puedes usarlo en rutas que requieren autenticación)
 const isAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
@@ -80,6 +83,7 @@ app.get('/api/user', isAuthenticated, (req, res) => {
     rol: req.user.rol
   });
 });
+
 
 //habilitar routes
 app.use('/auth', authRoutes);

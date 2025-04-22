@@ -112,51 +112,54 @@
     </div>
     </section>
 
+    <section id="sctFormNewEvent1">
+    <form id="conteinerForm1">
+
     <!-- Formulario para Nueva Denuncia -->
-    <div id="formNewEvent">
+    <div id="formNewDenuncia">
 
         <!--Name-->
-        <label class="labelFormulario"for="textNombreAviso">Título Denuncia:</label>
+        <label class="labelFormulario"for="textNombreDenuncia">Título Denuncia:</label>
         <input 
             class="inputForm" 
-            id="textNombreAviso"
+            id="textNombreDenuncia"
             type="text";
             required
         >
 
         <!--Date and Hour-->
         
-        <label class="labelFormulario" for="dateTimePicker">Fecha y hora del suceso:</label>
-        <input type="datetime-local" id="dateTimePicker" class="dateTimePicker" required>
+        <label class="labelFormulario" for="dateTimePickerDenuncia">Fecha y hora del suceso:</label>
+        <input type="datetime-local" id="dateTimePickerDenuncia" class="dateTimePicker" required>
 
         <!--Categoria del evento-->
-        <label class="labelFormulario" for="eventCategory">Categoria</label>
-        <select id="eventCategory" class="categorySelect" required>
+        <label class="labelFormulario" for="reportCategory">Categoria</label>
+        <select id="reportCategory" class="categorySelect" required>
             <option value="" disabled selected>Selecciona una categoría</option>
-            <option value="cultura">Solicitud pública</option>
-            <option value="cultura">Queja</option>
+            <option value="solicitud publica">Solicitud pública</option>
+            <option value="queja">Queja</option>
             <option value="deportes">Denuncia</option>
             <option value="educacion">Sugerencia</option>
             <option value="reuniones">Felicitación</option>
         </select>
 
         <!--Place Event-->
-        <label class="labelFormulario" for="textPlace">Lugar del suceso:</label>
-        <form for="textPlace" action="#"></form>
+        <label class="labelFormulario" for="textPlaceDenuncia">Lugar del suceso:</label>
+        <form for="textPlaceDenuncia" action="#"></form>
         <input 
             class="inputForm" 
-            id="textPlace"
+            id="textPlaceDenuncia"
             type="text";
             required
         >
 
         <!--Description Event-->
 
-        <label class="labelFormulario" for="textDescription">Descripción:</label>
-        <form for="textDescription" action="#"></form>
+        <label class="labelFormulario" for="textDescriptionDenuncia">Descripción:</label>
+        <form for="textDescriptionDenuncia" action="#"></form>
         <input 
             class="inputForm" 
-            id="textDescription"
+            id="textDescriptionDenuncia"
             type="text";
             required>
         <!--Event Evidence-->
@@ -184,79 +187,13 @@
 
   <!-- Sección Listado de Denuncias -->
 <section id="listadoDenuncias">
-    <div id="containerEvents">
-        <div id="eventContainer">
+    <div id="containerReport">
+        <div id="reportContainer">
             <!-- Aquí se agregarán las denuncias dinámicamente -->
         </div>
     </div>
 </section>
 
-<script>
-    // Función para listar las denuncias activas desde la base de datos
-    const listar_denuncias_BD = async () => {
-        let lista_denuncias = [];
-
-        try {
-            // Llamada al backend para obtener las denuncias
-            const res = await axios({
-                method: "get",
-                url: "http://localhost:3000/reports",  // Asegúrate de usar la URL correcta para tus denuncias
-                responseType: "json"
-            });
-
-            lista_denuncias = res.data.lista_denuncias; // Suponiendo que la respuesta tiene esta estructura
-
-            // Llamada a la función para mostrar las denuncias
-            mostrar_denuncias(lista_denuncias);
-
-        } catch (error) {
-            console.log(error);
-            Swal.fire({
-                title: "Error",
-                text: "Error al listar denuncias",
-                icon: "error"
-            });
-        }
-    };
-
-    // Función para mostrar las denuncias en el HTML
-    const mostrar_denuncias = (denuncias) => {
-        const contenedor = document.getElementById("eventContainer");
-
-        // Limpiar el contenedor antes de agregar las denuncias
-        contenedor.innerHTML = "";
-
-        // Iterar sobre las denuncias y agregarlas al HTML
-        denuncias.forEach((denuncia) => {
-            const div = document.createElement("div");
-            div.classList.add("evento");
-
-            div.innerHTML = `
-                <div class="evento-titulo">
-                    <h3>${denuncia.nombre}</h3>
-                </div>
-                <div class="evento-fecha">
-                    <p>${denuncia.fechayhora}</p>
-                </div>
-                <div class="evento-lugar">
-                    <p>Lugar: ${denuncia.lugar}</p>
-                </div>
-                <div class="evento-descripcion">
-                    <p>${denuncia.descripcion}</p>
-                </div>
-                <div class="evento-estado">
-                    <p>Estado: ${denuncia.estado}</p>
-                </div>
-            `;
-
-            // Agregar la denuncia al contenedor
-            contenedor.appendChild(div);
-        });
-    };
-
-    // Llamar a la función para listar las denuncias al cargar la página
-    window.onload = listar_denuncias_BD;
-</script>
 
     <!-- Footer -->
     <footer>
@@ -289,7 +226,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../services/serviceReports.js"></script>
-    <script src="../js/ControlatorReportsPage.js"></script>
+    <script src="../js/ControladorReportsPage.js"></script>
 
     <script>
         // Llamar a la función cuando la página cargue
