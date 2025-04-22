@@ -17,8 +17,6 @@ const crear_denuncia = async(pNombre, pFechaHora, pCategoria, pLugar, pDescripci
             }
         });
 
-        console.log(res);
-
         if (res.data.resultado == false) {
             if (res.data.error.code == 11000) {
                 Swal.fire({
@@ -29,11 +27,11 @@ const crear_denuncia = async(pNombre, pFechaHora, pCategoria, pLugar, pDescripci
             }
         } else {
             Swal.fire({
-                title: "Registro exitoso",
+                title: "Denuncia registrada exitosamente",
                 text: "La denuncia se registró exitosamente",
                 icon: "success"
             });
-
+            
             setTimeout(() => {
                 window.location.href = "ReportsPage.html";  // Redirige a la página de denuncias
             }, 1500);
