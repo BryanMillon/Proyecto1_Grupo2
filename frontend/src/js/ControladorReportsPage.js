@@ -4,6 +4,9 @@ const inputDateReport = document.getElementById("dateTimePickerDenuncia");
 const inputCategoryReport = document.getElementById("reportCategory");
 const inputPlaceReport = document.getElementById("textPlaceDenuncia");
 const inputDescriptionReport = document.getElementById("textDescriptionDenuncia");
+const btnBotonCrear = document.getElementById("btnBotonCrear");
+const btnBotonLimpiar = document.getElementById("btnBotonLimpiar");
+
 
 // Validar que no haya campos vacíos
 function validateEmptyFields() {
@@ -41,69 +44,20 @@ function Guardar_Denuncia_Creada() {
         });
     } else {
         let nombre = inputNameReport.value;
-        let dateTime = inputDateReport.value;
+        let fechayhora = inputDateReport.value;
         let categoria = inputCategoryReport.value;
         let lugar = inputPlaceReport.value;
         let descripcion = inputDescriptionReport.value;
+        const userId = localStorage.getItem("id_mongo"); 
 
-        crear_denuncia(nombre, dateTime, categoria, lugar, descripcion, 'pendiente');
+        crear_denuncia(nombre, fechayhora, categoria, lugar, descripcion, 'pendiente',userId);
         limpiarCamposDenuncia();
     }
+
+    
 }
 
-// Publicar una denuncia
-function Publicar_Denuncia_Creada() {
-    let errorCamposVacios = validateEmptyFields();
 
-    if (errorCamposVacios) {
-        Swal.fire({
-            title: "Campos vacíos",
-            text: "Revisa los campos marcados en rojo",
-            icon: "warning"
-        });
-    } else {
-        let nombre = inputNameReport.value;
-        let dateTime = inputDateReport.value;
-        let categoria = inputCategoryReport.value;
-        let lugar = inputPlaceReport.value;
-        let descripcion = inputDescriptionReport.value;
-
-        crear_denuncia(nombre, dateTime, categoria, lugar, descripcion, 'publicado');
-        limpiarCamposDenuncia();
-    }
-}
-
-// Crear una denuncia en el servidor
-function crear_denuncia(nombre, dateTime, categoria, lugar, descripcion, estado) {
-    const newReport = {
-        nombre: nombre,
-        fechayhora: dateTime,
-        categoria: categoria,
-        lugar: lugar,
-        descripcion: descripcion,
-        estado: estado
-    };
-
-    fetch("http://localhost:3000/reports", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newReport),
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.resultado === "true") {
-            Swal.fire({
-                title: "Denuncia creada exitosamente",
-                icon: "success"
-            });
-        }
-    })
-    .catch(error => {
-        console.error("Error al crear la denuncia:", error);
-    });
-}
 
 // Lógica de visibilidad de opciones según el tipo de usuario para las denuncias
 document.addEventListener("DOMContentLoaded", function () {
@@ -141,11 +95,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Eventos de los botones para crear y publicar denuncias
-btnBotonPublicar.addEventListener("click", Publicar_Denuncia_Creada);
 btnBotonCrear.addEventListener("click", Guardar_Denuncia_Creada);
 btnBotonLimpiar.addEventListener("click", function () {
     limpiarCamposDenuncia();
 });
+
+
 
 /* CONTROLAR LAS DENUNCIAS */
 

@@ -60,47 +60,26 @@ router.get('/NextReports', async (req, res) => {
 // POST
 // Ruta para crear un nuevo reporte
 router.post('/reports', async (req, res) => {
-    try {
-        const { userId, categoria, lugar, descripcion } = req.body;
 
-        // Buscar al usuario por ID
-        const usuario = await User.findById(userId);
+    const newReport= new Report(req.body);
+    console.log(req.body);
 
-        if (!usuario) {
-            return res.status(404).json({
-                mensaje: "Usuario no encontrado",
-                resultado: "false"
-            });
+        try {
+            await newReport.save() /*Graba el aviso en la base de datos*/
+            res.json({
+                notice: newReport,
+                mensaje: "Aviso creado exitosamente",
+                resultado: "true"
+            })
+        } catch (error) {
+            res.json({
+                mensaje: "Ocurrio un error",
+                error
+            })
         }
+    })
 
-        // Armar nombre completo
-        const nombreCompleto = `${usuario.nombre} ${usuario.apellido1} ${usuario.apellido2}`;
 
-        // Crear nuevo reporte
-        const newReport = new Report({
-            nombre: nombreCompleto,
-            fechayhora: new Date(),
-            categoria,
-            lugar,
-            descripcion,
-            estado: "pendiente"
-        });
-
-        await newReport.save();
-
-        res.status(201).json({
-            report: newReport,
-            mensaje: "Reporte creado exitosamente",
-            resultado: "true"
-        });
-
-    } catch (error) {
-        res.status(500).json({
-            mensaje: "Ocurrió un error al crear el reporte",
-            error: error.message
-        });
-    }
-});
 
 // DELETE
 // http://localhost:3000/reports

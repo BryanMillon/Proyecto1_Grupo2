@@ -1,5 +1,5 @@
 // Función para registrar denuncias
-const crear_denuncia = async(pNombre, pFechaHora, pCategoria, pLugar, pDescripcion, pEstado) => {
+const crear_denuncia = async(pNombre, pFechaHora, pCategoria, pLugar, pDescripcion, pEstado, pUserId) => {
     try {
         // Librería para conectar el frontend con el backend
         const res = await axios({
@@ -12,7 +12,8 @@ const crear_denuncia = async(pNombre, pFechaHora, pCategoria, pLugar, pDescripci
                 categoria: pCategoria,
                 lugar: pLugar,
                 descripcion: pDescripcion,
-                estado: pEstado
+                estado: pEstado,
+                userId: pUserId
             }
         });
 

@@ -1,4 +1,5 @@
 const mongoose= require('mongoose');
+const user = require('./user');
 
 const reportsSchema= new mongoose.Schema({
     nombre:{type: String, required:true},
@@ -9,8 +10,9 @@ const reportsSchema= new mongoose.Schema({
     lugar:{type: String, required:true},
     descripcion:{type: String, required:true},
     estado:{type: String, required:true,
-        enum: ['pendiente', 'resuelto', 'publicado'
-            ]}
+        enum: ['pendiente', 'resuelto'
+            ]},
+    userId:{type: String, required:true},
 })
 
 module.exports= mongoose.model('Reports',reportsSchema )
