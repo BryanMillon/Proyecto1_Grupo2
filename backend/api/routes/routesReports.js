@@ -38,24 +38,6 @@ router.get('/reportsPending', async (req, res) => {
     }
 });
 
-/* Nos trae todas las denuncias en estado publicado */
-router.get('/NextReports', async (req, res) => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0); // Obtener la fecha de hoy sin la hora
-
-    try {
-        const reports = await Report.find({ estado: 'publicado', fechayhora: { $gte: today } }); // Lista de denuncias publicadas
-        res.json({
-            lista_denuncias: reports,
-            mensaje: "Denuncias recuperadas exitosamente"
-        });
-    } catch (error) {
-        res.json({
-            mensaje: "Ocurrió un error",
-            error
-        });
-    }
-});
 
 // POST
 // Ruta para crear un nuevo reporte
@@ -68,7 +50,7 @@ router.post('/reports', async (req, res) => {
             await newReport.save() /*Graba el aviso en la base de datos*/
             res.json({
                 notice: newReport,
-                mensaje: "Aviso creado exitosamente",
+                mensaje: "Denuncia creado exitosamente",
                 resultado: "true"
             })
         } catch (error) {

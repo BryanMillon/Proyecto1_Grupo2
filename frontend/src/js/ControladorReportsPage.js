@@ -53,8 +53,6 @@ function Guardar_Denuncia_Creada() {
         crear_denuncia(nombre, fechayhora, categoria, lugar, descripcion, 'pendiente',userId);
         limpiarCamposDenuncia();
     }
-
-    
 }
 
 
@@ -111,7 +109,7 @@ let reports = []
 // Función para mostrar las denuncias
 const showReports = async () => {
     // Recuperar las denuncias de la base de datos
-    reports = await listar_proximos_denuncias_BD();
+    reports = await listar_denuncias_BD();
 
     // Ordenar las denuncias por fecha y hora
     reports.sort((a, b) => new Date(a.fechayhora) - new Date(b.fechayhora));
@@ -176,3 +174,5 @@ document.addEventListener("DOMContentLoaded", function () {
 window.onload = function () {
     showReports();
 };
+
+
