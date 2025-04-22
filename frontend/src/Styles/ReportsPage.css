@@ -496,3 +496,69 @@ html, body {
 }
 
 
+
+
+
+/*Se listen los eventos en contenedores*/
+
+
+#containerReport {
+    width: 95%;
+    height: 100%px;
+    padding: 20px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 25px auto;
+
+}
+
+#reportContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.reportCard {
+    background-color: #FFFFFF;
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.reportCard:hover {
+    transform: scale(1.05);
+    border: 3px solid #EAC102;;
+}
+
+.reportHeader {
+    font-size: 25px;
+    width: 100%;
+    background-color: #1D3892;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.reportDetail {
+    font-size: 20px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

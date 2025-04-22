@@ -50,6 +50,8 @@ function Guardar_Denuncia_Creada() {
         let descripcion = inputDescriptionReport.value;
         const userId = localStorage.getItem("id_mongo"); 
 
+        console.log(userId)
+
         crear_denuncia(nombre, fechayhora, categoria, lugar, descripcion, 'pendiente',userId);
         limpiarCamposDenuncia();
     }
@@ -110,6 +112,9 @@ let reports = []
 const showReports = async () => {
     // Recuperar las denuncias de la base de datos
     reports = await listar_denuncias_BD();
+
+    console.log(reports)
+    
 
     // Ordenar las denuncias por fecha y hora
     reports.sort((a, b) => new Date(a.fechayhora) - new Date(b.fechayhora));
@@ -172,7 +177,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Al cargar la página, mostramos las denuncias
 window.onload = function () {
-    showReports();
+
+    //showReports();
+    reports = listar_denuncias_BD();
+    console.log(reports)
 };
 
 

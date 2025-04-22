@@ -17,6 +17,8 @@ const crear_denuncia = async(pNombre, pFechaHora, pCategoria, pLugar, pDescripci
             }
         });
 
+        console.log(res)
+
         if (res.data.resultado == false) {
             if (res.data.error.code == 11000) {
                 Swal.fire({
@@ -32,9 +34,9 @@ const crear_denuncia = async(pNombre, pFechaHora, pCategoria, pLugar, pDescripci
                 icon: "success"
             });
             
-            setTimeout(() => {
-                window.location.href = "ReportsPage.html";  // Redirige a la página de denuncias
-            }, 1500);
+            //setTimeout(() => {
+                //window.location.href = "ReportsPage.html";  // Redirige a la página de denuncias
+            //}, 1500);
         }
 
     } catch (error) {
@@ -61,6 +63,7 @@ const listar_denuncias_BD = async() => {
 
         lista_denuncias = res.data.lista_denuncias;
         console.log(lista_denuncias);
+        
     } catch (error) {
         console.log(error);
         Swal.fire({
