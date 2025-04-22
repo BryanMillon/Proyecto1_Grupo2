@@ -112,6 +112,9 @@
     </div>
     </section>
 
+    <section id="sctFormNewEvent1">
+    <form id="conteinerForm1">
+
     <!-- Formulario para Nueva Denuncia -->
     <div id="formNewDenuncia">
 
@@ -133,8 +136,8 @@
         <label class="labelFormulario" for="reportCategory">Categoria</label>
         <select id="reportCategory" class="categorySelect" required>
             <option value="" disabled selected>Selecciona una categoría</option>
-            <option value="cultura">Solicitud pública</option>
-            <option value="cultura">Queja</option>
+            <option value="solicitud publica">Solicitud pública</option>
+            <option value="queja">Queja</option>
             <option value="deportes">Denuncia</option>
             <option value="educacion">Sugerencia</option>
             <option value="reuniones">Felicitación</option>
@@ -184,53 +187,13 @@
 
   <!-- Sección Listado de Denuncias -->
 <section id="listadoDenuncias">
-    <div id="containerEvents">
-        <div id="eventContainer">
+    <div id="containerReport">
+        <div id="reportContainer">
             <!-- Aquí se agregarán las denuncias dinámicamente -->
         </div>
     </div>
 </section>
 
-<script>
-
-    // Función para mostrar las denuncias en el HTML
-    const mostrar_denuncias = (denuncias) => {
-        const contenedor = document.getElementById("eventContainer");
-
-        // Limpiar el contenedor antes de agregar las denuncias
-        contenedor.innerHTML = "";
-
-        // Iterar sobre las denuncias y agregarlas al HTML
-        denuncias.forEach((denuncia) => {
-            const div = document.createElement("div");
-            div.classList.add("evento");
-
-            div.innerHTML = `
-                <div class="evento-titulo">
-                    <h3>${denuncia.nombre}</h3>
-                </div>
-                <div class="evento-fecha">
-                    <p>${denuncia.fechayhora}</p>
-                </div>
-                <div class="evento-lugar">
-                    <p>Lugar: ${denuncia.lugar}</p>
-                </div>
-                <div class="evento-descripcion">
-                    <p>${denuncia.descripcion}</p>
-                </div>
-                <div class="evento-estado">
-                    <p>Estado: ${denuncia.estado}</p>
-                </div>
-            `;
-
-            // Agregar la denuncia al contenedor
-            contenedor.appendChild(div);
-        });
-    };
-
-    // Llamar a la función para listar las denuncias al cargar la página
-
-</script>
 
     <!-- Footer -->
     <footer>
