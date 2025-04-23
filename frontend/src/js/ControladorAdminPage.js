@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Función para cargar los concejales pendientes en la tabla
 async function cargarSolicitudesConcejales() {
     try {
-        const res = await axios.get('/api/concejales/pendientes') //en esta linea traigo la peticion de front al backend 
+        const res = await axios.get('/concejalesPendientes') //en esta linea traigo la peticion de front al backend 
         const usuarios = res.data;
         const tbody = document.querySelector('#tableUserPending tbody');
         tbody.innerHTML = ''; // Limpia la tabla antes de llenarla
@@ -224,7 +224,7 @@ async function cargarSolicitudesConcejales() {
 
 // Función para aceptar un concejal
 function aceptarConcejal(id) {
-    axios.put(`/api/concejales/${id}/aprobar`)
+    axios.put(`/concejalesPendientes/${id}/aprobar`)
         .then(() => {
             Swal.fire('Concejal aceptado con éxito', '', 'success');
             cargarSolicitudesConcejales(); // recarga la tabla
@@ -236,7 +236,7 @@ function aceptarConcejal(id) {
 
 // Función para rechazar un concejal
 function rechazarConcejal(id) {
-    axios.put(`/api/concejales/${id}/rechazar`)
+    axios.put(`/concejalesPendientes/${id}/rechazar`) //aca usamos axios para facilitar el uso del put  
         .then(() => {
             Swal.fire('Concejal rechazado con éxito', '', 'success');
             cargarSolicitudesConcejales(); // recarga la tabla
