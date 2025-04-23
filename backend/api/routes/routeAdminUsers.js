@@ -7,18 +7,18 @@ const adminRoutes = require('../routes/AdminUsers');
 
 
 // Obtener solicitudes pendientes de concejales
-router.get('/api/concejales/pendientes', async (req, res) => {
+router.get('/concejalesPendientes', async (req, res) => {
     try {
       const concejalesPendientes = await User.find({ rol: 'concejal', estadoConcejal: 'pendiente' });
       res.json(concejalesPendientes);
-    } catch (err) {
+    } catch (error) {
       res.status(500).json({ message: 'Error al obtener solicitudes', error: err });
     }
   });
   
 
 // Aprobar concejal
-router.put('/api/concejales/:id/aprobar', async (req, res) => {
+router.put('/concejalesPendientes/:id/aprobar', async (req, res) => {
     try {
       const usuario = await User.findById(req.params.id);
       if (!usuario) return res.status(404).json({ message: 'Usuario no encontrado' });
@@ -35,7 +35,7 @@ router.put('/api/concejales/:id/aprobar', async (req, res) => {
   });
   
   // Rechazar concejal
-  router.put('/api/concejales/:id/rechazar', async (req, res) => {
+  router.put('/concejalesPendientes/:id/rechazar', async (req, res) => {
     try {
       const usuario = await User.findById(req.params.id);
       if (!usuario) return res.status(404).json({ message: 'Usuario no encontrado' });
