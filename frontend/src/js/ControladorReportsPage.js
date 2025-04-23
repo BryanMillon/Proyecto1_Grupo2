@@ -101,46 +101,38 @@ btnBotonLimpiar.addEventListener("click", function () {
 });
 
 
+// ==========================
+// HISTORIAL DE DENUNCIAS
+// ==========================
 
-/* CONTROLAR LAS DENUNCIAS */
+async function mostrarHistorialDenuncias() {
+    const userId = localStorage.getItem("id_mongo");
+    let todasLasDenuncias = await listar_denuncias_BD();
 
-/* DESPUÉS DE QUE VIENEN DESDE LA BASE DE DATOS */
+    // Filtrar por denuncias del usuario logueado
+    const denunciasUsuario = todasLasDenuncias.filter(report => report.usuario === userId);
 
-let reports = []
+    denunciasUsuario.sort((a, b) => new Date(b.fechayhora) - new Date(a.fechayhora));
 
-// Función para mostrar las denuncias
-const showReports = async () => {
-    // Recuperar las denuncias de la base de datos
-    reports = await listar_denuncias_BD();
+    reportsContainer.innerHTML = "";
 
-    console.log(reports)
-    
+    denunciasUsuario.forEach(report => {
+        const card = document.createElement("div");
+        card.classList.add("reportCard");
 
-    // Ordenar las denuncias por fecha y hora
-    reports.sort((a, b) => new Date(a.fechayhora) - new Date(b.fechayhora));
-
-    // Obtener el contenedor donde se van a mostrar las denuncias
-    const reportsContainer = document.getElementById('reportContainer');
-
-    // Recorrer todas las denuncias y mostrarlas
-    for (let i = 0; i < reports.length; i++) {
-        const reportCard = document.createElement('div');
-        reportCard.classList.add('reportCard');
-        
-        // Crear el contenido de cada tarjeta de denuncia
-        reportCard.innerHTML = `
-            <div class="reportHeader"> ${reports[i]['nombre']}</div>
-            <div class="reportDetail"><strong>Fecha y Hora:</strong> ${reports[i]['fechayhora']}</div>
-            <div class="reportDetail"><strong>Categoría:</strong> ${reports[i]['categoria']}</div>
-            <div class="reportDetail"><strong>Lugar:</strong> ${reports[i]['lugar']}</div>
-            <div class="reportDetail"><strong>Descripción:</strong> ${reports[i]['descripcion']}</div>
-            <div class="reportDetail"><strong>Estado:</strong> ${reports[i]['estado']}</div>
+        card.innerHTML = `
+            <div class="reportHeader">${report.nombre}</div>
+            <div class="reportDetail"><strong>Fecha y Hora:</strong> ${report.fechayhora}</div>
+            <div class="reportDetail"><strong>Categoría:</strong> ${report.categoria}</div>
+            <div class="reportDetail"><strong>Lugar:</strong> ${report.lugar}</div>
+            <div class="reportDetail"><strong>Descripción:</strong> ${report.descripcion}</div>
+            <div class="reportDetail"><strong>Estado:</strong> ${report.estado}</div>
         `;
 
-        // Agregar la tarjeta al contenedor de denuncias
-        reportsContainer.appendChild(reportCard);
-    };
+        reportsContainer.appendChild(card);
+    });
 }
+
 
 // Cuando se carga la página, ejecutamos la función
 document.addEventListener("DOMContentLoaded", function () {

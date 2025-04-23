@@ -267,6 +267,21 @@ footer {
     border-radius: 8px;
 }
 
+#tituloPagina {
+    width: 100%;
+    height: 100px;
+    background-color: #1768AC;
+    display: flex;
+    align-items: center;
+}
+
+#tituloPagina h1{
+    color: #FFFFFF;
+    font-size: 50px;
+    font-weight: 600;
+    margin-left: 50px;
+}
+
 #titleNewEventH1 {
     text-align: center;
     font-size: 30px;
@@ -494,9 +509,6 @@ html, body {
     flex: 1; 
     padding-bottom: 50px; 
 }
-
-
-
 
 
 /*Se listen los eventos en contenedores*/
