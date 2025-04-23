@@ -49,3 +49,62 @@ const LoginUser = async (pEmail, pPassword) => {
     }
 
 };
+
+
+
+const listar_usuarios_pending_BD= async()=>{
+
+    let lista_usuarios = []
+    
+    try {
+        //Libreria para conectar el fronend del backend
+        const res= await axios({
+            method: "get",
+            url: "http://localhost:3000/concejalesPendientes",
+            responseType: "json"
+        })
+
+        lista_usuarios = res.data.lista_usuarios;
+    }
+
+    catch (error) {
+            console.log(error)
+            Swal.fire({
+                title: "Error",
+                text: "Error al listar usuarios",
+                icon: "error"
+            });
+            
+        }
+
+    return lista_usuarios
+
+    }
+
+
+const actualizarEstadoUsuario= async(p_id,pestadoConcejal)=>{
+
+    try {
+        const res = await axios({
+            method:'put',
+            url:'http://localhost:3000/user/usersUpdateStatus',
+            params:{id:p_id},
+            data:{
+                estadoConcejal:pestadoConcejal
+            },
+            responseType:'json'
+        })
+    }
+
+    catch (error) {
+            console.log(error)
+            Swal.fire({
+                title: "Error",
+                text: "Error al listar usuarios",
+                icon: "error"
+            });
+            
+        }
+
+
+    }

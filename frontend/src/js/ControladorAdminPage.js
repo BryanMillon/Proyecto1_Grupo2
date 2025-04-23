@@ -9,7 +9,7 @@ const cuerpoTablaAvisos = document.querySelector("#tableEventPending tbody")
 let listaAvisos= []
 
 
-function crearBotones(fila,i){
+function crearBotonesAvisos(fila,i){
     //para la columna de acciones
     //definir la celda en donde van a ir los botones
     let celda_btn_publicar = fila.insertCell()
@@ -92,7 +92,7 @@ const chargeTable=async()=>{
         fila.insertCell().innerHTML=listaAvisos[i]['lugar']
         fila.insertCell().innerHTML=listaAvisos[i]['descripcion']
 
-        crearBotones(fila,i)
+        crearBotonesAvisos(fila,i)
     }
 
 }
@@ -116,50 +116,12 @@ function actionBottonCancel(){
 ////Tabla Administracion de UsuariosConcejales////
 /////////////////////////////////////////////////
 
-/*Button functions tabla Usuarios*/
-/*document.addEventListener("DOMContentLoaded", function() {
-    chargeTable(); // Cargar la tabla de eventos
-
-    // Seleccionar todos los botones de aceptar y denegar en la tabla de usuarios
-    const botonesAceptar = document.querySelectorAll(".btnAccept");
-    const botonesDenegar = document.querySelectorAll(".btnDeny");
-
-    // Asignar aceptar y luego denegar
-    botonesAceptar.forEach(boton => {
-        boton.addEventListener("click", actionBottonAccept);
-    });
-
-
-    botonesDenegar.forEach(boton => {
-        boton.addEventListener("click", actionBottonDenegar);
-    });
-});
-
-function actionBottonAccept(){
-    Swal.fire({
-        title: "Aceptado Exitosamente",
-        text: "Acción aceptada", // cambiar luego para el mensaje para cada tabla
-        icon: "success"
-     });
-    }
-
-//Cancel
-function actionBottonDenegar(){
-    Swal.fire({
-        title: "Denegado Exitosamente",
-        text: "Acción Denegada", // cambiar luego para el mensaje para cada tabla
-        icon: "error"
-    });
-}*/
-
-
-
-const cuerpoTablaConcejales = document.querySelector("#tableUserPending tbody")
+const cuerpoTablaConcejales = document.querySelector("#tableUserPending  tbody")
 
 let listaConcejales= []
 
 
-function crearBotones_Concejales(fila,i){
+function crearBotonesConcejales(fila,i){
     //para la columna de acciones
     //definir la celda en donde van a ir los botones
     let celda_btn_publicar = fila.insertCell()
@@ -169,14 +131,14 @@ function crearBotones_Concejales(fila,i){
     let boton_cancelar = document.createElement('button')
 
     //estilos del boton editar
-    boton_publicar.innerText = "Publicar"
+    boton_publicar.innerText = "Aceptar"
 
     //asignar clase CSS al boton publicar
     boton_publicar.classList.add('btnAccept');
 
 
     //estilos del boton Cancelar
-    boton_cancelar.innerText = "Cancelar"
+    boton_cancelar.innerText = "Rechazar"
 
     //asignar clase CSS al boton publicar
     boton_cancelar.classList.add('btnDeny');
@@ -191,63 +153,95 @@ function crearBotones_Concejales(fila,i){
         localStorage.setItem("id_mongo",listaConcejales[i]["_id"])
         let id = localStorage.getItem("id_mongo")
 
-        console.log(listaAvisos[i]['nombre'])
+        console.log(listaConcejales[i]['nombre'])
 
-        actualizarEstado(
+        actualizarEstadoUsuario(
             id
-            ,listaAvisos[i]['nombre']
-            ,listaAvisos[i]['fechayhora']
-            ,listaAvisos[i]['categoria']
-            ,listaAvisos[i]['lugar']
-            ,listaAvisos[i]['descripcion']
-            ,'publicado'
+            ,'aprobado'
+           
         )
-        chargeTable()
+        chargeTableConcejales()
     })
 
     boton_cancelar.addEventListener("click",()=>{
-        localStorage.setItem("id_mongo",listaAvisos[i]["_id"])
+        localStorage.setItem("id_mongo",listaConcejales[i]["_id"])
         let id = localStorage.getItem("id_mongo")
 
-        console.log(listaAvisos[i]['nombre'])
+        console.log(listaConcejales[i]['nombre'])
 
-        actualizarEstado(
+        actualizarEstadoUsuario(
             id
-            ,listaAvisos[i]['nombre']
-            ,listaAvisos[i]['fechayhora']
-            ,listaAvisos[i]['categoria']
-            ,listaAvisos[i]['lugar']
-            ,listaAvisos[i]['descripcion']
-            ,'cancelado'
+            ,'rechazado'
         )
-        chargeTable()
+        chargeTableConcejales()
     })
 }
 
 
-const chargeTable_Concejales=async()=>{
+const chargeTableConcejales=async()=>{
     //Bring the table that was created in the html with its respective columns
-    listaAvisos =  await listar_avisos_pending_BD();
+    listaConcejales =  await listar_usuarios_pending_BD();
     //limpiar la tabla
     
-    cuerpoTablaAvisos.innerHTML=""
+    cuerpoTablaConcejales.innerHTML=""
 
-     for(let i=0;i<listaAvisos.length;i++){
+     for(let i=0;i<listaConcejales.length;i++){
             
-        let fila = cuerpoTablaAvisos.insertRow()
+        let fila = cuerpoTablaConcejales.insertRow()
 
-        fila.insertCell().innerHTML=listaAvisos[i]['nombre']
-        fila.insertCell().innerHTML=listaAvisos[i]['fechayhora']
-        fila.insertCell().innerHTML=listaAvisos[i]['categoria']
-        fila.insertCell().innerHTML=listaAvisos[i]['lugar']
-        fila.insertCell().innerHTML=listaAvisos[i]['descripcion']
+        fila.insertCell().innerHTML=listaConcejales[i]['nombre']
+        fila.insertCell().innerHTML=listaConcejales[i]['apellido1']
+        fila.insertCell().innerHTML=listaConcejales[i]['apellido2']
+        fila.insertCell().innerHTML=listaConcejales[i]['email']
+        fila.insertCell().innerHTML=listaConcejales[i]['rol']
 
-        crearBotones(fila,i)
+        crearBotonesConcejales(fila,i)
     }
 
 }
 
-document.addEventListener("DOMContentLoaded", chargeTable);
+document.addEventListener("DOMContentLoaded", chargeTableConcejales);
+
+
+/*Button functions*/
+//Cancel
+function actionBottonCancel(){
+    Swal.fire({
+        title: "Evento No Publicado",
+        text: "Este evento ha sido cancelado y no se ha publicado.",
+        icon: "error"
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*Button functions*/
@@ -281,7 +275,7 @@ const cuerpoTablaNoticias = document.querySelector("#tableNewPending tbody")
 let listaNoticias= []
 
 
-function crearBotones(fila,i){
+function crearBotonesNoticias(fila,i){
     //para la columna de acciones
     //definir la celda en donde van a ir los botones
     let celda_btn_publicar = fila.insertCell()
@@ -364,7 +358,7 @@ const chargeTableNews=async()=>{
         fila.insertCell().innerHTML=listaNoticias[i]['contenido']
         fila.insertCell().innerHTML=listaNoticias[i]['fechaDePublicacion']
 
-        crearBotones(fila,i)
+        crearBotonesNoticias(fila,i)
     }
 
 }
@@ -416,7 +410,7 @@ const cuerpoTablaDenuncias = document.querySelector("#tableDenunciaPending tbody
 
 let listaDenuncias = [];
 
-function crearBotones(fila, i) {
+function crearBotonesDenuncias(fila, i) {
     // Para la columna de acciones
     let celda_btn_resolver = fila.insertCell();
 
@@ -516,7 +510,7 @@ const chargeTableDenuncias = async () => {
         fila.insertCell().innerHTML = listaDenuncias[i]['descripcion'];
 
         // Crear botones para cada fila
-        crearBotones(fila, i);
+        crearBotonesDenuncias(fila, i);
     }
 };
 

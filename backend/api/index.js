@@ -18,8 +18,11 @@ const routesSignUp = require("./routes/routeSignUp");
 const routeAccountVerification = require("./routes/routeAccountVerification");
 const routeLogin = require("./routes/routeLogin");
 const iniciativasRoutes = require('./routes/iniciativasRoutes');
+const routesUsers = require('./routes/routeAdminUsers');
 
-const usuariosRoutes = require('./routes/usuariosRoutes');
+//const { router: routesUsers } = require('./routes/routeAdminUsers');
+
+//const usuariosRoutes = require('./routes/usuariosRoutes');
 const routeRecoveryPassword = require('./routes/routeRecoveryPassword');
 
 
@@ -32,10 +35,13 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // habilitar CORS
-app.use(cors({
-  origin: ['http://localhost:3000', 'http://127.0.0.1:5501'], // Asegúrate de que tu frontend pueda acceder
-  credentials: true                // Importante para enviar cookies
-}));
+//app.use(cors({
+  //origin: ['http://localhost:3000', 'http://127.0.0.1:5501'], // Asegúrate de que tu frontend pueda acceder
+  //credentials: true                // Importante para enviar cookies
+//}));
+
+app.use(cors());
+
 //habilitar body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -94,8 +100,10 @@ app.use('/', routesSignUp);
 app.use('/', routeAccountVerification);
 app.use('/', routeLogin);
 app.use('/', iniciativasRoutes);
-app.use('/', usuariosRoutes);
+//app.use('/', usuariosRoutes);
 app.use('/', routeRecoveryPassword);
+app.use('/', routesUsers);
+
 
 // servir archivos estáticos desde la carpeta public
 app.use(express.static('public'));
