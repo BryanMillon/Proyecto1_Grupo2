@@ -76,6 +76,38 @@ const listar_denuncias_BD = async() => {
     return lista_denuncias;
 }
 
+
+const listar_denuncias_BD_Users = async(Id_User) => {
+    let lista_denuncias = [];
+
+    try {
+        // Librería para conectar el frontend con el backend
+        const res = await axios({
+            method: "get",
+            url: "http://localhost:3000/busqueda_denuncia_id",  // Ruta para listar todas las denuncias
+            params:{id:Id_User},
+            responseType: "json"
+        });
+
+        lista_denuncias = res.data.lista_denuncias;
+        console.log(lista_denuncias);
+        
+    } catch (error) {
+        console.log(error);
+        Swal.fire({
+            title: "Error",
+            text: "Error al listar denuncias",
+            icon: "error"
+        });
+    }
+
+    return lista_denuncias;
+}
+
+
+
+
+
 // Función para listar las denuncias pendientes en la base de datos
 const listar_denuncias_pending_BD = async() => {
     let lista_denuncias = [];
