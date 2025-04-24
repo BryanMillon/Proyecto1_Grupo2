@@ -60,3 +60,37 @@ submitButton.addEventListener("click", Guardar_Iniciativa_Creada);
 cancelButton.addEventListener("click", function () {
     limpiarFormulario();
 });
+
+
+
+let iniciativas = []
+
+const mostrarIniciativas=async()=>{
+    iniciativas =  await listar_iniciativas_publicadasBD();
+
+    console.log(iniciativas)
+
+    const articleCountainer = document.getElementById('articleCountainer');
+
+    for(let i=0;i<iniciativas.length;i++){
+        const eventCard = document.createElement('div');
+        eventCard.classList.add('eventCard');
+        
+        eventCard.innerHTML = `
+
+             <div class="newsHeader"> ${iniciativas[i]['categoria']}</div>
+            <div class="newsDetail"><strong>Fecha y Hora:</strong> ${iniciativas[i]['descripcion']}</div>
+            <div class="newsDetail"><strong>Categoría:</strong>  ${iniciativas[i]['distrito']}</div>
+          
+        `;
+
+        articleCountainer.appendChild(eventCard);
+    };
+}
+
+
+
+
+window.onload = function () {
+    mostrarIniciativas();
+};

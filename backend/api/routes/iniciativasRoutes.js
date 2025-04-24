@@ -9,7 +9,7 @@ const Iniciativa = require('../models/iniciativasModel');
 router.post('/crearIniciativa', async (req, res) => {
 
     const newIniciatiate= new Iniciativa(req.body);
-    
+
     console.log(req.body);
 
         try {
@@ -26,9 +26,6 @@ router.post('/crearIniciativa', async (req, res) => {
             })
         }
     });
-
-
-
 
 
 // Ver todas las iniciativas
@@ -52,22 +49,73 @@ router.get('/iniciativas', async (req, res) => {
   
 });
 
+router.get('/IniciativasPublicadas', async(req, res) => {
+     try {
+        const iniciativasRecuparadaoDB= await Iniciativa.find({ estado: 'aprobada' }) /*Lista de iniciativas*/
+
+        res.json({
+            lista_iniciativas: iniciativasRecuparadaoDB,
+            mensaje: "Avisos recuperados exitosamente"
+
+        })
+
+     } catch (error) {
+        res.json({
+            mensaje: "ocurrió un error",
+            error
+        })
+        
+     }
+})
 
 
+router.get('/IniciativasPendientes', async(req, res) => {
+    try {
+       const iniciativasRecuparadaoDB= await Iniciativa.find({ estado: 'pendiente' }) /*Lista de iniciativas*/
 
-// Aprobar/rechazar iniciativa
-router.put('/:id', async (req, res) => {
-  const { estado } = req.body;
-  if (!['aprobada', 'rechazada'].includes(estado)) {
-    return res.status(400).send({ mensaje: 'Estado inválido' });
-  }
+       res.json({
+           lista_iniciativas: iniciativasRecuparadaoDB,
+           mensaje: "Avisos recuperados exitosamente"
 
-  try {
-    const actualizada = await Iniciativa.findByIdAndUpdate(req.params.id, { estado }, { new: true });
-    res.send(actualizada);
-  } catch (err) {
-    res.status(500).send({ error: err.message });
-  }
+       })
+
+    } catch (error) {
+       res.json({
+           mensaje: "ocurrió un error",
+           error
+       })
+       
+    }
+})
+
+
+router.put('/iniciativeUpdateStatus', async (req, res) => {
+    const id_iniciativa = req.query.id;
+
+    try {
+        const iniciativeUpdated = await Iniciativa.findByIdAndUpdate(id_iniciativa, req.body, { new: true });
+        if (!iniciativeUpdated) {
+            return res.json({
+                mensaje: "La iniciativa no existe"
+            });
+        }
+
+        res.json({
+            report: iniciativeUpdated,
+            mensaje: "Estado de la iniciativa actualizado exitosamente"
+        });
+    } catch (error) {
+        res.json({
+            mensaje: "Ocurrió un error",
+            error
+        });
+    }
 });
+
+
+
+
+
+
 
 module.exports = router;

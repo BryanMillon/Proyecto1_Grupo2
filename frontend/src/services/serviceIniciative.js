@@ -27,10 +27,7 @@ const crear_iniciativa = async (pusuarioId, pcategoria, pdescripcion, pdistrito)
           text: "La iniciativa se registró exitosamente",
           icon: "success",
         });
-  
-        setTimeout(() => {
-          window.location.href = "InitiativesPage.html";
-        }, 1500);
+
       }
     } catch (error) {
       console.log(error);
@@ -71,30 +68,106 @@ const crear_iniciativa = async (pusuarioId, pcategoria, pdescripcion, pdistrito)
     return lista_iniciativas;
   };
   
-  // Listar iniciativas pendientes
-  const listar_iniciativas_pending_BD = async () => {
-    let lista_iniciativas = [];
+
+  const listar_iniciativas_publicadasBD= async()=>{
+
+            let lista_iniciativas = []
+            
+            try {
+                //Libreria para conectar el fronend del backend
+                const res= await axios({
+                    method: "get",
+                    url: "http://localhost:3000/IniciativasPublicadas",
+                    responseType: "json"
+                })
+        
+                lista_iniciativas = res.data.lista_iniciativas;
+            }
+        
+            catch (error) {
+                    console.log(error)
+                    Swal.fire({
+                        title: "Error",
+                        text: "Error al listar iniciativas",
+                        icon: "error"
+                    });
+                    
+                }
+        
+            return lista_iniciativas
+            }
+
+            const listar_iniciativas_pendientesBD= async()=>{
+
+              let lista_iniciativas = []
+              
+              try {
+                  //Libreria para conectar el fronend del backend
+                  const res= await axios({
+                      method: "get",
+                      url: "http://localhost:3000/IniciativasPendientes",
+                      responseType: "json"
+                  })
+          
+                  lista_iniciativas = res.data.lista_iniciativas;
+              }
+          
+              catch (error) {
+                      console.log(error)
+                      Swal.fire({
+                          title: "Error",
+                          text: "Error al listar iniciativas",
+                          icon: "error"
+                      });
+                      
+                  }
+          
+              return lista_iniciativas
+              }
   
-    try {
-      const res = await axios({
-        method: "get",
-        url: "http://localhost:3000/iniciativas?estado=pendiente",
-        responseType: "json",
-      });
-  
-      lista_iniciativas = res.data;
-    } catch (error) {
-      console.log(error);
-      Swal.fire({
-        title: "Error",
-        text: "Error al listar iniciativas pendientes",
-        icon: "error",
-      });
-    }
-  
-    return lista_iniciativas;
-  };
-  
+
+
+
+
+
+
+
+            const actualizarEstadoIniciativa = async(p_id, pEstado) => {
+              try {
+                  const res = await axios({
+                      method: 'put',
+                      url: 'http://localhost:3000/iniciativeUpdateStatus',  // Ruta para actualizar el estado de las iniciativas
+                      params: { id: p_id },
+                      data: {
+                          estado: pEstado
+                      },
+                      responseType: 'json'
+                  });
+              } catch (error) {
+                  console.log(error);
+                  Swal.fire({
+                      title: "Error",
+                      text: "Error al actualizar el estado de la denuncia",
+                      icon: "error"
+                  });
+              }
+          }
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // Actualizar estado de la iniciativa
   const actualizar_estado_iniciativa = async (id, nuevoEstado) => {
     try {
