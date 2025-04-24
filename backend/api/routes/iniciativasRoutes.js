@@ -3,21 +3,57 @@ const router = express.Router();
 const Iniciativa = require('../models/iniciativasModel');
 
 // Crear una iniciativa
-router.post('/', async (req, res) => {
-  try {
-    const nueva = new Iniciativa(req.body);
-    await nueva.save();
-    res.status(201).send(nueva);
-  } catch (err) {
-    res.status(500).send({ error: err.message });
-  }
-});
+
+// POST
+
+router.post('/crearIniciativa', async (req, res) => {
+
+    const newIniciatiate= new Iniciativa(req.body);
+    
+    console.log(req.body);
+
+        try {
+            await newIniciatiate.save() /*Graba el aviso en la base de datos*/
+            res.json({
+                iniciative: newIniciatiate,
+                mensaje: "Iniciativa creado exitosamente",
+                resultado: "true"
+            })
+        } catch (error) {
+            res.json({
+                mensaje: "Ocurrio un error",
+                error
+            })
+        }
+    });
+
+
+
+
 
 // Ver todas las iniciativas
-router.get('/', async (req, res) => {
-  const iniciativas = await Iniciativa.find();
-  res.send(iniciativas);
+router.get('/iniciativas', async (req, res) => {
+     try {
+        const iniciativas= await Iniciativa.find() /*Lista de avisos*/
+
+        res.json({
+            lista_iniciativas: iniciativas,
+            mensaje: "Iniciativas recuperados exitosamente"
+
+        })
+
+     } catch (error) {
+        res.json({
+            mensaje: "ocurrió un error",
+            error
+        })
+        
+     }
+  
 });
+
+
+
 
 // Aprobar/rechazar iniciativa
 router.put('/:id', async (req, res) => {

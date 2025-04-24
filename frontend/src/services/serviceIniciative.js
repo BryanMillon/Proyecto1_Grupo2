@@ -1,19 +1,19 @@
 // Función para registrar una iniciativa
-const crear_iniciativa = async (usuarioId, categoria, descripcion, distritos) => {
+const crear_iniciativa = async (pusuarioId, pcategoria, pdescripcion, pdistrito) => {
     try {
       const res = await axios({
         method: "post",
-        url: "http://localhost:3000/iniciativas",
+        url: "http://localhost:3000/crearIniciativa",
         responseType: "json",
         data: {
-          usuarioId,
-          categoria,
-          descripcion,
-          distritos, // arreglo de distritos
-        },
+          usuarioId:pusuarioId ,
+          categoria:pcategoria,
+          descripcion:pdescripcion,
+          distrito:pdistrito
+        }
       });
   
-      console.log(res);
+      console.log(res.data.resultado);
   
       if (res.data.resultado === false) {
         Swal.fire({
@@ -42,6 +42,10 @@ const crear_iniciativa = async (usuarioId, categoria, descripcion, distritos) =>
     }
   };
   
+
+
+
+
   // Listar todas las iniciativas
   const listar_iniciativas_BD = async () => {
     let lista_iniciativas = [];
