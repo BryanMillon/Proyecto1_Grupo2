@@ -236,6 +236,12 @@ footer {
     color: aliceblue;
 }
 
+
+#sctUpcomingEvents{
+    margin: 35px 0;
+}
+
+
 /* Formulario Nuevo Evento */
 #sctFormNewEvent {
     display: flex;
@@ -250,13 +256,13 @@ footer {
     margin-bottom: 30px;
 }
 
-#containerForm {
-    width: 100%;
-    padding: 20px;
-    margin: 10px;
-    background-color: aliceblue;
-    border-radius: 8px;
-}
+    #containerForm {
+        width: 100%;
+        padding: 20px;
+        margin: 10px;
+        background-color: aliceblue;
+        border-radius: 8px;
+    }
 
 /* Título del formulario Nuevo Evento */
 #titleNewEvent {
@@ -512,6 +518,14 @@ html, body {
 
 
 /*Se listen los eventos en contenedores*/
+#reportsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+
+}
 
 
 #containerReport {

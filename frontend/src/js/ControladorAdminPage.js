@@ -216,34 +216,6 @@ function actionBottonCancel(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*Button functions*/
 //Cancel
 function actionBottonCancel(){
@@ -257,20 +229,11 @@ function actionBottonCancel(){
 
 
 
-
-
-
-
-
-
-
-
-
 ////////////////////////////////////////
 ////Tabla Administracion de Noticias////
 ////////////////////////////////////////
 
-const cuerpoTablaNoticias = document.querySelector("#tableNewPending tbody")
+const cuerpoTablaNoticias = document.querySelector("#tableReportPending tbody")
 
 let listaNoticias= []
 
@@ -307,7 +270,6 @@ function crearBotonesNoticias(fila,i){
         localStorage.setItem("id_mongo",listaNoticias[i]["_id"])
         let id = localStorage.getItem("id_mongo")
 
-        console.log(listaNoticias[i]['titulo'])
 
         actualizarNoticiasEstado(
             id
@@ -318,14 +280,13 @@ function crearBotonesNoticias(fila,i){
             ,listaNoticias[i]['fechaDePublicacion']
             ,'publicado'
         )
+
         chargeTableNews()
     })
 
     boton_cancelar.addEventListener("click",()=>{
         localStorage.setItem("id_mongo",listaNoticias[i]["_id"])
         let id = localStorage.getItem("id_mongo")
-
-        console.log(listaNoticias[i]['titulo'])
 
         actualizarNoticiasEstado(
             id
@@ -334,7 +295,7 @@ function crearBotonesNoticias(fila,i){
             ,listaNoticias[i]['categoria']
             ,listaNoticias[i]['contenido']
             ,listaNoticias[i]['fechaDePublicacion']
-            ,'publicado'
+            ,'cancelado'
         )
         chargeTableNews()
     })
@@ -365,48 +326,15 @@ const chargeTableNews=async()=>{
 
 document.addEventListener("DOMContentLoaded", chargeTableNews);
 
-/*Button functions tabla Usuarios*/
-document.addEventListener("DOMContentLoaded", function() {
-    chargeTableNews(); // Cargar la tabla de noticias
-
-    // Seleccionar todos los botones de aceptar y denegar en la tabla de usuarios
-    const botonesAceptar = document.querySelectorAll(".btnAccept");
-    const botonesDenegar = document.querySelectorAll(".btnDeny");
-
-    // Asignar aceptar y luego denegar
-    botonesAceptar.forEach(boton => {
-        boton.addEventListener("click", actionBottonAcceptNew);
-    });
 
 
-    botonesDenegar.forEach(boton => {
-        boton.addEventListener("click", actionBottonDenyNew);
-    });
-});
-
-function actionBottonAcceptNew(){
-    Swal.fire({
-        title: "Aceptado Exitosamente",
-        text: "Acción aceptada", // cambiar luego para el mensaje para cada tabla
-        icon: "success"
-     });
-    }
-
-//Cancel
-function actionBottonDenyNew(){
-    Swal.fire({
-        title: "Denegado Exitosamente",
-        text: "Acción Denegada", // cambiar luego para el mensaje para cada tabla
-        icon: "error"
-    });
-}
 
 
 ////////////////////////////////////////
 ////Tabla Administracion de Denuncias////
 ////////////////////////////////////////
 
-const cuerpoTablaDenuncias = document.querySelector("#tableDenunciaPending tbody");
+const cuerpoTablaDenuncias = document.querySelector("#tablePendingReport tbody");
 
 let listaDenuncias = [];
 
@@ -416,25 +344,15 @@ function crearBotonesDenuncias(fila, i) {
 
     // Crear botones en la celda
     let boton_resolver = document.createElement('button');
-    let boton_publicar = document.createElement('button');
-    let boton_cancelar = document.createElement('button');
+
 
     // Estilos del botón Resolver
     boton_resolver.innerText = "Resolver";
     boton_resolver.classList.add('btnAccept');
 
-    // Estilos del botón Publicar
-    boton_publicar.innerText = "Publicar";
-    boton_publicar.classList.add('btnPublicar');
-
-    // Estilos del botón Cancelar
-    boton_cancelar.innerText = "Cancelar";
-    boton_cancelar.classList.add('btnCancel');
 
     // Añadir botones a la celda
     celda_btn_resolver.appendChild(boton_resolver);
-    celda_btn_resolver.appendChild(boton_publicar);
-    celda_btn_resolver.appendChild(boton_cancelar);
 
     // Eventos para cada botón
     boton_resolver.addEventListener("click", () => {
@@ -443,7 +361,7 @@ function crearBotonesDenuncias(fila, i) {
 
         console.log(listaDenuncias[i]['nombre']);
 
-        actualizarEstado(
+        actualizarEstadoDenuncia(
             id,
             listaDenuncias[i]['nombre'],
             listaDenuncias[i]['fechayhora'],
@@ -455,41 +373,6 @@ function crearBotonesDenuncias(fila, i) {
         chargeTableDenuncias();
     });
 
-    boton_publicar.addEventListener("click", () => {
-        localStorage.setItem("id_mongo", listaDenuncias[i]["_id"]);
-        let id = localStorage.getItem("id_mongo");
-
-        console.log(listaDenuncias[i]['nombre']);
-
-        actualizarEstado(
-            id,
-            listaDenuncias[i]['nombre'],
-            listaDenuncias[i]['fechayhora'],
-            listaDenuncias[i]['categoria'],
-            listaDenuncias[i]['lugar'],
-            listaDenuncias[i]['descripcion'],
-            'publicado'
-        );
-        chargeTableDenuncias();
-    });
-
-    boton_cancelar.addEventListener("click", () => {
-        localStorage.setItem("id_mongo", listaDenuncias[i]["_id"]);
-        let id = localStorage.getItem("id_mongo");
-
-        console.log(listaDenuncias[i]['nombre']);
-
-        actualizarEstado(
-            id,
-            listaDenuncias[i]['nombre'],
-            listaDenuncias[i]['fechayhora'],
-            listaDenuncias[i]['categoria'],
-            listaDenuncias[i]['lugar'],
-            listaDenuncias[i]['descripcion'],
-            'cancelado'
-        );
-        chargeTableDenuncias();
-    });
 }
 
 const chargeTableDenuncias = async () => {
@@ -504,17 +387,16 @@ const chargeTableDenuncias = async () => {
 
         // Insertar datos de la denuncia
         fila.insertCell().innerHTML = listaDenuncias[i]['nombre'];
-        fila.insertCell().innerHTML = listaDenuncias[i]['fechayhora'];
         fila.insertCell().innerHTML = listaDenuncias[i]['categoria'];
         fila.insertCell().innerHTML = listaDenuncias[i]['lugar'];
-        fila.insertCell().innerHTML = listaDenuncias[i]['descripcion'];
+        fila.insertCell().innerHTML = listaDenuncias[i]['fechayhora'];
 
         // Crear botones para cada fila
         crearBotonesDenuncias(fila, i);
     }
 };
 
-document.addEventListener("DOMContentLoaded", chargeTable);
+document.addEventListener("DOMContentLoaded", chargeTableDenuncias);
 
 /*Funciones de botones*/
 // Resolver

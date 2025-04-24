@@ -144,7 +144,7 @@ const listar_noticias_publicadas_BD= async()=>{
     return lista_noticias
 }
     
-const actualizarNoticiasEstado= async(p_id,pTitulo, pSubtitulo,pCategoria, pContenido, pfechaDePublicacion)=>{
+const actualizarNoticiasEstado= async(p_id,pTitulo, pSubtitulo,pCategoria, pContenido, pfechaDePublicacion,pEstado)=>{
     try {
         const res = await axios({
             method:'put',
@@ -155,7 +155,8 @@ const actualizarNoticiasEstado= async(p_id,pTitulo, pSubtitulo,pCategoria, pCont
                 subtitulo:pSubtitulo,
                 categoria:pCategoria,
                 contenido:pContenido,
-                fechaDePublicacion: pfechaDePublicacion
+                fechaDePublicacion: pfechaDePublicacion,
+                estado: pEstado
             },
             responseType:'json'
         })

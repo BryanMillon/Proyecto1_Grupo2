@@ -22,6 +22,44 @@ router.get('/reports', async (req, res) => {
     }
 });
 
+
+
+router.get('/busqueda_denuncia_id', async(req, res) => {
+    /*req: donde viaja la información de la petición*/
+     /*res: donde viaja la información de la respuesta*/
+
+     const userId= req.query.id/*Lista de personas*/
+
+     try {
+        const denunciaBuscada= await Report.find({ userId });
+
+        if(!denunciaBuscada){
+            return res.json({
+                mensaje: "Denuncia no encontrada"
+            })
+        }
+
+        res.json({
+            lista_denuncias: denunciaBuscada,
+            mensaje: "Denuncia recuperada exitosamente"
+
+        })
+
+     } catch (error) {
+        res.json({
+            mensaeje: "ocurrió un error",
+            error
+        })
+        
+     }
+})
+
+
+
+
+
+
+
 /* Nos trae todas las denuncias en estado pendiente */
 router.get('/reportsPending', async (req, res) => {
     try {

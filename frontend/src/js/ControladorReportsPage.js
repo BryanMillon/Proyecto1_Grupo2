@@ -59,6 +59,7 @@ function Guardar_Denuncia_Creada() {
 
 
 
+
 // Lógica de visibilidad de opciones según el tipo de usuario para las denuncias
 document.addEventListener("DOMContentLoaded", function () {
     const tipoUsuario = localStorage.getItem("rolLogIn"); 
@@ -66,9 +67,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const adminItemFooter = document.getElementById("adminNavItemFooter");
     const crearDenuncia = document.getElementById("crearDenuncia");
     const botonPublicar = document.getElementById("btnBotonPublicar");
-
+    
     console.log(tipoUsuario)
-
+    
     if (tipoUsuario !== "administrador") {
         if (adminItemHeader) {
             adminItemHeader.style.display = "none";
@@ -105,33 +106,76 @@ btnBotonLimpiar.addEventListener("click", function () {
 // HISTORIAL DE DENUNCIAS
 // ==========================
 
-async function mostrarHistorialDenuncias() {
-    const userId = localStorage.getItem("id_mongo");
-    let todasLasDenuncias = await listar_denuncias_BD();
+let reports = []
 
-    // Filtrar por denuncias del usuario logueado
-    const denunciasUsuario = todasLasDenuncias.filter(report => report.usuario === userId);
+const showReports=async()=>{
 
-    denunciasUsuario.sort((a, b) => new Date(b.fechayhora) - new Date(a.fechayhora));
+    const userId = localStorage.getItem("id_mongo")
+    console.log(userId)
 
-    reportsContainer.innerHTML = "";
+    reports =  await listar_denuncias_BD_Users(userId);
 
-    denunciasUsuario.forEach(report => {
-        const card = document.createElement("div");
-        card.classList.add("reportCard");
 
-        card.innerHTML = `
-            <div class="reportHeader">${report.nombre}</div>
-            <div class="reportDetail"><strong>Fecha y Hora:</strong> ${report.fechayhora}</div>
-            <div class="reportDetail"><strong>Categoría:</strong> ${report.categoria}</div>
-            <div class="reportDetail"><strong>Lugar:</strong> ${report.lugar}</div>
-            <div class="reportDetail"><strong>Descripción:</strong> ${report.descripcion}</div>
-            <div class="reportDetail"><strong>Estado:</strong> ${report.estado}</div>
+    reports.sort((a, b) => new Date(a.fechayhora) - new Date(b.fechayhora));
+
+    const reportsContainer = document.getElementById('reportsContainer');
+
+    for(let i=0;i<reports.length;i++){
+        const reportCard = document.createElement('div');
+        reportCard.classList.add('reportCard');
+        
+        reportCard.innerHTML = `
+            <div class="reportHeader"> ${reports[i]['nombre']}</div>
+            <div class="reportDetail"><strong>Fecha y Hora:</strong> ${reports[i]['fechayhora']}</div>
+            <div class="reportDetail"><strong>Categoría:</strong>  ${reports[i]['categoria']}</div>
+            <div class="reportDetail"><strong>Lugar:</strong> ${reports[i]['lugar']}</div>
+            <div class="reportDetail"><strong>Descripción:</strong> ${reports[i]['descripcion']}</div>
+            <div class="reportDetail"><strong>Estado:</strong> ${reports[i]['estado']}</div>
         `;
 
-        reportsContainer.appendChild(card);
-    });
+        reportsContainer.appendChild(reportCard);
+    };
 }
+
+const showReportsAdmin=async()=>{
+
+    reports =  await listar_denuncias_BD();
+
+
+    reports.sort((a, b) => new Date(a.fechayhora) - new Date(b.fechayhora));
+
+    const reportsContainer = document.getElementById('reportsContainer');
+
+    for(let i=0;i<reports.length;i++){
+        const reportCard = document.createElement('div');
+        reportCard.classList.add('reportCard');
+        
+        reportCard.innerHTML = `
+            <div class="reportHeader"> ${reports[i]['nombre']}</div>
+            <div class="reportDetail"><strong>Fecha y Hora:</strong> ${reports[i]['fechayhora']}</div>
+            <div class="reportDetail"><strong>Categoría:</strong>  ${reports[i]['categoria']}</div>
+            <div class="reportDetail"><strong>Lugar:</strong> ${reports[i]['lugar']}</div>
+            <div class="reportDetail"><strong>Descripción:</strong> ${reports[i]['descripcion']}</div>
+            <div class="reportDetail"><strong>Estado:</strong> ${reports[i]['estado']}</div>
+        `;
+
+        reportsContainer.appendChild(reportCard);
+    };
+}
+
+
+
+// Al cargar la página, mostramos las denuncias
+window.onload = function () {
+    const rol = localStorage.getItem("rolLogIn")
+
+     if (rol=="administrador"){
+        showReportsAdmin()
+    }else{
+        showReports();
+    } 
+    
+};
 
 
 // Cuando se carga la página, ejecutamos la función
@@ -167,12 +211,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// Al cargar la página, mostramos las denuncias
-window.onload = function () {
-
-    //showReports();
-    reports = listar_denuncias_BD();
-    console.log(reports)
-};
 
 
