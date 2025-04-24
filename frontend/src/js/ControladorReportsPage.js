@@ -23,6 +23,7 @@ function validateEmptyFields() {
     return error;
 }
 
+
 // Limpiar los campos del formulario de denuncia
 function limpiarCamposDenuncia() {
     inputNameReport.value = "";
@@ -33,7 +34,7 @@ function limpiarCamposDenuncia() {
 }
 
 // Crear una denuncia
-function Guardar_Denuncia_Creada() {
+async function Guardar_Denuncia_Creada() {
     let errorCamposVacios = validateEmptyFields();
 
     if (errorCamposVacios) {
@@ -50,9 +51,52 @@ function Guardar_Denuncia_Creada() {
         let descripcion = inputDescriptionReport.value;
         const userId = localStorage.getItem("id_mongo"); 
 
-        console.log(userId)
+        const imagenFile = document.getElementById("inputImagen").files[0];
+        const archivoFile = document.getElementById("inputArchivo").files[0];
 
-        crear_denuncia(nombre, fechayhora, categoria, lugar, descripcion, 'pendiente',userId);
+        if (imagenFile && !imagenFile.type.startsWith("image/")) {
+            Swal.fire({
+                title: "Error",
+                text: "El archivo de imagen no es válido.",
+                icon: "error"
+            });
+            return;
+        }
+
+        // Validar el tamaño del archivo de imagen
+        if (imagenFile && imagenFile.size > 10 * 1024 * 1024) {  // Limitar tamaño de archivo a 10MB
+            Swal.fire({
+                title: "Error",
+                text: "El archivo de imagen es demasiado grande. Debe ser menor de 10MB.",
+                icon: "error"
+            });
+            return;
+        }
+
+        // Validar el tamaño del archivo genérico
+        if (archivoFile && archivoFile.size > 10 * 1024 * 1024) {  // Limitar tamaño de archivo a 10MB
+            Swal.fire({
+                title: "Error",
+                text: "El archivo es demasiado grande. Debe ser menor de 10MB.",
+                icon: "error"
+            });
+            return;
+        }
+
+
+        let imagenUrl = "";
+        let archivoUrl = "";
+
+        if (imagenFile) {
+            imagenUrl = await subirArchivoCloudinary(imagenFile, "imagen"); 
+        }
+        
+        if (archivoFile) {
+            archivoUrl = await subirArchivoCloudinary(archivoFile, "raw");
+        }
+
+        // Crear la denuncia
+        crear_denuncia(nombre, fechayhora, categoria, lugar, descripcion, 'pendiente', userId, imagenUrl, archivoUrl);
         limpiarCamposDenuncia();
     }
 }

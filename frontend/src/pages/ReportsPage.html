@@ -136,9 +136,9 @@
             <option value="" disabled selected>Selecciona una categoría</option>
             <option value="solicitud publica">Solicitud pública</option>
             <option value="queja">Queja</option>
-            <option value="deportes">Denuncia</option>
-            <option value="educacion">Sugerencia</option>
-            <option value="reuniones">Felicitación</option>
+            <option value="denuncia">Denuncia</option>
+            <option value="sugerencia">Sugerencia</option>
+            <option value="felicitacion">Felicitación</option>
         </select>
 
         <!--Place Event-->
@@ -162,11 +162,11 @@
             required>
         <!--Event Evidence-->
 
-        <label class="labelFormulario" for="archivo">Seleccionar archivo:</label>
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-            <input type="file" id="archivo" name="archivo" class="archivo_clase">
+        <label class="labelFormulario" for="inputImagen">Seleccionar imagen:</label>
+<input type="file" id="inputImagen" name="imagen" accept="image/*" class="archivo_clase">
 
-        </form>
+<label class="labelFormulario" for="inputArchivo">Seleccionar documento (PDF, Word, etc):</label>
+<input type="file" id="inputArchivo" name="documento" accept=".pdf,.doc,.docx,.">
 
         <div>
             <br><br>
@@ -231,9 +231,10 @@
 
     <!-- Cargar bibliotecas -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../services/serviceReports.js"></script>
-    <script src="../js/ControladorReportsPage.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../services/serviceCloudinaryFilesUploader.js"></script> 
+<script src="../services/serviceReports.js"></script>
+<script src="../js/ControladorReportsPage.js"></script>
 
 </body>
 </html>

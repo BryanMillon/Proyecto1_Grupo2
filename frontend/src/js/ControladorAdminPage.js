@@ -53,6 +53,7 @@ function crearBotonesAvisos(fila,i){
             ,'publicado'
         )
         chargeTable()
+        actionBottonAcceptEvent()
     })
 
     boton_cancelar.addEventListener("click",()=>{
@@ -71,6 +72,7 @@ function crearBotonesAvisos(fila,i){
             ,'cancelado'
         )
         chargeTable()
+        actionBottonCancelEvent()
     })
 }
 
@@ -102,7 +104,16 @@ document.addEventListener("DOMContentLoaded", chargeTable);
 
 /*Button functions*/
 //Cancel
-function actionBottonCancel(){
+
+function actionBottonAcceptEvent(){
+    Swal.fire({
+        title: "Evento Publicado",
+        text: "Este evento ha sido publicado.",
+        icon: "success"
+    });
+}
+
+function actionBottonCancelEvent(){
     Swal.fire({
         title: "Evento No Publicado",
         text: "Este evento ha sido cancelado y no se ha publicado.",
@@ -161,6 +172,7 @@ function crearBotonesConcejales(fila,i){
            
         )
         chargeTableConcejales()
+        actionBottonAcceptCon()
     })
 
     boton_cancelar.addEventListener("click",()=>{
@@ -174,6 +186,7 @@ function crearBotonesConcejales(fila,i){
             ,'rechazado'
         )
         chargeTableConcejales()
+        actionBottonCancelCon()
     })
 }
 
@@ -205,11 +218,11 @@ document.addEventListener("DOMContentLoaded", chargeTableConcejales);
 
 /*Button functions*/
 //Cancel
-function actionBottonCancel(){
+function actionBottonAcceptCon(){
     Swal.fire({
-        title: "Evento No Publicado",
-        text: "Este evento ha sido cancelado y no se ha publicado.",
-        icon: "error"
+        title: "Concejal aceptado",
+        text: "El usuario ha sido aceptado y ahora es concejal",
+        icon: "success"
     });
 }
 
@@ -218,10 +231,10 @@ function actionBottonCancel(){
 
 /*Button functions*/
 //Cancel
-function actionBottonCancel(){
+function actionBottonCancelCon(){
     Swal.fire({
-        title: "Evento No Publicado",
-        text: "Este evento ha sido cancelado y no se ha publicado.",
+        title: "Concejal Rechazado",
+        text: "El usuario no ha sido aceptado",
         icon: "error"
     });
 }
@@ -282,6 +295,7 @@ function crearBotonesNoticias(fila,i){
         )
 
         chargeTableNews()
+        actionBottonAcceptNews()
     })
 
     boton_cancelar.addEventListener("click",()=>{
@@ -298,7 +312,28 @@ function crearBotonesNoticias(fila,i){
             ,'cancelado'
         )
         chargeTableNews()
+        actionBottonCancelNews()
     })
+}
+function actionBottonAcceptNews(){
+    Swal.fire({
+        title: "Noticia publicada",
+        text: "La noticia ha sido aceptada y publicada",
+        icon: "success"
+    });
+}
+
+
+
+
+/*Button functions*/
+//Cancel
+function actionBottonCancelNews(){
+    Swal.fire({
+        title: "Noticia Rechazada",
+        text: "La noticia no ha sido aceptada",
+        icon: "error"
+    });
 }
 
 
@@ -339,22 +374,13 @@ const cuerpoTablaDenuncias = document.querySelector("#tablePendingReport tbody")
 let listaDenuncias = [];
 
 function crearBotonesDenuncias(fila, i) {
-    // Para la columna de acciones
+    // Celda para los botones de acciones
     let celda_btn_resolver = fila.insertCell();
 
-    // Crear botones en la celda
+    // Botón Resolver
     let boton_resolver = document.createElement('button');
-
-
-    // Estilos del botón Resolver
     boton_resolver.innerText = "Resolver";
     boton_resolver.classList.add('btnAccept');
-
-
-    // Añadir botones a la celda
-    celda_btn_resolver.appendChild(boton_resolver);
-
-    // Eventos para cada botón
     boton_resolver.addEventListener("click", () => {
         localStorage.setItem("id_mongo", listaDenuncias[i]["_id"]);
         let id = localStorage.getItem("id_mongo");
@@ -371,27 +397,37 @@ function crearBotonesDenuncias(fila, i) {
             'resuelto'
         );
         chargeTableDenuncias();
+        actionBottonResolver()
     });
+    celda_btn_resolver.appendChild(boton_resolver);
 
+    // Botón Ver Archivo
+    // if (listaDenuncias[i]['archivoUrl']) {
+    //     let boton_ver_archivo = document.createElement('button');
+    //     boton_ver_archivo.innerText = "Ver Archivo";
+    //     boton_ver_archivo.classList.add('btnView');
+    //     boton_ver_archivo.style.marginLeft = "10px";
+
+    //     boton_ver_archivo.addEventListener("click", () => {
+    //         window.open(listaDenuncias[i]['archivoUrl'], '_blank');
+    //     });
+
+    //     celda_btn_resolver.appendChild(boton_ver_archivo);
+    // }
 }
 
 const chargeTableDenuncias = async () => {
-    // Obtener las denuncias pendientes desde la base de datos
     listaDenuncias = await listar_denuncias_pending_BD();
-
-    // Limpiar la tabla
     cuerpoTablaDenuncias.innerHTML = "";
 
     for (let i = 0; i < listaDenuncias.length; i++) {
         let fila = cuerpoTablaDenuncias.insertRow();
 
-        // Insertar datos de la denuncia
         fila.insertCell().innerHTML = listaDenuncias[i]['nombre'];
         fila.insertCell().innerHTML = listaDenuncias[i]['categoria'];
         fila.insertCell().innerHTML = listaDenuncias[i]['lugar'];
         fila.insertCell().innerHTML = listaDenuncias[i]['fechayhora'];
 
-        // Crear botones para cada fila
         crearBotonesDenuncias(fila, i);
     }
 };
@@ -399,7 +435,6 @@ const chargeTableDenuncias = async () => {
 document.addEventListener("DOMContentLoaded", chargeTableDenuncias);
 
 /*Funciones de botones*/
-// Resolver
 function actionBottonResolver() {
     Swal.fire({
         title: "Denuncia Resuelta",
@@ -408,23 +443,7 @@ function actionBottonResolver() {
     });
 }
 
-// Publicar
-function actionBottonPublicar() {
-    Swal.fire({
-        title: "Denuncia Publicada",
-        text: "Esta denuncia ha sido publicada.",
-        icon: "info"
-    });
-}
 
-// Cancelar
-function actionBottonCancel() {
-    Swal.fire({
-        title: "Denuncia Cancelada",
-        text: "Esta denuncia ha sido cancelada.",
-        icon: "error"
-    });
-}
 
 
 
