@@ -170,7 +170,7 @@ nav li {
 }
 
 /* Table styles - shared between both tables */
-#tableEventPending, #tableUserPending, #tableNewPending {
+#tableEventPending, #tableUserPending, #tableNewPending, #tableReportPending {
     width: 100%;
     background-color: #FFFFFF;
     color: black;
@@ -203,6 +203,7 @@ td {
     vertical-align: middle;
     word-wrap: break-word;
     white-space: normal;
+    font-weight: normal;
 }
 
 /* Button styles */
