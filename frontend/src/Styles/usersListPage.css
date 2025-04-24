@@ -1,6 +1,18 @@
-body{
-    font-family: 'Asap',sans-serif;
-}
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  body {
+    font-family: 'Asap', sans-serif;
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  main {
+    flex: 1; 
+  }
 
 /* Encabezado */
 
@@ -93,7 +105,8 @@ nav li {
 
 /* Encabezado */
   .container {
-    width: 90%;
+    width: 100%;
+  box-sizing: border-box;
     margin: 40px auto;
     background-color: #fff;
     padding: 20px;
@@ -153,14 +166,16 @@ nav li {
   /*Footer*/
 
 footer {
-    width: 100%;
-    background-color: #1D3892;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    position: relative; /* Asegura que se mantenga en la parte inferior */
-    bottom: 0;
+  width: 100%;
+  background-color: #1D3892;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  margin: 0;
+  
 }
 
 #copyright {

@@ -19,6 +19,8 @@ const routeAccountVerification = require("./routes/routeAccountVerification");
 const routeLogin = require("./routes/routeLogin");
 const iniciativasRoutes = require('./routes/iniciativasRoutes');
 const routesUsers = require('./routes/routeAdminUsers');
+const routeGetUsers = require('./routes/userRoutes')
+
 
 //const { router: routesUsers } = require('./routes/routeAdminUsers');
 
@@ -103,6 +105,7 @@ app.use('/', iniciativasRoutes);
 //app.use('/', usuariosRoutes);
 app.use('/', routeRecoveryPassword);
 app.use('/', routesUsers);
+app.use('/', routeGetUsers);
 
 
 // servir archivos estáticos desde la carpeta public

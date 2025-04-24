@@ -22,13 +22,18 @@ body {
 
 
 
-header{
+  header{
     width: 100%;
     height: 180px;
     background-color: #1D3892;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+#logoHeader img{
+    width: 450px;
+    margin-left: 50px;
 }
 
 #logoHeader img{

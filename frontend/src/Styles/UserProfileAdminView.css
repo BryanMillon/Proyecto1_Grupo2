@@ -1,6 +1,20 @@
-body{
-    font-family: 'Asap',sans-serif;
-}
+html, body {
+    font-family: 'Asap', sans-serif;
+    background-color: #d3d3d3;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  
+  }
+  
+  .container {
+    width: 80%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+
+    flex: 1;
+  }
 
 /* Encabezado */
 header{
@@ -11,13 +25,25 @@ header{
     align-items: center;
     justify-content: space-between;
 }
-#logoHeader img{
+
+  /*Seccion Barra da navegacion*/
+  header{
+    width: 100%;
+    height: 180px;
+    background-color: #1D3892;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logoHeader a img{
     width: 450px;
     margin-left: 50px;
 }
 
 nav{
     margin-right: 80px;
+    padding: 35px 0;
 }
 
 nav li{
@@ -89,20 +115,14 @@ nav li {
 .dropdown:hover .submenu {
     display: block;
 }
+ /*Fin Seccion Barra da navegacion*/
 
 /* Encabezado */
 
-body {
-    background-color: #d3d3d3;
-    margin: 0;
-    padding: 0;
-}
-.container {
-    width: 80%;
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-}
+
+
+
+
 h2 {
     background: #004a99;
     color: white;
@@ -140,16 +160,14 @@ tr:hover {
     cursor: pointer;
 }
 
-
-/*footer*/
-
-footer{
+footer {
     width: 100%;
     height: 200px;
     background-color: #1D3892;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: auto;
 }
 
 #copyright {
@@ -165,7 +183,6 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 200px;
 }
 
 #logoFooter img {
@@ -190,5 +207,3 @@ footer{
 #navFooter a:hover {
     color: #50B2F1;
 }
-
-/*footer*/
