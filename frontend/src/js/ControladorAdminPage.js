@@ -486,6 +486,7 @@ function crearBotonesIniciativas(fila, i) {
             'aprobada'
         );
         chargeTableIniciativas();
+        actionBottonResolverIniciativas()
     });
 }
 
@@ -509,6 +510,14 @@ const chargeTableIniciativas = async () => {
         crearBotonesIniciativas(fila, i);
     }
 };
+
+function actionBottonResolverIniciativas() {
+    Swal.fire({
+        title: "Iniciativa Resuelta",
+        text: "Esta iniciativa ha sido resuelta correctamente.",
+        icon: "success"
+    });
+}
 
 
 document.addEventListener("DOMContentLoaded", chargeTableIniciativas);
