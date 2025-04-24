@@ -1,0 +1,33 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Back end del proyecto",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BryanMillon/Proyecto1_Grupo2.git"
+  },
+  "author": "Bryan Millon, Alejandro Vega, Maciel Gomez, Javier Cazanga, Wendy Quesada, Ivan Ccopa, Jose Zamora",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BryanMillon/Proyecto1_Grupo2/issues"
+  },
+  "homepage": "https://github.com/BryanMillon/Proyecto1_Grupo2#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "mailersend": "^2.5.0",
+    "mongoose": "^8.13.2",
+    "nodemailer": "^6.10.1",
+    "nodemon": "^3.1.9",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0"
+  }
+}

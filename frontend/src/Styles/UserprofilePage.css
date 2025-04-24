@@ -1,0 +1,285 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  body {
+    font-family: 'Asap', sans-serif;
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  main {
+    flex: 1; 
+  }
+/* Encabezado */
+
+header{
+    width: 100%;
+    height: 180px;
+    background-color: #1D3892;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#logoHeader img{
+    width: 450px;
+    margin-left: 50px;
+}
+
+nav{
+    margin-right: 80px;
+}
+
+nav li{
+    display: inline;
+    padding: 44px 25px;
+}
+
+nav li a{
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+nav li a:hover{
+    color: #50B2F1;
+    cursor: pointer;
+}
+
+nav ul {
+    display: flex;  
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 40px;
+}
+
+nav li {
+    position: relative;
+    padding: 20px 25px;
+    display: flex; 
+    align-items: center;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%; 
+    right: 0px;
+    background-color: #1768AC;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+    border-radius: 5px;
+    -webkit-box-shadow: 6px 0px 18px 0px rgba(0,0,0,0.6);
+    -moz-box-shadow: 6px 0px 18px 0px rgba(0,0,0,0.6);
+    box-shadow: 6px 0px 18px 0px rgba(0,0,0,0.6);
+    z-index: 1000;
+}
+
+.submenu li {
+    width: 100%;
+    text-align: left;
+}
+
+.submenu li a {
+    display: block;
+    padding: 10px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.submenu li a:hover {
+    color: #50B2F1;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+/* Encabezado */
+
+
+/* Estilos generales */
+body {
+    font-family: 'Asap', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0e0e0;
+    text-align: center;
+}
+
+/* Banner */
+.banner {
+    background-color: #173F99;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Contenedor principal */
+.profile-container {
+    background-color: white;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Sección de encabezado */
+.section-header {
+    background-color: #FFC107;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    border-radius: 5px 5px 0 0;
+    font-size: 18px;
+}
+
+/* Contenido del perfil */
+.profile-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.profile-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.edit-link {
+    display: block;
+    color: #173F99;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.edit-link:hover {
+    text-decoration: underline;
+}
+
+/* Campos del perfil */
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.profile-details input {
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+/* Botón de edición */
+.edit-bottom {
+    margin-top: 15px;
+}
+
+
+.edit-buttons {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.btn-cancel {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-save {
+    background-color: gold;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-cancel:hover {
+    background-color: darkred;
+}
+
+.btn-save:hover {
+    background-color: darkgoldenrod;
+}
+
+/*footer*/
+
+footer{
+    width: 100%;
+    height: 200px;
+    background-color: #1D3892;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+#copyright {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+#logoFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 200px;
+}
+
+#logoFooter img {
+    width: 200px;
+    height: auto;
+}
+
+#navFooter {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin-right: 50px;
+    gap: 20px;
+}
+
+#navFooter a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#navFooter a:hover {
+    color: #50B2F1;
+}
+
+/*footer*/

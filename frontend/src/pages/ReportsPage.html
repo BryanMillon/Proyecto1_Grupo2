@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Styles/NoticesPage.css">
+    <!--Link a reset.css-->
+    <link rel="stylesheet" href="../Styles/reset.css">
+    <!--Link a ReportsPage.css-->
+    <link rel="stylesheet" href="../Styles/ReportsPage.css">
+    <!--Link a la fuente-->
+    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap" rel="stylesheet">
+<title>Denuncias Ciudadanas</title>
+</head>
+<body>
+
+    <script>
+        // Variable que indica si el usuario es administrador
+        let isAdmin = true;  // Cambiar a false si no es admin
+
+        // Función para cambiar el contenido según si es admin o no
+        function updateUIForAdmin() {
+            if (isAdmin) {
+                // Si es admin, muestra los enlaces de administrador
+                document.getElementById("adminNavItemHeader").style.display = 'block';
+                document.getElementById("NavFooterAdmin").style.display = 'block';
+                document.getElementById("NavFooterUser").style.display = 'none';
+            } else {
+                // Si no es admin, oculta los enlaces de admin
+                document.getElementById("adminNavItemHeader").style.display = 'none';
+                document.getElementById("NavFooterAdmin").style.display = 'none';
+                document.getElementById("NavFooterUser").style.display = 'block';
+            }
+        }
+        
+        // Llamar a la función al cargar la página
+        window.onload = updateUIForAdmin;
+    </script>
+
+    <!-- Header -->
+    <header>
+        <div id="logoHeader">
+            <a href="../pages/HomePage.html">
+                <img src="../../public/images/logoheader.png" alt="logoheader">
+            </a>
+        </div>
+
+        <nav>
+            <ul>
+                <!-- Enlace solo visible si es admin -->
+                <li id="adminNavItemHeader" style="display: none;"><a href="../pages/AdminPage.html">ADMINISTRADOR</a></li>
+                <li><a href="../pages/NewsPage.html">NOTICIAS</a></li>
+                <li><a href="../pages/NoticesPage.html">AVISOS</a></li>
+                <li><a href="../pages/ServicesPage.html">SERVICIOS</a></li>
+                <li><a href="../pages/ReportsPage.html">DENUNCIAS</a></li>
+                <li><a href="../pages/InitiativesCreationPage.html">INICIATIVAS</a></li>
+                <li class="dropdown">
+                    <a href="#">PERFIL</a>
+                    <ul class="submenu">
+                        <li><a href="../pages/UserprofilePage.html">MI PERFIL</a></li>
+                        <li><a href="../pages/usersListPage.html">PERFIL DE OTROS USUARIOS</a></li>
+                        <li id="crearAviso"><a href="../pages/NoticesCreationPage.html">CREAR AVISO</a></li>
+                        <li id="crearNoticia"><a href="../pages/NewsCreationPage.html">CREAR NOTICIA</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de Denuncias -->
+    <section id="mainEventPage">
+        <h1>DENUNCIAS CIUDADANAS</h1>    
+    </section>
+
+    <!-- Guía de Denuncias -->
+
+<section id="guiaDenuncias">
+    
+    <div id= "tituloGuiaDenuncias">
+        <h2>
+            Guía para Crear Denuncias
+        </h2>
+    </div>
+
+    
+    <div id="contenidoBloque">
+            <p>Son peticiones de las personas usuarias habitantes del cantón o contribuyentes relacionadas con la gestión municipal, permiten abordar problemas, identificar
+                necesidades, proponer soluciones y llevar a cabo
+                acciones conjuntas para mejorar la calidad de vida y el
+                funcionamiento del cantón.<br>
+                 <br>
+                 Tipos de gestiones: <br>
+
+                
+                 <br>
+                                1. Solicitud pública<br>
+                                2. Queja<br>
+                                3. Denuncia<br>
+                                4. Sugerencia<br>
+                                5. Felicitación<br>
+                <br>
+                Pasos para enviar su denuncia o gestión pública:<br>
+                <br>
+                1. Ingresar al sistema con su usuario y contraseña.<br>
+                2. Completar el formulario de denuncia.<br>
+                3. Hacer Click en “Enviar a la municipalidad”<br>
+                <br>
+                El personal municipal procesará el caso y tomará las acciones respoectivas según la legislación y reglamentos que apliquen.<br>
+            </p>
+    </div>
+    </section>
+
+    <section id="sctFormNewEvent1">
+    <form id="conteinerForm1">
+
+    <!-- Formulario para Nueva Denuncia -->
+    <div id="formNewDenuncia">
+
+        <!--Name-->
+        <label class="labelFormulario"for="textNombreDenuncia">Título Denuncia:</label>
+        <input 
+            class="inputForm" 
+            id="textNombreDenuncia"
+            type="text";
+            required
+        >
+
+        <!--Date and Hour-->
+        
+        <label class="labelFormulario" for="dateTimePickerDenuncia">Fecha y hora del suceso:</label>
+        <input type="datetime-local" id="dateTimePickerDenuncia" class="dateTimePicker" required>
+
+        <!--Categoria del evento-->
+        <label class="labelFormulario" for="reportCategory">Categoria</label>
+        <select id="reportCategory" class="categorySelect" required>
+            <option value="" disabled selected>Selecciona una categoría</option>
+            <option value="solicitud publica">Solicitud pública</option>
+            <option value="queja">Queja</option>
+            <option value="denuncia">Denuncia</option>
+            <option value="sugerencia">Sugerencia</option>
+            <option value="felicitacion">Felicitación</option>
+        </select>
+
+        <!--Place Event-->
+        <label class="labelFormulario" for="textPlaceDenuncia">Lugar del suceso:</label>
+        <form for="textPlaceDenuncia" action="#"></form>
+        <input 
+            class="inputForm" 
+            id="textPlaceDenuncia"
+            type="text";
+            required
+        >
+
+        <!--Description Event-->
+
+        <label class="labelFormulario" for="textDescriptionDenuncia">Descripción:</label>
+        <form for="textDescriptionDenuncia" action="#"></form>
+        <input 
+            class="inputForm" 
+            id="textDescriptionDenuncia"
+            type="text";
+            required>
+        <!--Event Evidence-->
+
+        <label class="labelFormulario" for="inputImagen">Seleccionar imagen:</label>
+<input type="file" id="inputImagen" name="imagen" accept="image/*" class="archivo_clase">
+
+<label class="labelFormulario" for="inputArchivo">Seleccionar documento (PDF, Word, etc):</label>
+<input type="file" id="inputArchivo" name="documento" accept=".pdf,.doc,.docx,.">
+
+        <div>
+            <br><br>
+            <button id="btnBotonLimpiar" type="button"> Cancelar</button>
+            <button id="btnBotonCrear" type="button"> Enviar a la Municipalidad</button>
+            <br><br>
+        </div>
+
+    <!--End Form-->
+    </div>
+<!--End Container Form -->
+</form>
+</section>
+<!--End Event Form-->
+
+<main>
+
+    <!-- Section Event -->
+    <section id="mainEventPage">
+        <br>
+        <h1>Historial de Denuncias</h1>
+    </section>
+
+    <!-- Events -->
+    <section id="sctUpcomingEvents">
+
+        <div id="conteinerReport">
+            <div id="reportsContainer">
+                <!-- Aquí se agregarán las denuncias dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+</main>
+
+    <!-- Footer -->
+    <footer>
+        <div id="copyright">
+            <p>&copy; 2025 Municipalidad de Montes de Oca</p>
+        </div>
+
+        <div id="LogoFooter">
+            <a href="../pages/HomePage.html">
+                <img src="../../public/images/logofooter.png" alt="logofooter">
+            </a>
+        </div>
+
+        <div id="NavFooter">
+            <!-- Enlaces solo visibles si es admin -->
+            <a href="../pages/AdminPage.html" id="NavFooterAdmin" style="display: none;">ADMINISTRADOR</a>
+            <a href="../pages/NewsPage.html">NOTICIAS</a>
+            <a href="../pages/NoticesPage.html">AVISOS</a>
+            <a href="../pages/ServicesPage.html">SERVICIOS</a>
+            <a href="../pages/ReportsPage.html">DENUNCIAS</a>
+            <a href="../pages/InitiativesPage.html">INICIATIVAS</a>
+            <!-- Enlaces solo visibles si no es admin -->
+            <div id="NavFooterUser" style="display: none;">
+                <a href="../pages/UserprofilePage.html">MI PERFIL</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cargar bibliotecas -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../services/serviceCloudinaryFilesUploader.js"></script> 
+<script src="../services/serviceReports.js"></script>
+<script src="../js/ControladorReportsPage.js"></script>
+
+</body>
+</html>

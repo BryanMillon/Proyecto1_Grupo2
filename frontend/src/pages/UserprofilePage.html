@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../Styles/reset.css" />
+  <link rel="stylesheet" href="../Styles/UserprofilePage.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap" rel="stylesheet" />
+  <title>Mi Perfil</title>
+</head>
+
+<body>
+  <header>
+    <div id="logoHeader">
+      <a href="../pages/HomePage.html">
+        <img src="../../public/images/logoheader.png" alt="logoheader" />
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../pages/AdminPage.html">ADMINISTRADOR</a></li>
+        <li><a href="../pages/NewsPage.html">NOTICIAS</a></li>
+        <li><a href="../pages/NoticesPage.html">AVISOS</a></li>
+        <li><a href="../pages/ServicesPage.html">SERVICIOS</a></li>
+        <li><a href="../pages/ReportsPage.html">DENUNCIAS</a></li>
+        <li><a href="../pages/InitiativesCreationPage.html">INICIATIVAS</a></li>
+        <li class="dropdown">
+          <a href="#">PERFIL</a>
+          <ul class="submenu">
+            <li><a href="../pages/UserprofilePage.html">MI PERFIL</a></li>
+            <li><a href="../pages/usersListPage.html">PERFIL DE OTROS USUARIOS</a></li>
+            <li><a href="../pages/NoticesCreationPage.html">CREAR AVISO</a></li>
+            <li><a href="../pages/NewsCreationPage.html">CREAR NOTICIA</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="profile-container">
+      <div class="section-header">Información Personal:</div>
+
+      <div class="profile-image">
+        <img src="../../public/images/Perfil-logo.svg" alt="Usuario" id="profileImage" />
+        <a href="#" class="edit-link" id="editPhotoLink">Editar</a>
+        <input type="file" id="fileInput" accept="image/*" style="display: none;" />
+      </div>
+
+      <div class="profile-details">
+        <input type="text" placeholder="Nombre"  />
+        <input type="text" placeholder="Apellido 1"  />
+        <input type="text" placeholder="Apellido 2"  />
+        <input type="text" placeholder="Dirección"  />
+        <input type="text" placeholder="Distrito" disabled />
+        <input type="text" placeholder="Teléfono"  />
+        <input type="text" placeholder="Cedula" disabled />
+        <input type="email" placeholder="Correo" disabled />
+        <input type="text" placeholder="Rol" disabled />
+      </div>
+
+      <div class="edit-buttons">
+        <button id="cancelButton" class="btn-cancel" style="display: none;">Cancelar</button>
+        <button id="saveButton" class="btn-save" style="display: none;">Guardar Cambios</button>
+      </div>
+
+      <div class="edit-bottom">
+        <a href="#" class="edit-link" id="editInfoLink">Editar</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div id="copyright">
+      <p>&copy; 2025 Municipalidad de Montes de Oca</p>
+    </div>
+
+    <div id="logoFooter">
+      <a href="../pages/HomePage.html">
+        <img src="../../public/images/logofooter.png" alt="logofooter" />
+      </a>
+    </div>
+
+    <div id="navFooter">
+      <a href="../pages/AdminPage.html">ADMINISTRADOR</a>
+      <a href="../pages/NewsPage.html">NOTICIAS</a>
+      <a href="../pages/NoticesPage.html">AVISOS</a>
+      <a href="../pages/ServicesPage.html">SERVICIOS</a>
+      <a href="../pages/ReportsPage.html">DENUNCIAS</a>
+      <a href="../pages/InitiativesPage.html">INICIATIVAS</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+  <script src="../services/servicesUserProfile.js"></script>
+  <script src="../js/ControladorUserProfilePage.js"></script>
+</body>
+
+</html>
