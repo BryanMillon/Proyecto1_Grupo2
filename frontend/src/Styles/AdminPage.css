@@ -239,6 +239,91 @@ td {
     background-color: #1D3892;
 }
 
+
+
+/* INICIATIVAS PENDIENTES  */
+
+#sctPendingIniciatives {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 30px;
+}
+
+
+#tablePendingIniciatives {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+}
+
+
+#titlePendingIniciatives {
+    border: 5px solid #D9D9D9;
+    background-color: #1D3892;
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+
+#titlePendingIniciativesh1 {
+    font-family: 'Asap', sans-serif;
+    font-size: 35px;
+    color: #D9D9D9;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+#tableIniciativesPending {
+    width: 100%;
+    background-color: #FFFFFF;
+    color: black;
+    font-family: 'Asap', sans-serif;
+    font-size: 15px;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+
+#tableIniciativesPending thead {
+    background-color: #EAC102;
+    height: 30px;
+    font-family: 'Asap', sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+#tableIniciativesPending thead th {
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #FFFFFF;
+}
+
+
+#tableIniciativesPending td {
+    border: 2px solid #D9D9D9;
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+
+
+
+
+
+
+
 /* Footer styles */
 footer {
     width: 100%;
