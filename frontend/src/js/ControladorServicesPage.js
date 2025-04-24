@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Supongamos que el tipo de usuario está almacenado así:
     const tipoUsuario = localStorage.getItem("rolLogIn"); 
     const adminItemHeader = document.getElementById("adminNavItemHeader");
     const adminItemFooter = document.getElementById("adminNavItemFooter");
@@ -16,13 +15,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Ocultar la opción de ADMINISTRADOR si no es administrador
+    if (tipoUsuario !== "administrador") {
+        if (adminItemFooter) {
+            adminItemFooter.style.display = "none";
+        }
+    }
+
     if (tipoUsuario == "vecino") {
         if (crearAviso) {
             crearAviso.style.display = "none";
         }
     }
 
-    if (tipoUsuario == "concejal") {
+    if (tipoUsuario == "vecino") {
         if (crearNoticia) {
             crearNoticia.style.display = "none";
         }
@@ -30,5 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 window.onload = function() {
-    showNews();
+    showEvents();
+    
 };

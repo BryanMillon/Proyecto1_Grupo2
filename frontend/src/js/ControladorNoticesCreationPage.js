@@ -87,50 +87,56 @@ btnBotonLimpiar.addEventListener("click", function () {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Supongamos que el tipo de usuario está almacenado así:
-    const tipoUsuario = localStorage.getItem("rolLogIn"); 
+    const tipoUsuario = localStorage.getItem("rolLogIn");
+
     const adminItemHeader = document.getElementById("adminNavItemHeader");
     const adminItemFooter = document.getElementById("adminNavItemFooter");
     const crearAviso = document.getElementById("crearAviso");
     const crearNoticia = document.getElementById("crearNoticia");
-    const botonPublicar = document.getElementById("btnBotonPublicar");
 
+    const btnCancelar = document.getElementById("btnBotonLimpiar");
+    const btnCrear = document.getElementById("btnBotonCrear");
+    const btnPublicar = document.getElementById("btnBotonPublicar");
 
-    console.log(tipoUsuario)
+    console.log(tipoUsuario);
 
-    // Ocultar la opción de ADMINISTRADOR si no es administrador
+    // Ocultar menús si no es administrador
     if (tipoUsuario !== "administrador") {
-        if (adminItemHeader) {
-            adminItemHeader.style.display = "none";
-        }
+        if (adminItemHeader) adminItemHeader.style.display = "none";
+        if (adminItemFooter) adminItemFooter.style.display = "none";
     }
 
-    // Ocultar la opción de ADMINISTRADOR si no es administrador
-    if (tipoUsuario !== "administrador") {
-        if (adminItemFooter) {
-            adminItemFooter.style.display = "none";
-        }
+    // Ocultar elementos para vecino
+    if (tipoUsuario === "vecino") {
+        if (crearAviso) crearAviso.style.display = "none";
+        if (crearNoticia) crearNoticia.style.display = "none";
+
+        // Ocultar botones
+        if (btnCancelar) btnCancelar.style.display = "none";
+        if (btnCrear) btnCrear.style.display = "none";
+        if (btnPublicar) btnPublicar.style.display = "none";
+
+        Swal.fire({
+            icon: "error",
+            title: "Acceso restringido",
+            text: "No tienes permisos para crear ni publicar avisos"
+        }).then(() => {
+            window.location.href = "../pages/HomePage.html";
+        });
+
+        return; 
     }
 
-    if (tipoUsuario == "vecino") {
-        if (crearAviso) {
-            crearAviso.style.display = "none";
-        }
+    // Si es concejal ocultar solo el botón Publicar
+    if (tipoUsuario === "concejal") {
+        if (btnPublicar) btnPublicar.style.display = "none";
     }
 
-    if (tipoUsuario == "vecino") {
-        if (crearNoticia) {
-            crearNoticia.style.display = "none";
-        }
-    }
-
-    if (tipoUsuario == "concejal") {
-        if (botonPublicar) {
-            botonPublicar.style.display = "none";
-        }
+    // Si no hay rol también redirigir por seguridad
+    if (!tipoUsuario) {
+        window.location.href = "../pages/LoginPage.html";
     }
 });
-
 
 
 
