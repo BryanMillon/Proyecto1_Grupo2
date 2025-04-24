@@ -1,3 +1,19 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const tipoUsuario = localStorage.getItem("rolLogIn");
+  
+    if (!tipoUsuario) {
+      Swal.fire({
+        icon: "warning",
+        title: "Debes estar logueado",
+        text: "Inicia sesión para acceder a esta página",
+        confirmButtonText: "Ir al Login"
+      }).then(() => {
+        window.location.href = "../pages/LoginPage.html";
+      });
+    }
+  });
+  
+
 // Obtener todas las referencias del DOM para el formulario de denuncias
 const inputNameReport = document.getElementById("textNombreDenuncia");
 const inputDateReport = document.getElementById("dateTimePickerDenuncia");
