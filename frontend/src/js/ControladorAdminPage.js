@@ -425,3 +425,80 @@ function actionBottonCancel() {
         icon: "error"
     });
 }
+
+////////////////////////////////////////
+////Tabla Administracion de Iniciativas////
+////////////////////////////////////////
+
+const cuerpoTablaIniciativas = document.querySelector("#tableIniciativesPending tbody");
+
+let listaIniciativas = [];
+
+function crearBotonesIniciativas(fila, i) {
+  let celda_btn_publicar = fila.insertCell();
+
+  let boton_aprobar = document.createElement('button');
+  let boton_rechazar = document.createElement('button');
+
+  boton_aprobar.innerText = "Aprobar";
+  boton_aprobar.classList.add('btnAccept');
+
+  boton_rechazar.innerText = "Rechazar";
+  boton_rechazar.classList.add('btnDeny');
+
+  celda_btn_publicar.appendChild(boton_aprobar);
+  celda_btn_publicar.appendChild(boton_rechazar);
+
+  boton_aprobar.addEventListener("click", () => {
+    actualizarEstadoIniciativa(listaIniciativas[i]._id, 'aprobada');
+  });
+
+  boton_rechazar.addEventListener("click", () => {
+    actualizarEstadoIniciativa(listaIniciativas[i]._id, 'rechazada');
+  });
+}
+
+async function actualizarEstadoIniciativa(id, nuevoEstado) {
+  try {
+    await fetch(`http://localhost:3000/api/iniciativas/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ estado: nuevoEstado })
+    });
+
+    Swal.fire({
+      title: `Iniciativa ${nuevoEstado === 'aprobada' ? 'aprobada' : 'rechazada'} exitosamente`,
+      icon: nuevoEstado === 'aprobada' ? 'success' : 'error'
+    });
+
+    chargeTableIniciativas();
+  } catch (error) {
+    Swal.fire("Error", "No se pudo actualizar la iniciativa", "error");
+    console.error(error);
+  }
+}
+
+const chargeTableIniciativas = async () => {
+  try {
+    const response = await fetch("http://localhost:3000/api/iniciativas");
+    const todas = await response.json();
+    listaIniciativas = todas.filter(ini => ini.estado === "pendiente");
+
+    cuerpoTablaIniciativas.innerHTML = "";
+
+    listaIniciativas.forEach((ini, i) => {
+      let fila = cuerpoTablaIniciativas.insertRow();
+      fila.insertCell().innerHTML = ini.categoria;
+      fila.insertCell().innerHTML = ini.distritos.join(", ");
+      fila.insertCell().innerHTML = ini.descripcion;
+      fila.insertCell().innerHTML = ini.fechaCreacion ? new Date(ini.fechaCreacion).toLocaleString() : "-";
+      crearBotonesIniciativas(fila, i);
+    });
+  } catch (error) {
+    console.error("Error al cargar las iniciativas:", error);
+  }
+};
+
+document.addEventListener("DOMContentLoaded", chargeTableIniciativas);
