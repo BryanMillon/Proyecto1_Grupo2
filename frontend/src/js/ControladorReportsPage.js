@@ -229,6 +229,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const adminItemHeader = document.getElementById("adminNavItemHeader");
     const adminItemFooter = document.getElementById("adminNavItemFooter");
     const crearDenuncia = document.getElementById("crearDenuncia");
+    const crearAviso = document.getElementById("crearAviso");
+    const crearNoticia = document.getElementById("crearNoticia");
 
     // Mostrar por consola el tipo de usuario para verificar
     console.log(tipoUsuario)
@@ -253,7 +255,35 @@ document.addEventListener("DOMContentLoaded", function () {
             crearDenuncia.style.display = "none";
         }
     }
+
+    if (tipoUsuario == "vecino") {
+        if (crearAviso) {
+            crearAviso.style.display = "none";
+        }
+    }
+
+    if (tipoUsuario == "vecino") {
+        if (crearNoticia) {
+            crearNoticia.style.display = "none";
+        }
+    }
 });
 
+// Funcionalidad del botón Cerrar Sesión
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", function () {
+    localStorage.clear();
+    Swal.fire({
+      icon: "success",
+      title: "Sesión cerrada",
+      showConfirmButton: false,
+      timer: 1000
+    }).then(() => {
+        window.location.href = "../pages/HomeUser.html";
+    });
+  });
+}
 
 
