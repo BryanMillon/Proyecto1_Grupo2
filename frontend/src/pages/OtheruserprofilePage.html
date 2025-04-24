@@ -27,7 +27,7 @@
           <a href="#">PERFIL</a>
           <ul class="submenu">
             <li><a href="../pages/UserprofilePage.html">MI PERFIL</a></li>
-            <li><a href="../pages/UserProfileAdminView.html">PERFIL DE OTROS USUARIOS</a></li>
+            <li><a href="../pages/usersListPage.html">PERFIL DE OTROS USUARIOS</a></li>
             <li><a href="../pages/NoticesCreationPage.html">CREAR AVISO</a></li>
             <li><a href="../pages/NewsCreationPage.html">CREAR NOTICIA</a></li>
           </ul>
@@ -48,6 +48,10 @@
     <div class="info-card">
       <p><strong>Nombre:</strong> <span id="first-name"></span></p>
       <p><strong>Apellidos:</strong> <span id="last-name"></span></p>
+      <p><strong>Correo:</strong> <span id="email"></span></p>
+      <p><strong>Telefono:</strong> <span id="phone"></span></p>
+      <p><strong>Cedula:</strong> <span id="cedula"></span></p>
+      <p><strong>Direccion:</strong> <span id="address"></span></p>
       <p><strong>Distrito:</strong> <span id="district"></span></p>
       <p><strong>Rol:</strong> <span id="rol"></span></p>
     </div>
@@ -72,6 +76,8 @@
     </div>
   </footer>
 
-  <script src="../js/ControladorUserProfileAdminView.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../services/servicesUserProfile.js"></script>
+  <script src="../js/ControladorOtheruserprofilePage.js"></script>
 </body>
 </html>
