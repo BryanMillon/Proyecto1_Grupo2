@@ -162,7 +162,7 @@ nav li {
     /*Fin Imagen principal*/
 
     /*Caracteristicas de los contenedores*/
-   #initiativeContainer {
+   #articleCountainer {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -185,7 +185,7 @@ nav li {
     
     }
     
-    .newCard {
+    .eventCard {
         background-color: #FFFFFF;
         width: 100%;
         max-width: 300px;
@@ -199,7 +199,7 @@ nav li {
     }
     
     
-    .newCard:hover {
+    .eventCard:hover {
         transform: scale(1.05);
         border: 3px solid #EAC102;;
     }
