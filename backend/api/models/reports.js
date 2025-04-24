@@ -13,6 +13,9 @@ const reportsSchema= new mongoose.Schema({
         enum: ['pendiente', 'resuelto'
             ]},
     userId:{type: String, required:true},
+  archivoUrl: { type: String }, 
+  archivos: [{ type: String }] 
+    
 })
 
 module.exports= mongoose.model('Reports',reportsSchema )
