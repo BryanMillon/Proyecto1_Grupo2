@@ -231,9 +231,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const crearDenuncia = document.getElementById("crearDenuncia");
     const crearAviso = document.getElementById("crearAviso");
     const crearNoticia = document.getElementById("crearNoticia");
+    const dropdowns = document.querySelectorAll(".dropdown");
 
     // Mostrar por consola el tipo de usuario para verificar
     console.log(tipoUsuario)
+
+    if (!tipoUsuario) {
+        dropdowns.forEach((dropdown) => {
+          dropdown.style.display = "none";
+        })
+    }
 
     // Ocultar la opción de ADMINISTRADOR si no es un administrador
     if (tipoUsuario !== "administrador") {

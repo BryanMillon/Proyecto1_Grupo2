@@ -1,23 +1,19 @@
 
 
-console.log(localStorage.getItem("id_mongo"))
-console.log(localStorage)
+document.addEventListener("DOMContentLoaded", function () {
+  const tipoUsuario = localStorage.getItem("rolLogIn");
 
-window.onload = function () {
-  const userId = localStorage.getItem("id_mongo");
-
-  if (!userId) {
+  if (!tipoUsuario) {
     Swal.fire({
-      icon: 'warning',
-      title: 'Acceso denegado',
-      text: 'Tienes que estar logueado para ver esta página',
-      confirmButtonText: 'Iniciar Sesion'
+      icon: "warning",
+      title: "Debes estar logueado",
+      text: "Inicia sesión para acceder a esta página",
+      confirmButtonText: "Ir al Login"
     }).then(() => {
-      // Redirigir al login después del mensaje
       window.location.href = "../pages/LoginPage.html";
     });
   }
-};
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   const tipoUsuario = localStorage.getItem("rolLogIn"); 

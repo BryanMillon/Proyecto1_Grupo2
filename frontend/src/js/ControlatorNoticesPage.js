@@ -38,9 +38,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const adminItemFooter = document.getElementById("adminNavItemFooter");
     const crearAviso = document.getElementById("crearAviso");
     const crearNoticia = document.getElementById("crearNoticia");
+    const dropdowns = document.querySelectorAll(".dropdown");
 
 
     console.log(tipoUsuario)
+
+    if (!tipoUsuario) {
+        dropdowns.forEach((dropdown) => {
+          dropdown.style.display = "none";
+        })
+    }
 
     // Ocultar la opción de ADMINISTRADOR si no es administrador
     if (tipoUsuario !== "administrador") {

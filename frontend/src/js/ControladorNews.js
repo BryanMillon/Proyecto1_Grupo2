@@ -34,11 +34,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const tipoUsuario = localStorage.getItem("rolLogIn"); 
     const adminItemHeader = document.getElementById("adminNavItemHeader");
     const adminItemFooter = document.getElementById("adminNavItemFooter");
+    const dropdowns = document.querySelectorAll(".dropdown");
     const crearAviso = document.getElementById("crearAviso");
     const crearNoticia = document.getElementById("crearNoticia");
 
 
     console.log(tipoUsuario)
+
+    if (!tipoUsuario) {
+        dropdowns.forEach((dropdown) => {
+          dropdown.style.display = "none";
+        })
+    }
 
     // Ocultar la opción de ADMINISTRADOR si no es administrador
     if (tipoUsuario !== "administrador") {
