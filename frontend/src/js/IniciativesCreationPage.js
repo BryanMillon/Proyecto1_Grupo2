@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const crearAviso = document.getElementById("crearAviso");
     const crearNoticia = document.getElementById("crearNoticia");
     const dropdowns = document.querySelectorAll(".dropdown");
+    const formVisitor = document.querySelectorAll(".form-container");
 
 
     console.log(tipoUsuario)
@@ -12,6 +13,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!tipoUsuario) {
         dropdowns.forEach((dropdown) => {
           dropdown.style.display = "none";
+        })
+    }
+
+    if (!tipoUsuario) {
+        formVisitor.forEach((formVisitor) => {
+            formVisitor.style.display = "none";
         })
     }
 
