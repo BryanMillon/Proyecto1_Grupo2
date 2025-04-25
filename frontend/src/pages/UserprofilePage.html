@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../Styles/reset.css" />
-  <link rel="stylesheet" href="../Styles/UserprofilePage.css" />
   <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../Styles/UserprofilePage.css" />
   <title>Mi Perfil</title>
 </head>
 
@@ -45,19 +45,34 @@
 
       <div class="profile-image">
         <img src="../../public/images/Perfil-logo.svg" alt="Usuario" id="profileImage" />
-        <a href="#" class="edit-link" id="editPhotoLink">Editar</a>
+        <a href="#" class="edit-link" id="editPhotoLink">Cambiar foto de perfil</a>
         <input type="file" id="fileInput" accept="image/*" style="display: none;" />
       </div>
 
       <div class="profile-details">
+        <label for="">Nombre</label>
         <input type="text" placeholder="Nombre"  />
+        <label for="">Primer apellido</label>
         <input type="text" placeholder="Apellido 1"  />
+        <label for="">Segundo apellido</label>
+
         <input type="text" placeholder="Apellido 2"  />
+        <label for="">Dirección</label>
         <input type="text" placeholder="Dirección"  />
+        <label for="">Distrito</label>
+
         <input type="text" placeholder="Distrito" disabled />
+        <label for="">Teléfono</label>
+       
         <input type="text" placeholder="Teléfono"  />
+        <label for="">Cedula</label>
+
         <input type="text" placeholder="Cedula" disabled />
+        <label for="">Correo</label>
+
         <input type="email" placeholder="Correo" disabled />
+        <label for="">Rol</label>
+
         <input type="text" placeholder="Rol" disabled />
       </div>
 
@@ -67,7 +82,7 @@
       </div>
 
       <div class="edit-bottom">
-        <a href="#" class="edit-link" id="editInfoLink">Editar</a>
+        <a href="#" class="edit-link" id="editInfoLink">Editar Información</a>
       </div>
     </div>
   </main>

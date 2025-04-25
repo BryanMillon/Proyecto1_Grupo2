@@ -6,31 +6,47 @@
 
 let events = []
 
-const showEvents=async()=>{
-    events =  await listar_proximos_avisos_BD();
-
+const showEvents = async () => {
+    events = await listar_proximos_avisos_BD();
+    
     events.sort((a, b) => new Date(a.fechayhora) - new Date(b.fechayhora));
-
+    
     const eventsContainer = document.getElementById('eventContainer');
-
-    for(let i=0;i<events.length;i++){
+    
+    for(let i = 0; i < events.length; i++) {
+        // Format the date and time
+        const dateTime = new Date(events[i]['fechayhora']);
+        
+        // Create a formatted date string
+        const formattedDate = dateTime.toLocaleDateString('es-CR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        // Create a formatted time string
+        const formattedTime = dateTime.toLocaleTimeString('es-CR', {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        
+        // Combine date and time
+        const formattedDateTime = `${formattedDate} a las ${formattedTime}`;
+        
         const eventCard = document.createElement('div');
         eventCard.classList.add('eventCard');
         
         eventCard.innerHTML = `
             <div class="eventHeader"> ${events[i]['nombre']}</div>
-            <div class="eventDetail"><strong>Fecha y Hora:</strong> ${events[i]['fechayhora']}</div>
+            <div class="eventDetail"><strong>Fecha y Hora:</strong> ${formattedDateTime}</div>
             <div class="eventDetail"><strong>Categoría:</strong>  ${events[i]['categoria']}</div>
             <div class="eventDetail"><strong>Lugar:</strong> ${events[i]['lugar']}</div>
             <div class="eventDetail"><strong>Descripción:</strong> ${events[i]['descripcion']}</div>
         `;
-
+        
         eventsContainer.appendChild(eventCard);
     };
-
 }
-
-
 document.addEventListener("DOMContentLoaded", function () {
     // Supongamos que el tipo de usuario está almacenado así:
     const tipoUsuario = localStorage.getItem("rolLogIn"); 

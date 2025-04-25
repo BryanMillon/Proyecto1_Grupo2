@@ -48,7 +48,7 @@
             </ul>
         </nav>
     </header>
-
+    <main id="mainContainer">
     <!-- Sección de Denuncias -->
     <section id="mainEventPage">
         <h1>DENUNCIAS CIUDADANAS</h1>
@@ -72,29 +72,34 @@
                 acciones conjuntas para mejorar la calidad de vida y el
                 funcionamiento del cantón.<br>
                 <br>
-                Tipos de gestiones: <br>
+                <span>Tipos de gestiones: </span><br>
 
 
-                <br>
+            
                 1. Solicitud pública<br>
                 2. Queja<br>
                 3. Denuncia<br>
                 4. Sugerencia<br>
                 5. Felicitación<br>
                 <br>
-                Pasos para enviar su denuncia o gestión pública:<br>
-                <br>
+                <span>Pasos para enviar su denuncia o gestión pública:</span><br>
+             
                 1. Ingresar al sistema con su usuario y contraseña.<br>
                 2. Completar el formulario de denuncia.<br>
                 3. Hacer Click en “Enviar a la municipalidad”<br>
                 <br>
-                El personal municipal procesará el caso y tomará las acciones respoectivas según la legislación y
+                El personal municipal procesará el caso y tomará las acciones respectivas según la legislación y
                 reglamentos que apliquen.<br>
             </p>
         </div>
     </section>
 
     <section id="sctFormNewEvent1">
+        <div id="tituloGuiaDenuncias">
+            <h2>
+               Formulario de Denuncias
+            </h2>
+        </div>
         <form id="conteinerForm1">
 
             <!-- Formulario para Nueva Denuncia -->
@@ -132,13 +137,15 @@
                 <input class="inputForm" id="textDescriptionDenuncia" type="text" ; required>
                 <!--Event Evidence-->
 
-                <label class="labelFormulario" for="inputImagen">Seleccionar imagen:</label>
-                <input type="file" id="inputImagen" name="imagen" accept="image/*" class="archivo_clase">
-
-                <label class="labelFormulario" for="inputArchivo">Seleccionar documento (PDF, Word, etc):</label>
-                <input type="file" id="inputArchivo" name="documento" accept=".pdf,.doc,.docx,.">
-
-                <div>
+                <div class="files">
+                    <label class="labelFormulario" for="inputImagen">Seleccionar imagen:</label>
+                    <input type="file" id="inputImagen" name="imagen" accept="image/*" class="archivo_clase">
+                    
+                    <label class="labelFormulario" for="inputArchivo">Seleccionar documento (PDF, Word, etc):</label>
+                    <input type="file" id="inputArchivo" name="documento" accept=".pdf,.doc,.docx,.">
+                </div>
+                    
+                <div id="btns">
                     <br><br>
                     <button id="btnBotonLimpiar" type="button"> Cancelar</button>
                     <button id="btnBotonCrear" type="button"> Enviar a la Municipalidad</button>
@@ -152,17 +159,16 @@
     </section>
     <!--End Event Form-->
 
-    <main id="mainContainer">
+    
 
-        <!-- Section Event -->
-        <section id="mainEventPage">
-            <br>
-            <h1>Historial de Denuncias</h1>
-        </section>
-
+        
         <!-- Events -->
-        <section id="sctUpcomingEvents">
-
+        <section id="sctFormNewEvent1">
+            <div id="tituloGuiaDenuncias">
+                <h2>
+                   Formulario de Denuncias
+                </h2>
+            </div>
             <div id="conteinerReport">
                 <div id="reportsContainer">
                     <!-- Aquí se agregarán las denuncias dinámicamente -->

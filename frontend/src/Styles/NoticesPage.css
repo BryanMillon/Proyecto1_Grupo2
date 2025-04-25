@@ -17,6 +17,7 @@ body {
     background: rgb(16,73,121);
     background: linear-gradient(180deg, rgba(16,73,121,1) 49%, rgba(9,42,70,1) 99%);
     width: 100%;
+    flex: 1;
   }
   
 
@@ -194,15 +195,16 @@ nav li {
 
 .eventCard {
     background-color: #FFFFFF;
-    width: 100%;
-    max-width: 300px;
-    height: 100%;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 300px;
+        height: 100%;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        gap: 12px;
 }
 
 .eventCard:hover {
@@ -232,6 +234,10 @@ nav li {
     text-align: center;
 }
 
+.eventDetail strong{
+    font-weight:bolder;
+    color: #1D3892;
+}
 /*Footer*/
 
 footer {
@@ -240,7 +246,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 20px 0;
     position: relative; /* Asegura que se mantenga en la parte inferior */
     bottom: 0;
 }
@@ -258,7 +264,7 @@ footer {
 }
 
 #logoFooter img {
-    width: 150px;
+    width: 200px;
     height: auto;
 }
 
@@ -267,7 +273,7 @@ footer {
     flex-direction: column;
     text-align: right;
     margin-right: 50px;
-    gap: 10px;
+    gap: 20px;
 }
 
 #navFooter a {
@@ -278,6 +284,10 @@ footer {
 
 #navFooter a:hover {
     color: #50B2F1;
+}
+
+img{
+    max-width: 100%;
 }
 
 img{

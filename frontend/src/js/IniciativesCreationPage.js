@@ -187,8 +187,8 @@ const mostrarIniciativas=async()=>{
         eventCard.innerHTML = `
 
              <div class="newsHeader"> ${iniciativas[i]['categoria']}</div>
-            <div class="newsDetail"><strong>Fecha y Hora:</strong> ${iniciativas[i]['descripcion']}</div>
-            <div class="newsDetail"><strong>Categoría:</strong>  ${iniciativas[i]['distrito']}</div>
+            <div class="newsDetail"><strong>Descripcion:</strong> ${iniciativas[i]['descripcion']}</div>
+            <div class="newsDetail"><strong>Distrito afectado:</strong>  ${iniciativas[i]['distrito']}</div>
           
         `;
 

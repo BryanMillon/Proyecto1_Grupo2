@@ -134,7 +134,7 @@ nav li {
 }
 
 #conteinerForm {
-    width: 100%;
+    width: 80%;
     max-width: 1500px;
     padding: 20px;
     margin: 10px;
@@ -150,11 +150,12 @@ nav li {
     display: center;
     align-items: center;
     border-radius: 8px;
+    padding: 15px 0;
 }
 
 #titleNewNewH1{
     text-align: center;
-    font-size: 30px;
+    font-size: 35px;
     color: #FFFFFF;
     padding: 5px 5px 5px 5px ;
 }
@@ -170,34 +171,40 @@ nav li {
 }
 
 .inputForm {
-    width: 70%;
-    padding: 3px;
-    margin: 9px;
+    width: 80%;
+    padding: 10px 0;
+    margin-bottom: 20px;
     border: 2px solid #1768AC;
-    border-radius: 5px;
+    border-radius: 8px;
     color: #1D3892;
-    font-size: 18px;
+    font-size: 20px;
+    font-family: 'Asap', sans-serif;
 
 }
 
-.inputFormContent {
-    width: 70%;
-    padding: 3px;
-    margin: 9px;
-    border: 2px solid #1768AC;
-    border-radius: 5px;
-    color: #1D3892;
-    font-size: 18px;
-
-}
 
 .categorySelect {
-    width: 71%;
-    padding: 10px;
-    font-size: 16px;
+    width: 80%;
+    padding: 10px 0;
+    font-size: 20px;
+    font-family: 'Asap', sans-serif;
     border: 2px solid #1768AC;
-    border-radius: 5px;
-    margin-top: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+
+.inputFormContent {
+    width: 80%;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border: 2px solid #1768AC;
+    border-radius: 8px;
+    color: #1D3892;
+    font-size: 20px;
+    font-family: 'Asap', sans-serif;
+
+
 }
 
 
@@ -282,7 +289,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 20px 0;
     position: relative; /* Asegura que se mantenga en la parte inferior */
     bottom: 0;
 }
