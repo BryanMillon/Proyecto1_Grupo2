@@ -1,3 +1,5 @@
+setTimeout(verificarSesion, 3000) 
+
 //Obtener las referencias del formulario
 const inputTitleNew = document.getElementById("textTituloNoticia");
 const inputSubtitleNew = document.getElementById("textSubtituloNoticia");

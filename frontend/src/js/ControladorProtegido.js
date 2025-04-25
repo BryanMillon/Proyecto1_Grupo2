@@ -24,6 +24,17 @@ function verificarSesion() {
       window.location.href = "../pages/HomePage.html";
     });
   }
+
+  if (tipoUsuario == "vecino"){
+    Swal.fire({
+      icon: 'warning',
+      title: 'Acceso restringido',
+      text: 'No tienes permiso para acceder a esta página',
+      confirmButtonText: 'Ir a la página de inicio'
+    }).then(() => {
+      window.location.href = "../pages/HomePage.html";
+    });
+  }
 }
 
 window.onload = verificarSesion;
