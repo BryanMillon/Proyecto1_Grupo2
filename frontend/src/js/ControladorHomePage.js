@@ -21,10 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const adminItemFooter = document.getElementById("adminNavItemFooter");
   const crearAviso = document.getElementById("crearAviso");
   const crearNoticia = document.getElementById("crearNoticia");
-  
-
-
-  console.log(tipoUsuario)
+ 
 
   // Ocultar la opción de ADMINISTRADOR si no es administrador
   if (tipoUsuario !== "administrador") {
@@ -53,6 +50,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const estadoConcejal = localStorage.getItem("estadoConcejal"); 
+  const btnVerUsuarios = document.getElementById("btnVerUsuarios")
+
+  if (tipoUsuario == "vecino") {
+    if (btnVerUsuarios) {
+        btnVerUsuarios.style.display = "none";
+    }
+}
+  
     if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
       if (crearNoticia) {
           crearNoticia.style.display = "none";
@@ -62,6 +67,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
       if (crearAviso) {
           crearAviso.style.display = "none";
+      }
+    }
+
+    if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
+      if (btnVerUsuarios) {
+          btnVerUsuarios.style.display = "none";
       }
     }
 });
