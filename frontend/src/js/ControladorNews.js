@@ -2,6 +2,7 @@
 
 // Mostrar Noticias 
 let news = []
+verificarSesion()
 
 const showNews=async()=>{
     news =  await listar_noticias_publicadas_BD();

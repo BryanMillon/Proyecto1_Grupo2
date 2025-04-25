@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const adminItemFooter = document.getElementById("adminNavItemFooter");
   const crearAviso = document.getElementById("crearAviso");
   const crearNoticia = document.getElementById("crearNoticia");
+  
 
 
   console.log(tipoUsuario)
@@ -50,7 +51,22 @@ document.addEventListener("DOMContentLoaded", function () {
           crearNoticia.style.display = "none";
       }
   }
+
+  const estadoConcejal = localStorage.getItem("estadoConcejal"); 
+    if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
+      if (crearNoticia) {
+          crearNoticia.style.display = "none";
+      }
+    }
+
+    if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
+      if (crearAviso) {
+          crearAviso.style.display = "none";
+      }
+    }
 });
+
+
 
 window.onload = function() {
   showEvents();

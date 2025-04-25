@@ -1,9 +1,12 @@
+
 document.addEventListener('DOMContentLoaded', async () => {
   const tablaUsuarios = document.getElementById('userTable');
   const inputBuscar = document.getElementById('search');
 
   let usuarios = [];
 
+  verificarSesion()
+  
   // Cargar usuarios al iniciar
   try {
     usuarios = await obtenerUsuarios();
