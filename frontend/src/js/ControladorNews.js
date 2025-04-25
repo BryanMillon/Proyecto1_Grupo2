@@ -34,11 +34,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const tipoUsuario = localStorage.getItem("rolLogIn"); 
     const adminItemHeader = document.getElementById("adminNavItemHeader");
     const adminItemFooter = document.getElementById("adminNavItemFooter");
+    const dropdowns = document.querySelectorAll(".dropdown");
     const crearAviso = document.getElementById("crearAviso");
     const crearNoticia = document.getElementById("crearNoticia");
 
 
     console.log(tipoUsuario)
+
+    if (!tipoUsuario) {
+        dropdowns.forEach((dropdown) => {
+          dropdown.style.display = "none";
+        })
+    }
 
     // Ocultar la opción de ADMINISTRADOR si no es administrador
     if (tipoUsuario !== "administrador") {
@@ -70,3 +77,20 @@ document.addEventListener("DOMContentLoaded", function () {
 window.onload = function() {
     showNews();
 };
+
+// Funcionalidad del botón Cerrar Sesión
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", function () {
+    localStorage.clear();
+    Swal.fire({
+      icon: "success",
+      title: "Sesión cerrada",
+      showConfirmButton: false,
+      timer: 1000
+    }).then(() => {
+        window.location.href = "../pages/HomeUser.html";
+    });
+  });
+}

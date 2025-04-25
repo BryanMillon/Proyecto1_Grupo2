@@ -13,30 +13,6 @@
 <title>Denuncias Ciudadanas</title>
 </head>
 <body>
-
-    <script>
-        // Variable que indica si el usuario es administrador
-        let isAdmin = true;  // Cambiar a false si no es admin
-
-        // Función para cambiar el contenido según si es admin o no
-        function updateUIForAdmin() {
-            if (isAdmin) {
-                // Si es admin, muestra los enlaces de administrador
-                document.getElementById("adminNavItemHeader").style.display = 'block';
-                document.getElementById("NavFooterAdmin").style.display = 'block';
-                document.getElementById("NavFooterUser").style.display = 'none';
-            } else {
-                // Si no es admin, oculta los enlaces de admin
-                document.getElementById("adminNavItemHeader").style.display = 'none';
-                document.getElementById("NavFooterAdmin").style.display = 'none';
-                document.getElementById("NavFooterUser").style.display = 'block';
-            }
-        }
-        
-        // Llamar a la función al cargar la página
-        window.onload = updateUIForAdmin;
-    </script>
-
     <!-- Header -->
     <header>
         <div id="logoHeader">
@@ -61,6 +37,7 @@
                         <li><a href="../pages/usersListPage.html">PERFIL DE OTROS USUARIOS</a></li>
                         <li id="crearAviso"><a href="../pages/NoticesCreationPage.html">CREAR AVISO</a></li>
                         <li id="crearNoticia"><a href="../pages/NewsCreationPage.html">CREAR NOTICIA</a></li>
+                        <li><a id="logoutBtn">CERRAR SESION</a></li>
                     </ul>
                 </li>
             </ul>
