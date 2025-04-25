@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const estadoConcejal = localStorage.getItem("estadoConcejal"); 
+
     const btnVerUsuarios = document.getElementById("btnVerUsuarios")
     
     if (tipoUsuario == "vecino") {
@@ -107,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
             btnVerUsuarios.style.display = "none";
         }
       }
+
 });
 
 window.onload = function() {

@@ -80,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+
   
 
     const estadoConcejal = localStorage.getItem("estadoConcejal"); 
@@ -109,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
       
+
 });
 
 window.onload = function() {

@@ -280,6 +280,7 @@
     }
 
     const estadoConcejal = localStorage.getItem("estadoConcejal"); 
+
     const btnVerUsuarios = document.getElementById("btnVerUsuarios")
 
     if (tipoUsuario == "vecino") {
@@ -305,6 +306,7 @@
             btnVerUsuarios.style.display = "none";
         }
       }
+
 });
 
 window.onload = function() {

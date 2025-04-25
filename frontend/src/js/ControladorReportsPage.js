@@ -197,6 +197,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+
+  
+   const estadoConcejal = localStorage.getItem("estadoConcejal"); 
       if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
         if (crearNoticia) {
             crearNoticia.style.display = "none";
