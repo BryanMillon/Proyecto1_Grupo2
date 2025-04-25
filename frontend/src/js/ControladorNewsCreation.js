@@ -126,6 +126,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+});
+
+
     const estadoConcejal = localStorage.getItem("estadoConcejal"); 
     if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
       if (crearNoticia) {
@@ -139,3 +142,20 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 });
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", function () {
+    localStorage.clear();
+    Swal.fire({
+      icon: "success",
+      title: "Sesión cerrada",
+      showConfirmButton: false,
+      timer: 1000
+    }).then(() => {
+        window.location.href = "../pages/HomeUser.html";
+    });
+  });
+}
+

@@ -1,17 +1,17 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const tipoUsuario = localStorage.getItem("rolLogIn");
+// document.addEventListener("DOMContentLoaded", function () {
+//     const tipoUsuario = localStorage.getItem("rolLogIn");
   
-    if (!tipoUsuario) {
-      Swal.fire({
-        icon: "warning",
-        title: "Debes estar logueado",
-        text: "Inicia sesión para acceder a esta página",
-        confirmButtonText: "Ir al Login"
-      }).then(() => {
-        window.location.href = "../pages/LoginPage.html";
-      });
-    }
-  });
+//     if (!tipoUsuario) {
+//       Swal.fire({
+//         icon: "warning",
+//         title: "Debes estar logueado",
+//         text: "Inicia sesión para acceder a esta página",
+//         confirmButtonText: "Ir al Login"
+//       }).then(() => {
+//         window.location.href = "../pages/LoginPage.html";
+//       });
+//     }
+//   });
   
 
 // Obtener todas las referencias del DOM para el formulario de denuncias
@@ -22,6 +22,9 @@ const inputPlaceReport = document.getElementById("textPlaceDenuncia");
 const inputDescriptionReport = document.getElementById("textDescriptionDenuncia");
 const btnBotonCrear = document.getElementById("btnBotonCrear");
 const btnBotonLimpiar = document.getElementById("btnBotonLimpiar");
+const sctFormNewEvent1 = document.getElementById("sctFormNewEvent1")
+const mainContainer = document.getElementById("mainContainer")
+
 
 
 // Validar que no haya campos vacíos
@@ -127,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const adminItemFooter = document.getElementById("adminNavItemFooter");
     const crearDenuncia = document.getElementById("crearDenuncia");
     const botonPublicar = document.getElementById("btnBotonPublicar");
+    const loginBtn = document.getElementById("loginBtn")
     
     console.log(tipoUsuario)
     
@@ -148,24 +152,71 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    
+    if (tipoUsuario) {
+        if (loginBtn) {
+            loginBtn.style.display = "none";
+        }
+    }
+
+
+
+
+    const estadoConcejal = localStorage.getItem("estadoConcejal"); 
+    const btnVerUsuarios = document.getElementById("btnVerUsuarios")
+
+
+    if (!tipoUsuario) {
+        if (sctFormNewEvent1) {
+            sctFormNewEvent1.style.display = "none";
+        }
+    }
+
+    if (!tipoUsuario) {
+        if (mainContainer) {
+            mainContainer.style.display = "none";
+        }
+    }
+
+
+    
+
+    
+
+
+    if (tipoUsuario == "vecino") {
+        if (btnVerUsuarios) {
+            btnVerUsuarios.style.display = "none";
+        }
+    }
+    
+
     if (tipoUsuario == "concejal") {
         if (botonPublicar) {
             botonPublicar.style.display = "none";
         }
     }
 
-    const estadoConcejal = localStorage.getItem("estadoConcejal"); 
-    if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
-      if (crearNoticia) {
-          crearNoticia.style.display = "none";
-      }
-    }
 
-    if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
-      if (crearAviso) {
-          crearAviso.style.display = "none";
+  
+   const estadoConcejal = localStorage.getItem("estadoConcejal"); 
+      if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
+        if (crearNoticia) {
+            crearNoticia.style.display = "none";
+        }
       }
-    }
+  
+      if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
+        if (crearAviso) {
+            crearAviso.style.display = "none";
+        }
+      }
+  
+      if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
+        if (btnVerUsuarios) {
+            btnVerUsuarios.style.display = "none";
+        }
+      }
 });
 
 // Eventos de los botones para crear y publicar denuncias
