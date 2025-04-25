@@ -1,3 +1,4 @@
+setTimeout(verificarSesion, 3000) 
 //Get all references to the DOM to the Form
 const inputNameEvent = document.getElementById("textNombreAviso");
 const inputDateEvent = document.getElementById("dateTimePicker");
