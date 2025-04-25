@@ -1,3 +1,5 @@
+setTimeout(verificarSesion, 3000) 
+
 //Obtener las referencias del formulario
 const inputTitleNew = document.getElementById("textTituloNoticia");
 const inputSubtitleNew = document.getElementById("textSubtituloNoticia");
@@ -83,6 +85,7 @@ btnBotonCrear.addEventListener("click",Guardar_Noticia_Creado);
 document.addEventListener("DOMContentLoaded", function () {
     // Supongamos que el tipo de usuario está almacenado así:
     const tipoUsuario = localStorage.getItem("rolLogIn"); 
+    const estadoConcejal = localStorage.getItem("estadoConcejal");
     const adminItemHeader = document.getElementById("adminNavItemHeader");
     const adminItemFooter = document.getElementById("adminNavItemFooter");
     const crearAviso = document.getElementById("crearAviso");

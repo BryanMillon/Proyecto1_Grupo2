@@ -15,7 +15,7 @@ const LoginUser = async (pEmail, pPassword) => {
 
         if (res.data.resultado){
         localStorage.setItem("id_mongo", res.data.usuario._id)
-
+        localStorage.setItem("estadoConcejal", res.data.usuario.estadoConcejal)
         localStorage.setItem("rolLogIn", res.data.usuario.rol)
    
 
