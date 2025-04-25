@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
           crearAviso.style.display = "none";
       }
     }
-});
+
 
 const logoutBtn = document.getElementById("logoutBtn");
 
