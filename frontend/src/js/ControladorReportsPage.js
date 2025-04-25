@@ -1,3 +1,19 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const tipoUsuario = localStorage.getItem("rolLogIn");
+  
+    if (!tipoUsuario) {
+      Swal.fire({
+        icon: "warning",
+        title: "Debes estar logueado",
+        text: "Inicia sesión para acceder a esta página",
+        confirmButtonText: "Ir al Login"
+      }).then(() => {
+        window.location.href = "../pages/LoginPage.html";
+      });
+    }
+  });
+  
+
 // Obtener todas las referencias del DOM para el formulario de denuncias
 const inputNameReport = document.getElementById("textNombreDenuncia");
 const inputDateReport = document.getElementById("dateTimePickerDenuncia");
@@ -229,9 +245,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const adminItemHeader = document.getElementById("adminNavItemHeader");
     const adminItemFooter = document.getElementById("adminNavItemFooter");
     const crearDenuncia = document.getElementById("crearDenuncia");
+    const crearAviso = document.getElementById("crearAviso");
+    const crearNoticia = document.getElementById("crearNoticia");
+    const dropdowns = document.querySelectorAll(".dropdown");
 
     // Mostrar por consola el tipo de usuario para verificar
     console.log(tipoUsuario)
+
+    if (!tipoUsuario) {
+        dropdowns.forEach((dropdown) => {
+          dropdown.style.display = "none";
+        })
+    }
 
     // Ocultar la opción de ADMINISTRADOR si no es un administrador
     if (tipoUsuario !== "administrador") {
@@ -253,7 +278,35 @@ document.addEventListener("DOMContentLoaded", function () {
             crearDenuncia.style.display = "none";
         }
     }
+
+    if (tipoUsuario == "vecino") {
+        if (crearAviso) {
+            crearAviso.style.display = "none";
+        }
+    }
+
+    if (tipoUsuario == "vecino") {
+        if (crearNoticia) {
+            crearNoticia.style.display = "none";
+        }
+    }
 });
 
+// Funcionalidad del botón Cerrar Sesión
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", function () {
+    localStorage.clear();
+    Swal.fire({
+      icon: "success",
+      title: "Sesión cerrada",
+      showConfirmButton: false,
+      timer: 1000
+    }).then(() => {
+        window.location.href = "../pages/HomeUser.html";
+    });
+  });
+}
 
 
