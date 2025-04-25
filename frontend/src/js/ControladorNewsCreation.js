@@ -1,3 +1,5 @@
+setTimeout(verificarSesion, 3000) 
+
 //Obtener las referencias del formulario
 const inputTitleNew = document.getElementById("textTituloNoticia");
 const inputSubtitleNew = document.getElementById("textSubtituloNoticia");
@@ -123,4 +125,37 @@ document.addEventListener("DOMContentLoaded", function () {
             botonPublicar.style.display = "none";
         }
     }
+
 });
+
+
+    const estadoConcejal = localStorage.getItem("estadoConcejal"); 
+    if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
+      if (crearNoticia) {
+          crearNoticia.style.display = "none";
+      }
+    }
+
+    if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
+      if (crearAviso) {
+          crearAviso.style.display = "none";
+      }
+    }
+
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", function () {
+    localStorage.clear();
+    Swal.fire({
+      icon: "success",
+      title: "Sesión cerrada",
+      showConfirmButton: false,
+      timer: 1000
+    }).then(() => {
+        window.location.href = "../pages/HomeUser.html";
+    });
+  });
+}
+

@@ -519,6 +519,22 @@ function actionBottonResolverIniciativas() {
     });
 }
 
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", function () {
+    localStorage.clear();
+    Swal.fire({
+      icon: "success",
+      title: "Sesión cerrada",
+      showConfirmButton: false,
+      timer: 2000
+    }).then(() => {
+        window.location.href = "../pages/HomeUser.html";
+    });
+  });
+}
+
 
 document.addEventListener("DOMContentLoaded", chargeTableIniciativas);
 

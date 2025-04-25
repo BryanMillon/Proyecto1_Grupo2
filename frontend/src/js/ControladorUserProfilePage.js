@@ -278,6 +278,35 @@
             crearNoticia.style.display = "none";
         }
     }
+
+    const estadoConcejal = localStorage.getItem("estadoConcejal"); 
+
+    const btnVerUsuarios = document.getElementById("btnVerUsuarios")
+
+    if (tipoUsuario == "vecino") {
+        if (btnVerUsuarios) {
+            btnVerUsuarios.style.display = "none";
+        }
+    }
+    
+      if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
+        if (crearNoticia) {
+            crearNoticia.style.display = "none";
+        }
+      }
+  
+      if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
+        if (crearAviso) {
+            crearAviso.style.display = "none";
+        }
+      }
+  
+      if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
+        if (btnVerUsuarios) {
+            btnVerUsuarios.style.display = "none";
+        }
+      }
+
 });
 
 window.onload = function() {

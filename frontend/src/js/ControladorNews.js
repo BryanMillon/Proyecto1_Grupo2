@@ -2,6 +2,7 @@
 
 // Mostrar Noticias 
 let news = []
+// verificarSesion()
 
 const showNews=async()=>{
     news =  await listar_noticias_publicadas_BD();
@@ -39,7 +40,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const crearNoticia = document.getElementById("crearNoticia");
 
 
-    console.log(tipoUsuario)
+    const btnLogin = document.getElementById("btnLogin")
+  
+    if(tipoUsuario){
+      if(btnLogin){
+        btnLogin.style.display = "none";
+      }
+    }
 
     if (!tipoUsuario) {
         dropdowns.forEach((dropdown) => {
@@ -72,6 +79,38 @@ document.addEventListener("DOMContentLoaded", function () {
             crearNoticia.style.display = "none";
         }
     }
+
+
+  
+
+    const estadoConcejal = localStorage.getItem("estadoConcejal"); 
+    const btnVerUsuarios = document.getElementById("btnVerUsuarios")
+    
+    if (tipoUsuario == "vecino") {
+        if (btnVerUsuarios) {
+            btnVerUsuarios.style.display = "none";
+        }
+    }
+
+      if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
+        if (crearNoticia) {
+            crearNoticia.style.display = "none";
+        }
+      }
+  
+      if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
+        if (crearAviso) {
+            crearAviso.style.display = "none";
+        }
+      }
+  
+      if (tipoUsuario == "concejal" && estadoConcejal !== "aprobado") {
+        if (btnVerUsuarios) {
+            btnVerUsuarios.style.display = "none";
+        }
+      }
+      
+
 });
 
 window.onload = function() {
