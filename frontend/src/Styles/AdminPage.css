@@ -106,8 +106,8 @@ nav li {
     gap: 50px;
 }
 
-
-#sctPendingEvents, #sctPendingUsers, #sctPendingNews {
+/* Estilos consistentes para todas las secciones de tablas */
+#sctPendingEvents, #sctPendingUsers, #sctPendingNews, #sctPendingReports, #sctPendingIniciatives {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -115,16 +115,16 @@ nav li {
     margin-bottom: 30px;
 }
 
-
-#tablePendingEvent, #tablePendingUsers, #tablePendingNew {
+/* Contenedores de tabla unificados */
+#tablePendingEvent, #tablePendingUsers, #tablePendingNew, #tablePendingReport, #tablePendingIniciatives {
     width: 100%;
     display: flex;
     flex-direction: column;
     background-color: transparent;
 }
 
-/* Title container styles - shared between both tables */
-#titlePendingEvent, #titlePendingUsers, #titlePendingNew {
+/* Estilos consistentes para los contenedores de título */
+#titlePendingEvent, #titlePendingUsers, #titlePendingNew, #titlePendingReport, #titlePendingIniciatives {
     border: 5px solid #D9D9D9;
     background-color: #1D3892;
     margin-bottom: 20px;
@@ -134,32 +134,8 @@ nav li {
     border-radius: 10px;
 }
 
-/* Title text styles - shared between both tables */
-#titlePendingReport {
-    font-family: 'Asap', sans-serif;
-    font-size: 35px;
-    color: #D9D9D9;
-    text-align: center;
-    padding: 10px;
-    font-weight: bold;
-    margin: 0;
-}
-/* Title container styles - shared between both tables */
-#titlePendingReport {
-    border: 5px solid #D9D9D9;
-    background-color: #1D3892;
-    margin-bottom: 20px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-}
-
-
-
-
-/* Title text styles - shared between both tables */
-#titlePendingEventh1, #titlePendingUserh1, #titlePendingNewh1 {
+/* Estilos consistentes para los títulos en h1 */
+#titlePendingEventh1, #titlePendingUserh1, #titlePendingNewh1, #titlePendingReport1, #titlePendingIniciativesh1 {
     font-family: 'Asap', sans-serif;
     font-size: 35px;
     color: #D9D9D9;
@@ -169,8 +145,8 @@ nav li {
     margin: 0;
 }
 
-/* Table styles - shared between both tables */
-#tableEventPending, #tableUserPending, #tableNewPending, #tableReportPending {
+/* Estilos consistentes para todas las tablas */
+#tableEventPending, #tableUserPending, #tableNewPending, #tableReportPending, #tableIniciativesPending {
     width: 100%;
     background-color: #FFFFFF;
     color: black;
@@ -180,8 +156,8 @@ nav li {
     margin-top: 20px;
 }
 
-/* Table header styles - shared between both tables */
-#theadcustom {
+/* Usar el mismo estilo para todos los encabezados de tabla */
+#theadcustom, #tableIniciativesPending thead {
     background-color: #EAC102;
     height: 30px;
     font-family: 'Asap', sans-serif;
@@ -189,13 +165,13 @@ nav li {
     font-weight: bold;
 }
 
-#theadcustom th {
+#theadcustom th, #tableIniciativesPending thead th {
     padding: 10px;
     text-align: center;
     border: 2px solid #FFFFFF;
 }
 
-/* Table data styles */
+/* Estilo unificado para todas las celdas */
 td {
     border: 2px solid #D9D9D9;
     padding: 8px;
@@ -205,7 +181,6 @@ td {
     white-space: normal;
     font-weight: normal;
 }
-
 /* Button styles */
 .btnAccept {
     padding: 10px 20px;
@@ -242,104 +217,21 @@ td {
 
 
 
-/* INICIATIVAS PENDIENTES  */
-
-#sctPendingIniciatives {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 1200px;
-    margin-bottom: 30px;
-}
-
-
-#tablePendingIniciatives {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: transparent;
-}
-
-
-#titlePendingIniciatives {
-    border: 5px solid #D9D9D9;
-    background-color: #1D3892;
-    margin-bottom: 20px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-}
-
-
-#titlePendingIniciativesh1 {
-    font-family: 'Asap', sans-serif;
-    font-size: 35px;
-    color: #D9D9D9;
-    text-align: center;
-    padding: 10px;
-    font-weight: bold;
-    margin: 0;
-}
-
-
-#tableIniciativesPending {
-    width: 100%;
-    background-color: #FFFFFF;
-    color: black;
-    font-family: 'Asap', sans-serif;
-    font-size: 15px;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-
-#tableIniciativesPending thead {
-    background-color: #EAC102;
-    height: 30px;
-    font-family: 'Asap', sans-serif;
-    font-size: 21px;
-    font-weight: bold;
-}
-
-#tableIniciativesPending thead th {
-    padding: 10px;
-    text-align: center;
-    border: 2px solid #FFFFFF;
-}
-
-
-#tableIniciativesPending td {
-    border: 2px solid #D9D9D9;
-    padding: 8px;
-    text-align: center;
-    vertical-align: middle;
-    word-wrap: break-word;
-    white-space: normal;
-}
-
-
-
-
-
-
-
 
 /* Footer styles */
 footer {
+    font-family: 'Asap',sans-serif;
     width: 100%;
-    height: 200px;
     background-color: #1D3892;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto;
+    padding: 20px 0;
+    position: relative; /* Asegura que se mantenga en la parte inferior */
+    bottom: 0;
 }
 
 #copyright {
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
     margin-left: 50px;
     font-weight: bold;
     color: #FFFFFF;
@@ -373,7 +265,6 @@ footer {
 #navFooter a:hover {
     color: #50B2F1;
 }
-
 /* Responsive adjustments */
 @media (max-width: 1200px) {
     #blueBackground {

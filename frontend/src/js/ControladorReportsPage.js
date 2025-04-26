@@ -231,31 +231,48 @@ btnBotonLimpiar.addEventListener("click", function () {
 
 let reports = []
 
-const showReports=async()=>{
-
+const showReports = async () => {
     const userId = localStorage.getItem("id_mongo")
     console.log(userId)
-
-    reports =  await listar_denuncias_BD_Users(userId);
-
-
+    
+    reports = await listar_denuncias_BD_Users(userId);
+    
     reports.sort((a, b) => new Date(a.fechayhora) - new Date(b.fechayhora));
-
+    
     const reportsContainer = document.getElementById('reportsContainer');
-
-    for(let i=0;i<reports.length;i++){
+    
+    for(let i = 0; i < reports.length; i++) {
+        // Format the date and time
+        const dateTime = new Date(reports[i]['fechayhora']);
+        
+        // Create a formatted date string
+        const formattedDate = dateTime.toLocaleDateString('es-CR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        // Create a formatted time string
+        const formattedTime = dateTime.toLocaleTimeString('es-CR', {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        
+        // Combine date and time
+        const formattedDateTime = `${formattedDate} a las ${formattedTime}`;
+        
         const reportCard = document.createElement('div');
         reportCard.classList.add('reportCard');
         
         reportCard.innerHTML = `
             <div class="reportHeader"> ${reports[i]['nombre']}</div>
-            <div class="reportDetail"><strong>Fecha y Hora:</strong> ${reports[i]['fechayhora']}</div>
+            <div class="reportDetail"><strong>Fecha y Hora:</strong> ${formattedDateTime}</div>
             <div class="reportDetail"><strong>Categoría:</strong>  ${reports[i]['categoria']}</div>
             <div class="reportDetail"><strong>Lugar:</strong> ${reports[i]['lugar']}</div>
             <div class="reportDetail"><strong>Descripción:</strong> ${reports[i]['descripcion']}</div>
             <div class="reportDetail"><strong>Estado:</strong> ${reports[i]['estado']}</div>
         `;
-
+        
         reportsContainer.appendChild(reportCard);
     };
 }
@@ -272,10 +289,28 @@ const showReportsAdmin=async()=>{
     for(let i=0;i<reports.length;i++){
         const reportCard = document.createElement('div');
         reportCard.classList.add('reportCard');
+
+        const dateTime = new Date(reports[i]['fechayhora']);
+        
+        // Create a formatted date string
+        const formattedDate = dateTime.toLocaleDateString('es-CR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        // Create a formatted time string
+        const formattedTime = dateTime.toLocaleTimeString('es-CR', {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        
+        // Combine date and time
+        const formattedDateTime = `${formattedDate} a las ${formattedTime}`;
         
         reportCard.innerHTML = `
             <div class="reportHeader"> ${reports[i]['nombre']}</div>
-            <div class="reportDetail"><strong>Fecha y Hora:</strong> ${reports[i]['fechayhora']}</div>
+             <div class="reportDetail"><strong>Fecha y Hora:</strong> ${formattedDateTime}</div>
             <div class="reportDetail"><strong>Categoría:</strong>  ${reports[i]['categoria']}</div>
             <div class="reportDetail"><strong>Lugar:</strong> ${reports[i]['lugar']}</div>
             <div class="reportDetail"><strong>Descripción:</strong> ${reports[i]['descripcion']}</div>

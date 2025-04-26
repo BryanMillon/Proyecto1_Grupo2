@@ -85,11 +85,29 @@ const chargeTable=async()=>{
     cuerpoTablaAvisos.innerHTML=""
 
      for(let i=0;i<listaAvisos.length;i++){
+
+        const dateTime = new Date(listaAvisos[i]['fechayhora']);
+        
+        // Create a formatted date string
+        const formattedDate = dateTime.toLocaleDateString('es-CR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        // Create a formatted time string
+        const formattedTime = dateTime.toLocaleTimeString('es-CR', {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        
+        // Combine date and time
+        const formattedDateTime = `${formattedDate} a las ${formattedTime}`;
             
         let fila = cuerpoTablaAvisos.insertRow()
 
         fila.insertCell().innerHTML=listaAvisos[i]['nombre']
-        fila.insertCell().innerHTML=listaAvisos[i]['fechayhora']
+        fila.insertCell().innerHTML= formattedDateTime
         fila.insertCell().innerHTML=listaAvisos[i]['categoria']
         fila.insertCell().innerHTML=listaAvisos[i]['lugar']
         fila.insertCell().innerHTML=listaAvisos[i]['descripcion']
@@ -336,29 +354,42 @@ function actionBottonCancelNews(){
     });
 }
 
-
-const chargeTableNews=async()=>{
+const chargeTableNews = async () => {
     //Bring the table that was created in the html with its respective columns
-    listaNoticias =  await listar_noticias_pending_BD();
+    listaNoticias = await listar_noticias_pending_BD();
     //limpiar la tabla
+    cuerpoTablaNoticias.innerHTML = "";
     
-    cuerpoTablaNoticias.innerHTML=""
-
-     for(let i=0;i<listaNoticias.length;i++){
-            
-        let fila = cuerpoTablaNoticias.insertRow()
-
-        fila.insertCell().innerHTML=listaNoticias[i]['titulo']
-        fila.insertCell().innerHTML=listaNoticias[i]['subtitulo']
-        fila.insertCell().innerHTML=listaNoticias[i]['categoria']
-        fila.insertCell().innerHTML=listaNoticias[i]['contenido']
-        fila.insertCell().innerHTML=listaNoticias[i]['fechaDePublicacion']
-
-        crearBotonesNoticias(fila,i)
+    for(let i = 0; i < listaNoticias.length; i++) {
+     
+        const dateTime = new Date(listaNoticias[i]['fechaDePublicacion']);
+        
+       
+        const formattedDate = dateTime.toLocaleDateString('es-CR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+   
+        const formattedTime = dateTime.toLocaleTimeString('es-CR', {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        
+        
+        const formattedDateTime = `${formattedDate} a las ${formattedTime}`;
+        
+        let fila = cuerpoTablaNoticias.insertRow();
+        fila.insertCell().innerHTML = listaNoticias[i]['titulo'];
+        fila.insertCell().innerHTML = listaNoticias[i]['subtitulo'];
+        fila.insertCell().innerHTML = listaNoticias[i]['categoria'];
+        fila.insertCell().innerHTML = listaNoticias[i]['contenido'];
+        fila.insertCell().innerHTML = formattedDateTime; 
+        
+        crearBotonesNoticias(fila, i);
     }
-
 }
-
 document.addEventListener("DOMContentLoaded", chargeTableNews);
 
 
@@ -419,15 +450,34 @@ function crearBotonesDenuncias(fila, i) {
 const chargeTableDenuncias = async () => {
     listaDenuncias = await listar_denuncias_pending_BD();
     cuerpoTablaDenuncias.innerHTML = "";
-
+    
     for (let i = 0; i < listaDenuncias.length; i++) {
+        // Format the date and time
+        const dateTime = new Date(listaDenuncias[i]['fechayhora']);
+        
+        // Create a formatted date string
+        const formattedDate = dateTime.toLocaleDateString('es-CR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        // Create a formatted time string
+        const formattedTime = dateTime.toLocaleTimeString('es-CR', {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        
+        // Combine date and time
+        const formattedDateTime = `${formattedDate} a las ${formattedTime}`;
+        
         let fila = cuerpoTablaDenuncias.insertRow();
-
+        
         fila.insertCell().innerHTML = listaDenuncias[i]['nombre'];
         fila.insertCell().innerHTML = listaDenuncias[i]['categoria'];
         fila.insertCell().innerHTML = listaDenuncias[i]['lugar'];
-        fila.insertCell().innerHTML = listaDenuncias[i]['fechayhora'];
-
+        fila.insertCell().innerHTML = formattedDateTime; // Using the formatted date and time
+        
         crearBotonesDenuncias(fila, i);
     }
 };

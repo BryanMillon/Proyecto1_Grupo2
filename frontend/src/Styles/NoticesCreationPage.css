@@ -210,32 +210,35 @@ nav li {
 }
 
 .inputForm {
-    width: 70%;
-    padding: 3px;
-    margin: 9px;
+    width: 80%;
+    padding: 10px 0;
+    margin-bottom: 20px;
     border: 2px solid #1768AC;
-    border-radius: 5px;
+    border-radius: 8px;
     color: #1D3892;
-    font-size: 18px;
+    font-size: 20px;
+    font-family: 'Asap', sans-serif;
 
 }
 
 .dateTimePicker {
-    width: 69%;
-    padding: 10px;
-    font-size: 16px;
+    width: 80%;
+    padding: 10px 0;
+    font-size: 20px;
+    font-family: 'Asap', sans-serif;
     border: 2px solid #1768AC;
-    border-radius: 5px;
-    margin-right: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 .categorySelect {
-    width: 71%;
-    padding: 10px;
-    font-size: 16px;
+    width: 80%;
+    padding: 10px 0;
+    font-size: 20px;
+    font-family: 'Asap', sans-serif;
     border: 2px solid #1768AC;
-    border-radius: 5px;
-    margin-top: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 

@@ -11,6 +11,7 @@ main {
     background: rgb(16,73,121);
     background: linear-gradient(180deg, rgba(16,73,121,1) 49%, rgba(9,42,70,1) 99%);
     width: 100%;
+    flex: 1;
   }
 
   /*Seccion Barra da navegacion*/
@@ -196,6 +197,7 @@ nav li {
         align-items: center;
         justify-content: space-between;
         box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        gap: 12px;
     }
     
     
@@ -225,57 +227,14 @@ nav li {
         align-items: center;
         text-align: center;
     }
+
+    .newsDetail strong{
+        font-weight:bolder;
+        color: #1D3892;
+    }
     /*Fin Caracteristicas de los contenedores*/
 
 /*Fin Seccion Principal de Noticias*/
-
-/*Footer*/
-
-footer {
-    width: 100%;
-    background-color: #1D3892;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    position: relative; /* Asegura que se mantenga en la parte inferior */
-    bottom: 0;
-}
-
-#copyright {
-    margin-left: 50px;
-    font-weight: bold;
-    color: #FFFFFF;
-}
-
-#logoFooter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#logoFooter img {
-    width: 150px;
-    height: auto;
-}
-
-#navFooter {
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-    margin-right: 50px;
-    gap: 10px;
-}
-
-#navFooter a {
-    color: #FFFFFF;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-#navFooter a:hover {
-    color: #50B2F1;
-}
 
 img{
     max-width: 100%;

@@ -4,16 +4,34 @@
 let news = []
 // verificarSesion()
 
-const showNews=async()=>{
-    news =  await listar_noticias_publicadas_BD();
-    console.log (news)
-
+const showNews = async () => {
+    news = await listar_noticias_publicadas_BD();
+    console.log(news);
+    
     news.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
-
-
+    
     const newsContainer = document.getElementById('newsCountainer');
-
-    for(let i=0;i<news.length;i++){
+    
+    for(let i = 0; i < news.length; i++) {
+        // Format the date
+        const date = new Date(news[i]['fechaDePublicacion']);
+        
+        // Create a formatted date string
+        const formattedDate = date.toLocaleDateString('es-CR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        // Create a formatted time string
+        const formattedTime = date.toLocaleTimeString('es-CR', {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        
+        // Combine date and time
+        const formattedDateTime = `${formattedDate} a las ${formattedTime}`;
+        
         const newCard = document.createElement('div');
         newCard.classList.add('newCard');
         
@@ -22,12 +40,11 @@ const showNews=async()=>{
             <div class="newsDetail"><strong>Subtitulo:</strong> ${news[i]['subtitulo']}</div>
             <div class="newsDetail"><strong>Categoría:</strong>  ${news[i]['categoria']}</div>
             <div class="newsDetail"><strong>Contenido:</strong> ${news[i]['contenido']}</div>
-            <div class="newsDetail"><strong>Fecha de publicacion:</strong> ${news[i]['fechaDePublicacion']}</div>
+            <div class="newsDetail"><strong>Fecha de publicacion:</strong> ${formattedDateTime}</div>
         `;
-
+        
         newsContainer.appendChild(newCard);
     };
-
 }
 
 document.addEventListener("DOMContentLoaded", function () {
